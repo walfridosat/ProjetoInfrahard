@@ -1,0 +1,7 @@
+Atenção:
+
+Os arquivos .vhd são os componentes que devem ser incluídos no projeto, eles não devem ser alterados e não precisam de nenhuma configuração extra para serem importados em seu projeto.
+
+O arquivo .mif serve para a configuração da memória e deve ser usado de acordo com a especificação do projeto, coloque ele no mesmo diretório que o arquivo [Nome do seu projeto].mpf, que se encontra no diretório intelFPGA do seu computador onde o modelsim foi instalado, modifique-o para poder adicionar instruções e dados à sua memória.
+
+Use o parser do projeto para poder converter instruções no estilo mips para o formato binário .mif: https://jotaveesse.github.io/Mips-to-Mif/
