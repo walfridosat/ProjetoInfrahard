@@ -1,5 +1,5 @@
 // configurar de acordo, ele tá 4 pra 1 por enquanto, vou deixar 32 bits pq é o tamanho do registrador
-module sizehandlerMUX (
+module MUX (
     input wire [1:0] sel,
     input wire [31:0] in0,
     input wire [31:0] in1,
