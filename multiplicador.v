@@ -1,5 +1,6 @@
 
 module multiplicador(
+    input wire [0:0] multOp,
     input wire [31:0] multiplicand,
     input wire [31:0] multiplier,
     output reg [31:0] out_high,
@@ -10,7 +11,7 @@ reg [32:0] A;
 reg [32:0] Q; 
 reg Q_1;    
 
-always @(*) begin
+always @(posedge multOp) begin
     A = {1'b0, multiplicand}; 
     Q = {1'b0, multiplier};    
     Q_1 = 1'b0;              
