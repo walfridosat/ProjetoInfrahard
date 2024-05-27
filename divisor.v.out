@@ -1,0 +1,103 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1110-g18392a46)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000002a30d2d2880 .scope module, "divisor" "divisor" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "divOp";
+    .port_info 1 /INPUT 32 "dividend";
+    .port_info 2 /INPUT 32 "divisor";
+    .port_info 3 /OUTPUT 32 "hi";
+    .port_info 4 /OUTPUT 32 "lo";
+v000002a30d2d2ba0_0 .var/i "baixo", 31 0;
+v000002a30d24bee0_0 .var/i "cima", 31 0;
+o000002a30d308018 .functor BUFZ 1, C4<z>; HiZ drive
+v000002a30d302890_0 .net "divOp", 0 0, o000002a30d308018;  0 drivers
+o000002a30d308048 .functor BUFZ 32, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; HiZ drive
+v000002a30d302930_0 .net "dividend", 31 0, o000002a30d308048;  0 drivers
+o000002a30d308078 .functor BUFZ 32, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; HiZ drive
+v000002a30d3029d0_0 .net "divisor", 31 0, o000002a30d308078;  0 drivers
+v000002a30d302a70_0 .var "hi", 31 0;
+v000002a30d302b10_0 .var "lo", 31 0;
+E_000002a30d24a600 .event posedge, v000002a30d302890_0;
+S_000002a30d2d2a10 .scope begin, "$ivl_for_loop0" "$ivl_for_loop0" 2 19, 2 19 0, S_000002a30d2d2880;
+ .timescale 0 0;
+v000002a30d2d2f70_0 .var/i "i", 31 0;
+    .scope S_000002a30d2d2880;
+T_0 ;
+    %wait E_000002a30d24a600;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v000002a30d302a70_0, 0, 32;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v000002a30d302b10_0, 0, 32;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v000002a30d24bee0_0, 0, 32;
+    %load/vec4 v000002a30d3029d0_0;
+    %store/vec4 v000002a30d2d2ba0_0, 0, 32;
+    %fork t_1, S_000002a30d2d2a10;
+    %jmp t_0;
+    .scope S_000002a30d2d2a10;
+t_1 ;
+    %pushi/vec4 31, 0, 32;
+    %store/vec4 v000002a30d2d2f70_0, 0, 32;
+T_0.0 ;
+    %load/vec4 v000002a30d2d2f70_0;
+    %cmpi/s 0, 0, 32;
+    %flag_inv 5; GE is !LT
+    %jmp/0xz T_0.1, 5;
+    %load/vec4 v000002a30d302a70_0;
+    %ix/load 4, 1, 0;
+    %flag_set/imm 4, 0;
+    %shiftl 4;
+    %store/vec4 v000002a30d302a70_0, 0, 32;
+    %load/vec4 v000002a30d24bee0_0;
+    %ix/load 4, 1, 0;
+    %flag_set/imm 4, 0;
+    %shiftl 4;
+    %store/vec4 v000002a30d24bee0_0, 0, 32;
+    %load/vec4 v000002a30d302930_0;
+    %load/vec4 v000002a30d2d2f70_0;
+    %part/s 1;
+    %pad/u 32;
+    %cmpi/e 1, 0, 32;
+    %jmp/0xz  T_0.2, 4;
+    %pushi/vec4 1, 0, 1;
+    %ix/load 4, 0, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v000002a30d24bee0_0, 4, 1;
+T_0.2 ;
+    %load/vec4 v000002a30d2d2ba0_0;
+    %load/vec4 v000002a30d24bee0_0;
+    %cmp/s;
+    %flag_or 5, 4;
+    %jmp/0xz  T_0.4, 5;
+    %load/vec4 v000002a30d302a70_0;
+    %addi 1, 0, 32;
+    %store/vec4 v000002a30d302a70_0, 0, 32;
+    %load/vec4 v000002a30d24bee0_0;
+    %load/vec4 v000002a30d2d2ba0_0;
+    %sub;
+    %store/vec4 v000002a30d24bee0_0, 0, 32;
+T_0.4 ;
+    %load/vec4 v000002a30d2d2f70_0;
+    %subi 1, 0, 32;
+    %store/vec4 v000002a30d2d2f70_0, 0, 32;
+    %jmp T_0.0;
+T_0.1 ;
+    %end;
+    .scope S_000002a30d2d2880;
+t_0 %join;
+    %load/vec4 v000002a30d24bee0_0;
+    %store/vec4 v000002a30d302b10_0, 0, 32;
+    %jmp T_0;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "divisor.v";
