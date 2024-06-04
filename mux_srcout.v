@@ -1,4 +1,4 @@
-module aluOutMUX (
+module SrcOutMUX (
     input wire [2:0] SrcOut,
     input wire [31:0] Lo,
     input wire [31:0] Hi,
