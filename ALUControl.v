@@ -1,5 +1,5 @@
 module ALUControl (
-    input wire [3:0] controlType,
+    input wire [4:0] controlType,
     output reg [1:0] condType,
     output reg [0:0] divOp,
     output reg [0:0] multOp,
@@ -19,67 +19,75 @@ module ALUControl (
         SrcOut = 3'b000;
         
         case (controlType)
-            4'b0000:
+            5'b00000:
                 begin
                     ALUOp = 3'b000;
                     SrcOut = 3'b011;
                 end
-            4'b0001:
+            5'b00001:
                 begin
                     ALUOp = 3'b001;
                     overflowOp = 1'b1;
                     SrcOut = 3'b011;
                 end
-            4'b0010:
+            5'b00010:
                 begin
                     ALUOp = 3'b010;
                     overflowOp = 1'b1;
                     SrcOut = 3'b011;
                 end
-            4'b0011:
+            5'b00011:
                 begin
                     ALUOp = 3'b011;
                     SrcOut = 3'b011;
                 end
-            4'b0100:
+            5'b00100:
                 begin
                     ALUOp = 3'b100;
                     overflowOp = 1'b1;
                     SrcOut = 3'b011;
                 end
-            4'b0101:
+            5'b00101:
                 begin
                     ALUOp = 3'b101;
                     SrcOut = 3'b011;
                 end
-            4'b0110:
+            5'b00110:
                 begin
                     ALUOp = 3'b110;
                     SrcOut = 3'b011;
                 end
-            4'b0111:
+            5'b00111:
                 begin
                     ALUOp = 3'b111;
                     SrcOut = 3'b010;
                 end
-            4'b1000:
+            5'b01000:
                 begin
                     orOp = 1'b1;
                     SrcOut = 3'b100;
                 end
-            4'b1001:
+            5'b01001:
                 divOp = 1'b1;
-            4'b1010:
+            5'b01010:
                 multOp = 1'b1;
-            4'b1011:
+            5'b01011:
                 begin
                     ALUOp = 3'b001;
                     SrcOut = 3'b011;
                 end
-            4'b1100:
+            5'b01100:
                 SrcOut = 3'b001;
-            4'b1101:
+            5'b01101:
                 SrcOut = 3'b000;
+            5'b01110:
+                condType = 2'b00;
+            5'b01111:
+                condType = 2'b01;
+            5'b10000:
+                condType = 2'b10;
+            5'b10001:
+                condType = 2'b11;
 
         endcase
     end
