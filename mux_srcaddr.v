@@ -1,5 +1,5 @@
 // configurar de acordo, ele tá 4 pra 1 por enquanto, vou deixar 32 bits pq é o tamanho do registrador
-module MUXSrcAddr (
+module SrcAddrMUX (
     input wire [2:0] sel,
     input wire [31:0] IorD_out,
     input wire [31:0] A,

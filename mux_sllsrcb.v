@@ -1,4 +1,4 @@
-module MUX (
+module sllsrcBMUX (
     input wire [1:0] SLLSrcB,
     input wire [4:0] B,
     input wire [4:0] Instruction,
