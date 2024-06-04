@@ -1,4 +1,4 @@
-module MUX (
+module sllsrcAMUX (
     input wire [1:0] SLLSrcA,
     input wire [31:0] A,
     input wire [31:0] imediato,
