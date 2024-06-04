@@ -7,7 +7,7 @@
 :vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
 :vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
 :vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
-S_00000284c5d667e0 .scope module, "MUX" "MUX" 2 1;
+S_0000016258ef67e0 .scope module, "aluOutMUX" "aluOutMUX" 2 1;
  .timescale 0 0;
     .port_info 0 /INPUT 3 "SrcOut";
     .port_info 1 /INPUT 32 "Lo";
@@ -17,28 +17,28 @@ S_00000284c5d667e0 .scope module, "MUX" "MUX" 2 1;
     .port_info 5 /INPUT 32 "orOut";
     .port_info 6 /INPUT 32 "shiftOut";
     .port_info 7 /OUTPUT 32 "out";
-o00000284c5c66fa8 .functor BUFZ 32, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; HiZ drive
-v00000284c5d66970_0 .net "Hi", 31 0, o00000284c5c66fa8;  0 drivers
-o00000284c5c66fd8 .functor BUFZ 32, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; HiZ drive
-v00000284c5d66a10_0 .net "LT", 31 0, o00000284c5c66fd8;  0 drivers
-o00000284c5c67008 .functor BUFZ 32, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; HiZ drive
-v00000284c5d66ab0_0 .net "Lo", 31 0, o00000284c5c67008;  0 drivers
-o00000284c5c67038 .functor BUFZ 3, C4<zzz>; HiZ drive
-v00000284c5d6bad0_0 .net "SrcOut", 2 0, o00000284c5c67038;  0 drivers
-o00000284c5c67068 .functor BUFZ 32, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; HiZ drive
-v00000284c5d6bb70_0 .net "orOut", 31 0, o00000284c5c67068;  0 drivers
-v00000284c5d6bc10_0 .var "out", 31 0;
-o00000284c5c670c8 .functor BUFZ 32, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; HiZ drive
-v00000284c5d6bcb0_0 .net "result", 31 0, o00000284c5c670c8;  0 drivers
-o00000284c5c670f8 .functor BUFZ 32, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; HiZ drive
-v00000284c5d6bd50_0 .net "shiftOut", 31 0, o00000284c5c670f8;  0 drivers
-E_00000284c5c66640/0 .event anyedge, v00000284c5d6bad0_0, v00000284c5d66ab0_0, v00000284c5d66970_0, v00000284c5d66a10_0;
-E_00000284c5c66640/1 .event anyedge, v00000284c5d6bcb0_0, v00000284c5d6bb70_0, v00000284c5d6bd50_0;
-E_00000284c5c66640 .event/or E_00000284c5c66640/0, E_00000284c5c66640/1;
-    .scope S_00000284c5d667e0;
+o0000016258f46fa8 .functor BUFZ 32, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; HiZ drive
+v0000016258ef6970_0 .net "Hi", 31 0, o0000016258f46fa8;  0 drivers
+o0000016258f46fd8 .functor BUFZ 32, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; HiZ drive
+v0000016258ef6a10_0 .net "LT", 31 0, o0000016258f46fd8;  0 drivers
+o0000016258f47008 .functor BUFZ 32, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; HiZ drive
+v0000016258ef6ab0_0 .net "Lo", 31 0, o0000016258f47008;  0 drivers
+o0000016258f47038 .functor BUFZ 3, C4<zzz>; HiZ drive
+v0000016258efbad0_0 .net "SrcOut", 2 0, o0000016258f47038;  0 drivers
+o0000016258f47068 .functor BUFZ 32, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; HiZ drive
+v0000016258efbb70_0 .net "orOut", 31 0, o0000016258f47068;  0 drivers
+v0000016258efbc10_0 .var "out", 31 0;
+o0000016258f470c8 .functor BUFZ 32, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; HiZ drive
+v0000016258efbcb0_0 .net "result", 31 0, o0000016258f470c8;  0 drivers
+o0000016258f470f8 .functor BUFZ 32, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; HiZ drive
+v0000016258efbd50_0 .net "shiftOut", 31 0, o0000016258f470f8;  0 drivers
+E_0000016258f46940/0 .event anyedge, v0000016258efbad0_0, v0000016258ef6ab0_0, v0000016258ef6970_0, v0000016258ef6a10_0;
+E_0000016258f46940/1 .event anyedge, v0000016258efbcb0_0, v0000016258efbb70_0, v0000016258efbd50_0;
+E_0000016258f46940 .event/or E_0000016258f46940/0, E_0000016258f46940/1;
+    .scope S_0000016258ef67e0;
 T_0 ;
-    %wait E_00000284c5c66640;
-    %load/vec4 v00000284c5d6bad0_0;
+    %wait E_0000016258f46940;
+    %load/vec4 v0000016258efbad0_0;
     %dup/vec4;
     %pushi/vec4 0, 0, 3;
     %cmp/u;
@@ -64,31 +64,31 @@ T_0 ;
     %cmp/u;
     %jmp/1 T_0.5, 6;
     %pushi/vec4 0, 0, 32;
-    %store/vec4 v00000284c5d6bc10_0, 0, 32;
+    %store/vec4 v0000016258efbc10_0, 0, 32;
     %jmp T_0.7;
 T_0.0 ;
-    %load/vec4 v00000284c5d66ab0_0;
-    %store/vec4 v00000284c5d6bc10_0, 0, 32;
+    %load/vec4 v0000016258ef6ab0_0;
+    %store/vec4 v0000016258efbc10_0, 0, 32;
     %jmp T_0.7;
 T_0.1 ;
-    %load/vec4 v00000284c5d66970_0;
-    %store/vec4 v00000284c5d6bc10_0, 0, 32;
+    %load/vec4 v0000016258ef6970_0;
+    %store/vec4 v0000016258efbc10_0, 0, 32;
     %jmp T_0.7;
 T_0.2 ;
-    %load/vec4 v00000284c5d66a10_0;
-    %store/vec4 v00000284c5d6bc10_0, 0, 32;
+    %load/vec4 v0000016258ef6a10_0;
+    %store/vec4 v0000016258efbc10_0, 0, 32;
     %jmp T_0.7;
 T_0.3 ;
-    %load/vec4 v00000284c5d6bcb0_0;
-    %store/vec4 v00000284c5d6bc10_0, 0, 32;
+    %load/vec4 v0000016258efbcb0_0;
+    %store/vec4 v0000016258efbc10_0, 0, 32;
     %jmp T_0.7;
 T_0.4 ;
-    %load/vec4 v00000284c5d6bb70_0;
-    %store/vec4 v00000284c5d6bc10_0, 0, 32;
+    %load/vec4 v0000016258efbb70_0;
+    %store/vec4 v0000016258efbc10_0, 0, 32;
     %jmp T_0.7;
 T_0.5 ;
-    %load/vec4 v00000284c5d6bd50_0;
-    %store/vec4 v00000284c5d6bc10_0, 0, 32;
+    %load/vec4 v0000016258efbd50_0;
+    %store/vec4 v0000016258efbc10_0, 0, 32;
     %jmp T_0.7;
 T_0.7 ;
     %pop/vec4 1;
