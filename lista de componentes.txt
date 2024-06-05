@@ -1,0 +1,48 @@
+Componentes e Estados
+
+implementado | testado | nome | arquivo
+
+OK | -- | Control Opcodes		| opcodes.v
+OK | OK | Memory			| Memoria.vhd
+OK | OK | Banco de Registradores 	| Banco_reg.vhd
+OK | OK | Registrador de Instruções	| Instr_Reg.vhd
+OK | -- | Size Handler 			| sizehandler.v
+
+/// ALU ///
+OK | OK | ALU				| ula32.vhd
+OK | -- | ALU Control 			| ALUControl.v
+OK | -- | Divisor 			| divisor.v
+OK | -- | Multiplicador			| multiplicador.v
+OK | -- | Or 				| or.v
+
+/// sign extender ///
+
+OK | -- | sign_extender16_32.v
+OK | -- | sign_extender1_32.v
+
+
+/// MUX ///
+| mux_IorD.v
+| mux_alusrca
+| mux_alusrcb
+| mux_datasrc.v
+| mux_memtoreg.v
+| mux_pcsource.v
+| mux_regdest.v
+| mux_sllsrca.v
+| mux_sllsrcb.v
+| mux_srcaddr.v
+| mux_srcout.v
+| mux_datasrc.v
+
+
+/// Registradores ///
+
+Memory data Registrer - 
+Temp - controlado por opcodes
+A - controlado por Banco_reg
+B - controlado por Banco_reg
+Hi - controlado por ALUControl
+Lo - controlado por ALUControl
+AluOut - controlado por ALUControl?
+Size Handler - (registrador interno)
