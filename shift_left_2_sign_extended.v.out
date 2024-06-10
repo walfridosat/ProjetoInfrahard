@@ -1,0 +1,30 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1110-g18392a46)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000001be1c132a90 .scope module, "ShiftLeftTwoSign" "ShiftLeftTwoSign" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 2 "data";
+    .port_info 1 /OUTPUT 32 "out";
+v000001be1c1332b0_0 .net *"_ivl_0", 31 0, L_000001be1c11dd50;  1 drivers
+L_000001be1c1abc18 .functor BUFT 1, C4<000000000000000000000000000000>, C4<0>, C4<0>, C4<0>;
+v000001be1c132c20_0 .net *"_ivl_3", 29 0, L_000001be1c1abc18;  1 drivers
+v000001be1c132cc0_0 .net *"_ivl_6", 29 0, L_000001be1c11e600;  1 drivers
+L_000001be1c1abc60 .functor BUFT 1, C4<00>, C4<0>, C4<0>, C4<0>;
+v000001be1c132d60_0 .net *"_ivl_8", 1 0, L_000001be1c1abc60;  1 drivers
+o000001be1c167078 .functor BUFZ 2, C4<zz>; HiZ drive
+v000001be1c132e00_0 .net "data", 1 0, o000001be1c167078;  0 drivers
+v000001be1c132ea0_0 .net "out", 31 0, L_000001be1c11e6a0;  1 drivers
+L_000001be1c11dd50 .concat [ 2 30 0 0], o000001be1c167078, L_000001be1c1abc18;
+L_000001be1c11e600 .part L_000001be1c11dd50, 0, 30;
+L_000001be1c11e6a0 .concat [ 2 30 0 0], L_000001be1c1abc60, L_000001be1c11e600;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "shift_left_2_sign_extended.v";

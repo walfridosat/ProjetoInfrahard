@@ -7,25 +7,22 @@
 :vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
 :vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
 :vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
-S_00000205adf22ba0 .scope module, "sign_extender16_32" "sign_extender16_32" 2 1;
+S_000002076de56af0 .scope module, "sign_extender16_32" "sign_extender16_32" 2 1;
  .timescale 0 0;
     .port_info 0 /INPUT 16 "data";
     .port_info 1 /OUTPUT 32 "data_extended";
-o00000205adf569b8 .functor BUFZ 16, C4<zzzzzzzzzzzzzzzz>; HiZ drive
-v00000205adf232d0_0 .net "data", 15 0, o00000205adf569b8;  0 drivers
-v00000205adf22d30_0 .var "data_extended", 31 0;
-E_00000205adf55080 .event anyedge, v00000205adf232d0_0;
-    .scope S_00000205adf22ba0;
-T_0 ;
-    %wait E_00000205adf55080;
-    %load/vec4 v00000205adf232d0_0;
-    %parti/s 1, 15, 5;
-    %replicate 16;
-    %load/vec4 v00000205adf232d0_0;
-    %concat/vec4; draw_concat_vec4
-    %assign/vec4 v00000205adf22d30_0, 0;
-    %jmp T_0;
-    .thread T_0, $push;
+v000002076de232d0_0 .net *"_ivl_1", 0 0, L_000002076de0d680;  1 drivers
+v000002076de22e90_0 .net *"_ivl_2", 15 0, L_000002076de0db30;  1 drivers
+o000002076de56ce8 .functor BUFZ 16, C4<zzzzzzzzzzzzzzzz>; HiZ drive
+v000002076de0d540_0 .net "data", 15 0, o000002076de56ce8;  0 drivers
+v000002076de0d5e0_0 .net "data_extended", 31 0, L_000002076de0dc60;  1 drivers
+L_000002076de0d680 .part o000002076de56ce8, 15, 1;
+LS_000002076de0db30_0_0 .concat [ 1 1 1 1], L_000002076de0d680, L_000002076de0d680, L_000002076de0d680, L_000002076de0d680;
+LS_000002076de0db30_0_4 .concat [ 1 1 1 1], L_000002076de0d680, L_000002076de0d680, L_000002076de0d680, L_000002076de0d680;
+LS_000002076de0db30_0_8 .concat [ 1 1 1 1], L_000002076de0d680, L_000002076de0d680, L_000002076de0d680, L_000002076de0d680;
+LS_000002076de0db30_0_12 .concat [ 1 1 1 1], L_000002076de0d680, L_000002076de0d680, L_000002076de0d680, L_000002076de0d680;
+L_000002076de0db30 .concat [ 4 4 4 4], LS_000002076de0db30_0_0, LS_000002076de0db30_0_4, LS_000002076de0db30_0_8, LS_000002076de0db30_0_12;
+L_000002076de0dc60 .concat [ 16 16 0 0], o000002076de56ce8, L_000002076de0db30;
 # The file index is used to find the file name in the following table.
 :file_names 3;
     "N/A";

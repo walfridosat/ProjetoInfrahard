@@ -1,8 +1,8 @@
 module sign_extender1_32(
     input wire data, 
-    output reg [31:0] data_extended
+    output wire [31:0] data_extended
 );
-    always @(data) begin
-      data_extended <= {{31{1'b0}}, data};
-    end
+    
+    assign data_extended = {{31{1'b0}}, data};
+    
 endmodule
