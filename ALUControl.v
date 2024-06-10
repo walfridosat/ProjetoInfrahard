@@ -9,7 +9,7 @@ module ALUControl (
     output reg [2:0] SrcOut
 );
 
-    always @(*) begin
+    always @(controlType) begin
         condType = 2'b00;
         divOp = 1'b0;
         multOp = 1'b0;

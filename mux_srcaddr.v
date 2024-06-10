@@ -4,28 +4,15 @@ module SrcAddrMUX (
     input wire [31:0] IorD_out,
     input wire [31:0] A,
     input wire [31:0] B,
-    output reg [31:0] out
+    output wire [31:0] out
 );
 
-
-// os outs estão selecionados em ordem dos inputs, o primeiro input (mem) vai ser a saida do primeiro caso (sel = 0...)
-    always @(*) begin
-        case (sel)
-            3'b000: 
-                out = IorD_out;
-            3'b001:
-                out = 32'd253;
-            3'b010:
-                out = 32'd254;
-            3'b011:
-                out = 32'd255;
-            3'b101:
-                out = A;
-            3'b110:
-                out = B;
-            default:
-                out = 32'b00000000000000000000000000000000; // Valor padrão
-        endcase
-    end
+    assign out =  (sel == 0)? IorD_out :
+                (sel == 1)? 32'd253 :
+                (sel == 2)? 32'd254 :
+                (sel == 3)? 32'd255 :
+                (sel == 4)? A :
+                (sel == 5)? B :
+                32'b00000000000000000000000000000000;
 
 endmodule

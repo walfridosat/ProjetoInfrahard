@@ -1,0 +1,72 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1110-g18392a46)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_0000019cc68b2ba0 .scope module, "regDestMUX" "regDestMUX" 2 2;
+ .timescale 0 0;
+    .port_info 0 /INPUT 2 "regDest";
+    .port_info 1 /INPUT 6 "rt";
+    .port_info 2 /INPUT 6 "rd";
+    .port_info 3 /OUTPUT 6 "out";
+v0000019cc68b32b0_0 .net *"_ivl_0", 31 0, L_0000019cc692ace0;  1 drivers
+L_0000019cc692c8d8 .functor BUFT 1, C4<000000000000000000000000000000>, C4<0>, C4<0>, C4<0>;
+v0000019cc68e39f0_0 .net *"_ivl_11", 29 0, L_0000019cc692c8d8;  1 drivers
+L_0000019cc692c920 .functor BUFT 1, C4<00000000000000000000000000000001>, C4<0>, C4<0>, C4<0>;
+v0000019cc68e3c70_0 .net/2u *"_ivl_12", 31 0, L_0000019cc692c920;  1 drivers
+v0000019cc68e4490_0 .net *"_ivl_14", 0 0, L_0000019cc692baa0;  1 drivers
+v0000019cc68e4670_0 .net *"_ivl_16", 31 0, L_0000019cc692b3c0;  1 drivers
+L_0000019cc692c968 .functor BUFT 1, C4<000000000000000000000000000000>, C4<0>, C4<0>, C4<0>;
+v0000019cc68e3950_0 .net *"_ivl_19", 29 0, L_0000019cc692c968;  1 drivers
+L_0000019cc692c9b0 .functor BUFT 1, C4<00000000000000000000000000000010>, C4<0>, C4<0>, C4<0>;
+v0000019cc68e40d0_0 .net/2u *"_ivl_20", 31 0, L_0000019cc692c9b0;  1 drivers
+v0000019cc68e3a90_0 .net *"_ivl_22", 0 0, L_0000019cc692bfa0;  1 drivers
+L_0000019cc692c9f8 .functor BUFT 1, C4<011111>, C4<0>, C4<0>, C4<0>;
+v0000019cc68e3ef0_0 .net/2u *"_ivl_24", 5 0, L_0000019cc692c9f8;  1 drivers
+v0000019cc68e45d0_0 .net *"_ivl_26", 31 0, L_0000019cc692c2c0;  1 drivers
+L_0000019cc692ca40 .functor BUFT 1, C4<000000000000000000000000000000>, C4<0>, C4<0>, C4<0>;
+v0000019cc68e42b0_0 .net *"_ivl_29", 29 0, L_0000019cc692ca40;  1 drivers
+L_0000019cc692c848 .functor BUFT 1, C4<000000000000000000000000000000>, C4<0>, C4<0>, C4<0>;
+v0000019cc68e3db0_0 .net *"_ivl_3", 29 0, L_0000019cc692c848;  1 drivers
+L_0000019cc692ca88 .functor BUFT 1, C4<00000000000000000000000000000011>, C4<0>, C4<0>, C4<0>;
+v0000019cc68e3e50_0 .net/2u *"_ivl_30", 31 0, L_0000019cc692ca88;  1 drivers
+v0000019cc68e3b30_0 .net *"_ivl_32", 0 0, L_0000019cc692ba00;  1 drivers
+L_0000019cc692cad0 .functor BUFT 1, C4<011101>, C4<0>, C4<0>, C4<0>;
+v0000019cc68e3d10_0 .net/2u *"_ivl_34", 5 0, L_0000019cc692cad0;  1 drivers
+L_0000019cc692cb18 .functor BUFT 1, C4<000000>, C4<0>, C4<0>, C4<0>;
+v0000019cc68e43f0_0 .net/2u *"_ivl_36", 5 0, L_0000019cc692cb18;  1 drivers
+v0000019cc68e3f90_0 .net *"_ivl_38", 5 0, L_0000019cc692b460;  1 drivers
+L_0000019cc692c890 .functor BUFT 1, C4<00000000000000000000000000000000>, C4<0>, C4<0>, C4<0>;
+v0000019cc68e4350_0 .net/2u *"_ivl_4", 31 0, L_0000019cc692c890;  1 drivers
+v0000019cc68e4030_0 .net *"_ivl_40", 5 0, L_0000019cc692b5a0;  1 drivers
+v0000019cc68e4530_0 .net *"_ivl_42", 5 0, L_0000019cc692c680;  1 drivers
+v0000019cc68e4170_0 .net *"_ivl_6", 0 0, L_0000019cc692b000;  1 drivers
+v0000019cc68e4210_0 .net *"_ivl_8", 31 0, L_0000019cc692b0a0;  1 drivers
+v0000019cc68e4710_0 .net "out", 5 0, L_0000019cc692b960;  1 drivers
+o0000019cc68e73e8 .functor BUFZ 6, C4<zzzzzz>; HiZ drive
+v0000019cc68e3bd0_0 .net "rd", 5 0, o0000019cc68e73e8;  0 drivers
+o0000019cc68e7418 .functor BUFZ 2, C4<zz>; HiZ drive
+v0000019cc68e3810_0 .net "regDest", 1 0, o0000019cc68e7418;  0 drivers
+o0000019cc68e7448 .functor BUFZ 6, C4<zzzzzz>; HiZ drive
+v0000019cc68e38b0_0 .net "rt", 5 0, o0000019cc68e7448;  0 drivers
+L_0000019cc692ace0 .concat [ 2 30 0 0], o0000019cc68e7418, L_0000019cc692c848;
+L_0000019cc692b000 .cmp/eq 32, L_0000019cc692ace0, L_0000019cc692c890;
+L_0000019cc692b0a0 .concat [ 2 30 0 0], o0000019cc68e7418, L_0000019cc692c8d8;
+L_0000019cc692baa0 .cmp/eq 32, L_0000019cc692b0a0, L_0000019cc692c920;
+L_0000019cc692b3c0 .concat [ 2 30 0 0], o0000019cc68e7418, L_0000019cc692c968;
+L_0000019cc692bfa0 .cmp/eq 32, L_0000019cc692b3c0, L_0000019cc692c9b0;
+L_0000019cc692c2c0 .concat [ 2 30 0 0], o0000019cc68e7418, L_0000019cc692ca40;
+L_0000019cc692ba00 .cmp/eq 32, L_0000019cc692c2c0, L_0000019cc692ca88;
+L_0000019cc692b460 .functor MUXZ 6, L_0000019cc692cb18, L_0000019cc692cad0, L_0000019cc692ba00, C4<>;
+L_0000019cc692b5a0 .functor MUXZ 6, L_0000019cc692b460, L_0000019cc692c9f8, L_0000019cc692bfa0, C4<>;
+L_0000019cc692c680 .functor MUXZ 6, L_0000019cc692b5a0, o0000019cc68e73e8, L_0000019cc692baa0, C4<>;
+L_0000019cc692b960 .functor MUXZ 6, L_0000019cc692c680, o0000019cc68e7448, L_0000019cc692b000, C4<>;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "mux_regdest.v";

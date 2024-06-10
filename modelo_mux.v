@@ -5,24 +5,13 @@ module MUX (
     input wire [31:0] in1,
     input wire [31:0] in2,
     input wire [31:0] in3,
-    output reg [31:0] out
+    output wire [31:0] out
 );
 
-
-// os outs estão selecionados em ordem dos inputs, o primeiro input (mem) vai ser a saida do primeiro caso (sel = 0...)
-    always @(*) begin
-        case (sel)
-            2'b00: 
-                out = in0;
-            2'b01:
-                out = in1;
-            2'b10:
-                out = in2;
-            2'b11:
-                out = in3;
-            default:
-                out = 32'b00000000000000000000000000000000; // Valor padrão
-        endcase
-    end
+    assign out =  (sel == 0)? in0 :
+                (sel == 1)? in1 :
+                (sel == 2)? in2 :
+                (sel == 3)? in3 :
+                32'b00000000000000000000000000000000;
 
 endmodule

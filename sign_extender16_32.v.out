@@ -1,5 +1,5 @@
 #! /c/Source/iverilog-install/bin/vvp
-:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_version "12.0 (devel)" "(s20150603-1110-g18392a46)";
 :ivl_delay_selection "TYPICAL";
 :vpi_time_precision + 0;
 :vpi_module "C:\iverilog\lib\ivl\system.vpi";
@@ -7,41 +7,25 @@
 :vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
 :vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
 :vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
-S_0000023bb3f65c40 .scope module, "tb_sign_extender" "tb_sign_extender" 2 1;
- .timescale 0 0;
-v0000023bb4076c60_0 .var "data", 15 0;
-v0000023bb407b830_0 .net "data_extended", 31 0, v0000023bb40771c0_0;  1 drivers
-S_0000023bb3f65dd0 .scope module, "extendedor" "sign_extender16_32" 2 5, 2 21 0, S_0000023bb3f65c40;
+S_00000205adf22ba0 .scope module, "sign_extender16_32" "sign_extender16_32" 2 1;
  .timescale 0 0;
     .port_info 0 /INPUT 16 "data";
     .port_info 1 /OUTPUT 32 "data_extended";
-v0000023bb407ef30_0 .net "data", 15 0, v0000023bb4076c60_0;  1 drivers
-v0000023bb40771c0_0 .var "data_extended", 31 0;
-E_0000023bb407c530 .event anyedge, v0000023bb407ef30_0;
-    .scope S_0000023bb3f65dd0;
+o00000205adf569b8 .functor BUFZ 16, C4<zzzzzzzzzzzzzzzz>; HiZ drive
+v00000205adf232d0_0 .net "data", 15 0, o00000205adf569b8;  0 drivers
+v00000205adf22d30_0 .var "data_extended", 31 0;
+E_00000205adf55080 .event anyedge, v00000205adf232d0_0;
+    .scope S_00000205adf22ba0;
 T_0 ;
-    %wait E_0000023bb407c530;
-    %load/vec4 v0000023bb407ef30_0;
+    %wait E_00000205adf55080;
+    %load/vec4 v00000205adf232d0_0;
     %parti/s 1, 15, 5;
     %replicate 16;
-    %load/vec4 v0000023bb407ef30_0;
+    %load/vec4 v00000205adf232d0_0;
     %concat/vec4; draw_concat_vec4
-    %assign/vec4 v0000023bb40771c0_0, 0;
+    %assign/vec4 v00000205adf22d30_0, 0;
     %jmp T_0;
     .thread T_0, $push;
-    .scope S_0000023bb3f65c40;
-T_1 ;
-    %pushi/vec4 25932, 0, 16;
-    %store/vec4 v0000023bb4076c60_0, 0, 16;
-    %delay 10, 0;
-    %vpi_call 2 13 "$display", "%b", v0000023bb407b830_0 {0 0 0};
-    %delay 10, 0;
-    %pushi/vec4 44236, 0, 16;
-    %store/vec4 v0000023bb4076c60_0, 0, 16;
-    %delay 10, 0;
-    %vpi_call 2 17 "$display", "%b", v0000023bb407b830_0 {0 0 0};
-    %end;
-    .thread T_1;
 # The file index is used to find the file name in the following table.
 :file_names 3;
     "N/A";

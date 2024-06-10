@@ -6,7 +6,7 @@ module sizehandlerMUX (
 );
     reg[31:0] out_temp = 32'b00000000000000000000000000000000;
 
-    always @(*) begin
+    always @(sel) begin
         case (sel)
             3'b000: //sb
                 out_temp = {B[7:0], mem[15:8], mem[23:16], mem[31:24]};

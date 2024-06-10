@@ -7,47 +7,40 @@
 :vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
 :vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
 :vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
-S_000001fad2d92ba0 .scope module, "MUXDataSrc" "MUXDataSrc" 2 2;
+S_000002b7ddff2a90 .scope module, "MUXDataSrc" "MUXDataSrc" 2 2;
  .timescale 0 0;
     .port_info 0 /INPUT 1 "sel";
     .port_info 1 /INPUT 32 "temp";
     .port_info 2 /INPUT 32 "size_handler";
     .port_info 3 /OUTPUT 32 "out";
-v000001fad2d932b0_0 .var "out", 31 0;
-o000001fad2dc6fb8 .functor BUFZ 1, C4<z>; HiZ drive
-v000001fad2d92d30_0 .net "sel", 0 0, o000001fad2dc6fb8;  0 drivers
-o000001fad2dc6fe8 .functor BUFZ 32, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; HiZ drive
-v000001fad2d92dd0_0 .net "size_handler", 31 0, o000001fad2dc6fe8;  0 drivers
-o000001fad2dc7018 .functor BUFZ 32, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; HiZ drive
-v000001fad2d92e70_0 .net "temp", 31 0, o000001fad2dc7018;  0 drivers
-E_000001fad2dc5140 .event anyedge, v000001fad2d92d30_0, v000001fad2d92e70_0, v000001fad2d92dd0_0;
-    .scope S_000001fad2d92ba0;
-T_0 ;
-    %wait E_000001fad2dc5140;
-    %load/vec4 v000001fad2d92d30_0;
-    %dup/vec4;
-    %pushi/vec4 0, 0, 1;
-    %cmp/u;
-    %jmp/1 T_0.0, 6;
-    %dup/vec4;
-    %pushi/vec4 1, 0, 1;
-    %cmp/u;
-    %jmp/1 T_0.1, 6;
-    %pushi/vec4 0, 0, 32;
-    %store/vec4 v000001fad2d932b0_0, 0, 32;
-    %jmp T_0.3;
-T_0.0 ;
-    %load/vec4 v000001fad2d92e70_0;
-    %store/vec4 v000001fad2d932b0_0, 0, 32;
-    %jmp T_0.3;
-T_0.1 ;
-    %load/vec4 v000001fad2d92dd0_0;
-    %store/vec4 v000001fad2d932b0_0, 0, 32;
-    %jmp T_0.3;
-T_0.3 ;
-    %pop/vec4 1;
-    %jmp T_0;
-    .thread T_0, $push;
+v000002b7ddff32b0_0 .net *"_ivl_0", 31 0, L_000002b7de021a90;  1 drivers
+L_000002b7de070088 .functor BUFT 1, C4<0000000000000000000000000000000>, C4<0>, C4<0>, C4<0>;
+v000002b7ddff2c20_0 .net *"_ivl_11", 30 0, L_000002b7de070088;  1 drivers
+L_000002b7de0700d0 .functor BUFT 1, C4<00000000000000000000000000000001>, C4<0>, C4<0>, C4<0>;
+v000002b7ddff2cc0_0 .net/2u *"_ivl_12", 31 0, L_000002b7de0700d0;  1 drivers
+v000002b7ddff2d60_0 .net *"_ivl_14", 0 0, L_000002b7de0227b0;  1 drivers
+L_000002b7de070118 .functor BUFT 1, C4<00000000000000000000000000000000>, C4<0>, C4<0>, C4<0>;
+v000002b7ddff2e00_0 .net/2u *"_ivl_16", 31 0, L_000002b7de070118;  1 drivers
+v000002b7ddff2ea0_0 .net *"_ivl_18", 31 0, L_000002b7de022710;  1 drivers
+L_000002b7de06fff8 .functor BUFT 1, C4<0000000000000000000000000000000>, C4<0>, C4<0>, C4<0>;
+v000002b7ddfde950_0 .net *"_ivl_3", 30 0, L_000002b7de06fff8;  1 drivers
+L_000002b7de070040 .functor BUFT 1, C4<00000000000000000000000000000000>, C4<0>, C4<0>, C4<0>;
+v000002b7ddfde9f0_0 .net/2u *"_ivl_4", 31 0, L_000002b7de070040;  1 drivers
+v000002b7ddfdea90_0 .net *"_ivl_6", 0 0, L_000002b7de0222b0;  1 drivers
+v000002b7de0220d0_0 .net *"_ivl_8", 31 0, L_000002b7de022170;  1 drivers
+v000002b7de022350_0 .net "out", 31 0, L_000002b7de021e50;  1 drivers
+o000002b7de027188 .functor BUFZ 1, C4<z>; HiZ drive
+v000002b7de0225d0_0 .net "sel", 0 0, o000002b7de027188;  0 drivers
+o000002b7de0271b8 .functor BUFZ 32, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; HiZ drive
+v000002b7de022530_0 .net "size_handler", 31 0, o000002b7de0271b8;  0 drivers
+o000002b7de0271e8 .functor BUFZ 32, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; HiZ drive
+v000002b7de021950_0 .net "temp", 31 0, o000002b7de0271e8;  0 drivers
+L_000002b7de021a90 .concat [ 1 31 0 0], o000002b7de027188, L_000002b7de06fff8;
+L_000002b7de0222b0 .cmp/eq 32, L_000002b7de021a90, L_000002b7de070040;
+L_000002b7de022170 .concat [ 1 31 0 0], o000002b7de027188, L_000002b7de070088;
+L_000002b7de0227b0 .cmp/eq 32, L_000002b7de022170, L_000002b7de0700d0;
+L_000002b7de022710 .functor MUXZ 32, L_000002b7de070118, o000002b7de0271b8, L_000002b7de0227b0, C4<>;
+L_000002b7de021e50 .functor MUXZ 32, L_000002b7de022710, o000002b7de0271e8, L_000002b7de0222b0, C4<>;
 # The file index is used to find the file name in the following table.
 :file_names 3;
     "N/A";
