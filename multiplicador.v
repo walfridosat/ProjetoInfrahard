@@ -3,8 +3,8 @@ module multiplicador(
     input wire [0:0] multOp,
     input wire [31:0] multiplicand,
     input wire [31:0] multiplier,
-    output reg [31:0] out_high,
-    output reg [31:0] out_low
+    output reg [31:0] mult_hi,
+    output reg [31:0] mult_lo
 );
 
 reg [32:0] A; 
@@ -33,8 +33,8 @@ always @(posedge multOp) begin
     end
 
 
-    out_high = A;
-    out_low = Q;
+    mult_hi = A;
+    mult_lo = Q;
 end
 
 endmodule

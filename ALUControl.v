@@ -6,7 +6,8 @@ module ALUControl (
     output reg [2:0] ALUOp,
     output reg [0:0] orOp,
     output reg [0:0] overflowOp,
-    output reg [2:0] SrcOut
+    output reg [2:0] SrcOut,
+    output reg [1:0] StoreMD
 );
 
     always @(controlType) begin
@@ -17,6 +18,7 @@ module ALUControl (
         orOp = 1'b0;
         overflowOp = 1'b0;
         SrcOut = 3'b000;
+        StoreMD = 2'b00;
         
         case (controlType)
             5'b00000:
@@ -68,9 +70,15 @@ module ALUControl (
                     SrcOut = 3'b100;
                 end
             5'b01001:
-                divOp = 1'b1;
+                begin
+                    divOp = 1'b1;
+                    StoreMD = 2'b01;
+                end
             5'b01010:
-                multOp = 1'b1;
+                begin
+                    multOp = 1'b1;
+                    StoreMD = 2'b10;
+                end
             5'b01011:
                 begin
                     ALUOp = 3'b001;
