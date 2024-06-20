@@ -8,6 +8,7 @@ module opcodelogic (
     output reg [0:0] PCWrite,
     output reg [0:0] IorD,
     output reg [2:0] SrcAddr,
+    output reg [2:0] SrcOut,
     output reg [0:0] WR,
     output reg [0:0] ResetTrigger,
     output reg [0:0] SaveTemp,
@@ -54,7 +55,7 @@ module opcodelogic (
                         ControlType = 5'd2;
                         PCSource = 3'd1;
                         PCWriteCond = 1'd1;
-                        PCWrite = 1'd1;
+                        PCWrite = 1'd1;v
                         PCWriteCond = 1'd0;
                     
                     end
@@ -191,6 +192,52 @@ module opcodelogic (
 
             case(opcode)
 
+                6'd1: //divm
+                    begin
+
+                        ALUSrcA = 1'd1;
+                        ALUSrcB = 3'd2;
+                        ControlType = 5'd9;
+
+                    end
+                6'd8: //addi
+                    begin
+
+                        ALUSrcA = 1'd1;
+                        ALUSrcB = 3'd2;
+                        ControlType = 5'd1;
+                        SrcOut = 3'd3;
+                        overflowOp = 1;
+                        MemToReg = 3'd0;
+                        RegDest = 3'd0;
+                        RegWrite = 1;
+
+                    end
+                6'd9: //addiu
+                    begin
+
+                        ALUSrcA = 1'd1;
+                        ALUSrcB = 3'd2;
+                        ControlType = 5'd1;
+                        SrcOut = 3'd3;
+                        overflowOp = 0;
+                        MemToReg = 3'd0;
+                        RegDest = 3'd0;
+                        RegWrite = 1;
+
+                    end
+                6'd9: //addiu
+                    begin
+
+                        ALUSrcA = 1'd1;
+                        ALUSrcB = 3'd2;
+                        ControlType = 5'd7;
+                        SrcOut = 3'd2;
+                        MemToReg = 3'd0;
+                        RegDest = 3'd0;
+                        RegWrite = 1;
+
+                    end
                 6'd1: //divm
                     begin
 
