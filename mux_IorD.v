@@ -6,7 +6,7 @@ module MUXIorD (
     output wire [31:0] out
 );
 
-    assign out =  (sel == 0)? PC :
+    assign out =(sel == 0)? PC :
                 (sel == 1)? AluOut :
                 32'b00000000000000000000000000000000;
 

@@ -5,7 +5,7 @@ module aluSrcAMUX(
     output wire [31:0] out
 );
 
-    assign out =  (alusrca == 0)? pc :
+    assign out =(alusrca == 0)? pc :
                 (alusrca == 1)? a :
                 32'b00000000000000000000000000000000;
 

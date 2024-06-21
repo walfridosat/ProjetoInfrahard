@@ -46,3 +46,4 @@ Hi - controlado por ALUControl
 Lo - controlado por ALUControl
 AluOut - controlado por ALUControl?
 Size Handler - (registrador interno)
+EPC - controlado por opcodes

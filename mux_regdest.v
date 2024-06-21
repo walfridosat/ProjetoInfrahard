@@ -6,7 +6,7 @@ module regDestMUX (
     output wire [5:0] out
 );
 
-    assign out =  (regDest == 0)? rt :
+    assign out =(regDest == 0)? rt :
                 (regDest == 1)? rd :
                 (regDest == 2)? 5'b11111 :
                 (regDest == 3)? 5'b11101 :

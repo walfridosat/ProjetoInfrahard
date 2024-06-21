@@ -7,12 +7,12 @@ module SrcAddrMUX (
     output wire [31:0] out
 );
 
-    assign out =  (sel == 0)? IorD_out :
+    assign out =(sel == 0)? IorD_out :
                 (sel == 1)? 32'd253 :
                 (sel == 2)? 32'd254 :
                 (sel == 3)? 32'd255 :
                 (sel == 4)? A :
-                (sel == 5)? B :
+                (sel == 5)? B : 
                 32'b00000000000000000000000000000000;
 
 endmodule

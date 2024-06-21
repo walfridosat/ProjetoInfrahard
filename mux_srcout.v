@@ -9,7 +9,7 @@ module SrcOutMUX (
     output wire [31:0] out
 );
 
-    assign out =  (SrcOut == 0)? Lo :
+    assign out =(SrcOut == 0)? Lo :
                 (SrcOut == 1)? Hi :
                 (SrcOut == 2)? LT :
                 (SrcOut == 3)? result :

@@ -8,11 +8,10 @@ module memToRegMUX (
     output wire [31:0] out
 );
 
-    assign out =  (memtoreg == 0)? AluOut :
+    assign out =(memtoreg == 0)? AluOut :
                 (memtoreg == 1)? memorydataregister :
                 (memtoreg == 2)? 32'd227 :
                 (memtoreg == 3)? exceptionadress :
-                (memtoreg == 4)? pc :
-                32'b00000000000000000000000000000000;
+                (memtoreg == 4)? pc : 32'b00000000000000000000000000000000;
 
 endmodule

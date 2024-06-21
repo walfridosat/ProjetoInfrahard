@@ -8,7 +8,7 @@ module pcSourceMUX (
     output wire [31:0] out
 );
 
-    assign out =  (PCSource == 0)? jumpAdress :
+    assign out =(PCSource == 0)? jumpAdress :
                 (PCSource == 1)? result :
                 (PCSource == 2)? aluOut :
                 (PCSource == 3)? memData :

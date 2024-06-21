@@ -6,7 +6,7 @@ module MUXDataSrc (
     output wire [31:0] out
 );
 
-    assign out =  (sel == 0)? temp :
+    assign out =(sel == 0)? temp :
                 (sel == 1)? size_handler :
                 32'b00000000000000000000000000000000;
                 

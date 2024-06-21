@@ -7,7 +7,7 @@ module aluSrcBMUX(
     output wire [31:0] out
 );
 
-    assign out =  (alusrcb == 0)? b :
+    assign out =(alusrcb == 0)? b :
                 (alusrcb == 1)? 32'd4 :
                 (alusrcb == 2)? sign_extend :
                 (alusrcb == 3)? sign_extend_sl2 :
