@@ -13,6 +13,7 @@ module tb_sign_extender16_32;
       $display("%b",data_extended);
       #10;
       data = 16'b1010110011001100;
+     
       #10;
       $display("%b",data_extended);
     end

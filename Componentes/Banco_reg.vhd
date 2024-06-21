@@ -135,7 +135,8 @@ ARCHITECTURE behavioral_arch OF Banco_reg IS
             	     Reg28 WHEN "11100",
                 	 Reg29 WHEN "11101",
 	                 Reg30 WHEN "11110",
-    	             Reg31 WHEN "11111";
+    	             Reg31 WHEN "11111",
+		     Reg0  WHEN OTHERS;
 
 	-- selecao do segundo registrador 
 	WITH ReadReg2 SELECT
@@ -170,7 +171,8 @@ ARCHITECTURE behavioral_arch OF Banco_reg IS
             	     Reg28 WHEN "11100",
                 	 Reg29 WHEN "11101",
 	                 Reg30 WHEN "11110",
-    	             Reg31 WHEN "11111";
+    	             Reg31 WHEN "11111",
+		     Reg0  WHEN OTHERS;
 
 	--  Clocked Process
 	process (Clk,Reset)
@@ -247,6 +249,7 @@ ARCHITECTURE behavioral_arch OF Banco_reg IS
 						when "11101" =>	Reg29 <= WriteData;
 						when "11110" =>	Reg30 <= WriteData;
 						when "11111" =>	Reg31 <= WriteData;
+						when OTHERS  => Reg0  <= WriteData;
 					end case;
 				end if;
 			end if;

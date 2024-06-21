@@ -19,15 +19,14 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	memToRegMUX
 
-} {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/multiplicador.v {0 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/multiplicador.v
+} {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/multiplicador.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/multiplicador.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module multiplicador
-** Error: (vlog-13027) C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/multiplicador.v(19): near "i": Syntax error. 'for' loop variable declaration only allowed in SystemVerilog.
-** Error: C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/multiplicador.v(19): (vlog-2730) Undefined variable: 'i'.
-** Error: (vlog-13069) C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/multiplicador.v(19): near ")": syntax error, unexpected ')', expecting ';'.
-** Error: C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/multiplicador.v(37): (vlog-13205) Syntax error found in the scope following 'mult_lo'. Is there a missing '::'?
 
-} {4.0 8.0} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/modelo_mux.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/modelo_mux.v
+Top level modules:
+	multiplicador
+
+} {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/modelo_mux.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/modelo_mux.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module MUX
 
@@ -48,6 +47,14 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	sign_extender16_32
 
+} {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/Instr_Reg.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/Instr_Reg.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity Instr_Reg
+-- Compiling architecture behavioral_arch of Instr_Reg
+
 } {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_datasrc.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_datasrc.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module MUXDataSrc
@@ -62,16 +69,7 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	ALUControl
 
-} {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_sign_extender.v {0 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_sign_extender.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module tb_sign_extender16_32
-** Error: C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_sign_extender.v(17): (vlog-13008) Unsized literal value 111111111111010110011001100 exceeds default size of literals which  is 32-bit. Either size the literal (i.e. 64'd111111111111010110011001100) or reduce the literal value to fit in 32 bits.
-** Error: C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_sign_extender.v(16): (vlog-2730) Undefined variable: 'b0101001100110011'.
-** Error: (vlog-13069) C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_sign_extender.v(17): near "111111111111010110011001100": syntax error, unexpected INTEGER NUMBER.
-** Error: C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_sign_extender.v(18): (vlog-13008) Unsized literal value 000000000000101001100110011 exceeds default size of literals which  is 32-bit. Either size the literal (i.e. 64'd000000000000101001100110011) or reduce the literal value to fit in 32 bits.
--- Compiling module tb_sign_extender1_32
-
-} {4.0 8.0} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_shiftleft2jump.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_shiftleft2jump.v
+} {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_shiftleft2jump.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_shiftleft2jump.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module ShiftLeftTwoJump
 -- Compiling module testbench_shiftleft2jump
@@ -86,29 +84,53 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	sign_extender1_32
 
-} {} {}} {C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes do Projeto - 2024.1/Instr_Reg.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes do Projeto - 2024.1/Instr_Reg.vhd}
+} {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/ula32.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/ula32.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Compiling entity Instr_Reg
--- Compiling architecture behavioral_arch of Instr_Reg
+-- Loading package NUMERIC_STD
+-- Compiling entity Ula32
+-- Compiling architecture behavioral of Ula32
 
-} {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_divisor.v {0 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_divisor.v
+} {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/opcodes.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/opcodes.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module opcodelogic
+
+Top level modules:
+	opcodelogic
+
+} {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_divisor.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_divisor.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module divisor
-** Error: (vlog-13027) C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_divisor.v(19): near "i": Syntax error. 'for' loop variable declaration only allowed in SystemVerilog.
-** Error: C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_divisor.v(19): (vlog-2730) Undefined variable: 'i'.
-** Error: (vlog-13069) C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_divisor.v(19): near ")": syntax error, unexpected ')', expecting ';'.
-** Error: (vlog-13069) C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_divisor.v(33): near "=": syntax error, unexpected '='.
-** Error: C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_divisor.v(33): (vlog-13205) Syntax error found in the scope following 'lo'. Is there a missing '::'?
+-- Compiling module testbench_divisor
 
-} {4.0 9.0} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_sllsrca.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_sllsrca.v
+Top level modules:
+	testbench_divisor
+
+} {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_sllsrca.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_sllsrca.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module sllsrcAMUX
 
 Top level modules:
 	sllsrcAMUX
+
+} {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/Banco_reg.vhd {1 {vcom -work work -2002 -explicit -stats=none {C:\Users\samue\Desktop\teste_infrahard\ProjetoInfrahard\Componentes\Banco_reg.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity Banco_reg
+-- Compiling architecture behavioral_arch of Banco_reg
+
+} {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/RegDesloc.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/RegDesloc.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity RegDesloc
+-- Compiling architecture behavioral_arch of RegDesloc
 
 } {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_multilpicador.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_multilpicador.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -131,15 +153,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	testbench_sizehandlerMUX
 
-} {} {}} {C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes do Projeto - 2024.1/ula32.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes do Projeto - 2024.1/ula32.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity Ula32
--- Compiling architecture behavioral of Ula32
-
 } {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_IorD.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_IorD.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module MUXIorD
@@ -147,28 +160,19 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	MUXIorD
 
-} {} {}} {C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes do Projeto - 2024.1/RegDesloc.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes do Projeto - 2024.1/RegDesloc.vhd}
+} {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/Memoria.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/Memoria.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
+-- Compiling package ram_constants
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Loading package NUMERIC_STD
--- Compiling entity RegDesloc
--- Compiling architecture behavioral_arch of RegDesloc
+-- Loading package LPM_COMPONENTS
+-- Loading package ram_constants
+-- Compiling entity Memoria
+-- Compiling architecture behavioral_arch of Memoria
 
-} {} {}} {C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes do Projeto - 2024.1/Banco_reg.vhd} {0 {vcom -work work -2002 -explicit -stats=none {C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes do Projeto - 2024.1/Banco_reg.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity Banco_reg
--- Compiling architecture behavioral_arch of Banco_reg
-** Error: C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes do Projeto - 2024.1/Banco_reg.vhd(106): (vcom-1339) Selected signal assignment choices cover only 32 out of 59049 cases.
-** Error: C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes do Projeto - 2024.1/Banco_reg.vhd(141): (vcom-1339) Selected signal assignment choices cover only 32 out of 59049 cases.
-** Error: C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes do Projeto - 2024.1/Banco_reg.vhd(217): (vcom-1339) Case statement choices cover only 32 out of 59049 cases.
-** Error: C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes do Projeto - 2024.1/Banco_reg.vhd(256): VHDL Compiler exiting
-
-} {8.0 12.0} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/shift_left_2_jump_address.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/shift_left_2_jump_address.v
+} {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/shift_left_2_jump_address.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/shift_left_2_jump_address.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module ShiftLeftTwoJump
 
@@ -189,24 +193,20 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	SrcOutMUX
 
-} {} {}} {C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes do Projeto - 2024.1/Memoria.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes do Projeto - 2024.1/Memoria.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
--- Loading package STANDARD
--- Compiling package ram_constants
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Loading package LPM_COMPONENTS
--- Loading package ram_constants
--- Compiling entity Memoria
--- Compiling architecture behavioral_arch of Memoria
-
 } {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/lo.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/lo.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module lo
 
 Top level modules:
 	lo
+
+} {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/Registrador.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/Registrador.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity Registrador
+-- Compiling architecture behavioral_arch of Registrador
 
 } {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_srcaddr.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_srcaddr.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -243,14 +243,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	aluSrcBMUX
 
-} {} {}} {C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes do Projeto - 2024.1/Registrador.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes do Projeto - 2024.1/Registrador.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity Registrador
--- Compiling architecture behavioral_arch of Registrador
-
 } {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_regdest.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_regdest.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module regDestMUX
@@ -258,13 +250,11 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	regDestMUX
 
-} {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/divisor.v {0 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/divisor.v
+} {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/divisor.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/divisor.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module divisor
-** Error: (vlog-13027) C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/divisor.v(19): near "i": Syntax error. 'for' loop variable declaration only allowed in SystemVerilog.
-** Error: C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/divisor.v(19): (vlog-2730) Undefined variable: 'i'.
-** Error: (vlog-13069) C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/divisor.v(19): near ")": syntax error, unexpected ')', expecting ';'.
-** Error: (vlog-13069) C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/divisor.v(33): near "=": syntax error, unexpected '='.
-** Error: C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/divisor.v(33): (vlog-13205) Syntax error found in the scope following 'div_lo'. Is there a missing '::'?
 
-} {4.0 9.0} {}}
+Top level modules:
+	divisor
+
+} {} {}}

@@ -8,7 +8,6 @@ module divisor(
 
     integer cima;
     integer baixo;
-    integer i;
     
     always @(posedge divOp) begin
         div_hi = 32'd0;
@@ -17,7 +16,7 @@ module divisor(
         cima = 32'd0;
         baixo = divisor;
 
-        for (i = 31; i >= 0; i = i - 1) begin
+        for (integer i = 31; i >= 0; i = i - 1) begin
             div_hi = div_hi << 1;
             cima = cima << 1;
             if (dividend[i] == 1) begin
