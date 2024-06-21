@@ -3,11 +3,13 @@ module opcodelogic (
     input wire [5:0] funct,
     input wire overflowflag,
     input wire divby0flag,
+    input wire clk,
 
     output reg [0:0] PCWriteCond,
     output reg [0:0] PCWrite,
     output reg [0:0] IorD,
     output reg [2:0] SrcAddr,
+    output reg [2:0] SrcOut,
     output reg [0:0] WR,
     output reg [0:0] ResetTrigger,
     output reg [0:0] SaveTemp,
@@ -55,7 +57,7 @@ module opcodelogic (
                         PCSource = 3'd1;
                         PCWriteCond = 1'd1;
                         PCWrite = 1'd1;
-                        PCWriteCond = 1'd0;
+                        PCWriteCond = 0;
                     
                     end
                 // ALUSrcA = 1 & ALUSrcB = 000
@@ -197,6 +199,103 @@ module opcodelogic (
                         ALUSrcA = 1'd1;
                         ALUSrcB = 3'd2;
                         ControlType = 5'd9;
+
+                    end
+                6'd8: //addi
+                    begin
+
+                        ALUSrcA = 1'd1;
+                        ALUSrcB = 3'd2;
+                        ControlType = 5'd1;
+                        SrcOut = 3'd3;
+                        MemToReg = 3'd0;
+                        RegDest = 3'd0;
+                        RegWrite = 1;
+
+                    end
+                6'd9: //addiu
+                    begin
+
+                        ALUSrcA = 1'd1;
+                        ALUSrcB = 3'd2;
+                        ControlType = 5'd1;
+                        SrcOut = 3'd3;
+                        MemToReg = 3'd0;
+                        RegDest = 3'd0;
+                        RegWrite = 1;
+
+                    end
+                6'd9: // slti
+                    begin
+
+                        ALUSrcA = 1'd1;
+                        ALUSrcB = 3'd2;
+                        ControlType = 5'd7;
+                        SrcOut = 3'd2;
+                        MemToReg = 3'd0;
+                        RegDest = 3'd0;
+                        RegWrite = 1;
+
+                    end
+                6'd1: //divm
+                    begin
+
+                        ALUSrcA = 1'd1;
+                        ALUSrcB = 3'd2;
+                        ControlType = 5'd9;
+
+                    end
+                6'd15: //lui
+                    begin
+
+                        SLLSourceA = 2'd1;
+                        ShiftType = 3'd1;
+                        @(posedge clk);
+                        SLLSourceB = 2'd1;
+                        ShiftType = 3'd2;
+                        @(posedge clk);
+                        SrcOut = 3'd5;
+                        MemToReg = 3'd0;
+                        RegDest = 3'd0;
+                        RegWrite = 1;
+
+                    end
+                6'd4: //beq OS ABAIXO NAO TAO TERMINADOS
+                    begin
+
+                        ALUSrcA = 0;
+                        ALUSrcB = 3'd3;
+                        ControlType = 5'd1;
+                        SrcOut = 3'd3;
+                        
+                        
+
+                    end
+                6'd5: //bne
+                    begin
+
+                        ALUSrcA = 0;
+                        ALUSrcB = 3'd3;
+                        ControlType = 5'd1;
+                        SrcOut = 3'd3;
+
+                    end
+                6'd6: //ble
+                    begin
+
+                        ALUSrcA = 0;
+                        ALUSrcB = 3'd3;
+                        ControlType = 5'd1;
+                        SrcOut = 3'd3;
+
+                    end
+                6'd7: //bgt
+                    begin
+
+                        ALUSrcA = 0;
+                        ALUSrcB = 3'd3;
+                        ControlType = 5'd1;
+                        SrcOut = 3'd3;
 
                     end
 
