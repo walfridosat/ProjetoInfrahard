@@ -394,6 +394,108 @@ module opcodelogic (
                         PCWriteCond = 1'b1;
 
                     end
+                6'd34: //sw
+                    begin
+
+                        ALUSrcA = 1'b1;
+                        ALUSrcB = 3'b010;
+                        ControlType = 5'b00001;
+                        @(posedge clk);
+                        IorD = 1'b1;
+                        SrcAddr = 3'b000;
+                        SizeHandler = 3'b000;
+                        DataSource = 1'b1;
+                        WR = 1'b1;
+
+                    end
+                6'd41: //sh
+                    begin
+
+                        ALUSrcA = 1'b1;
+                        ALUSrcB = 3'b010;
+                        ControlType = 5'b00001;
+                        @(posedge clk);
+                        IorD = 1'b1;
+                        SrcAddr = 3'b000;
+                        WR = 1'b0;
+                        @(posedge clk);
+                        @(posedge clk);
+                        SizeHandler = 3'b011;
+                        DataSource = 1'b1;
+                        WR = 1'b1;
+
+                    end
+                6'd40: //sb
+                    begin
+
+                        ALUSrcA = 1'b1;
+                        ALUSrcB = 3'b010;
+                        ControlType = 5'b00001;
+                        @(posedge clk);
+                        IorD = 1'b1;
+                        SrcAddr = 3'b000;
+                        WR = 1'b0;
+                        @(posedge clk);
+                        @(posedge clk);
+                        SizeHandler = 3'b101;
+                        DataSource = 1'b1;
+                        WR = 1'b1;
+
+                    end
+                6'd35: //lw
+                    begin
+
+                        ALUSrcA = 1'b1;
+                        ALUSrcB = 3'b010;
+                        ControlType = 5'b00001;
+                        @(posedge clk);
+                        IorD = 1'b1;
+                        SrcAddr = 3'b000;
+                        WR = 1'b0;
+                        @(posedge clk);
+                        @(posedge clk);
+                        SizeHandler = 3'b000;
+                        MemToReg = 3'b001;
+                        RegDest = 1'b0;
+                        RegWrite = 1'b1;
+
+                    end
+                6'd33: //lh
+                    begin
+
+                        ALUSrcA = 1'b1;
+                        ALUSrcB = 3'b010;
+                        ControlType = 5'b00001;
+                        @(posedge clk);
+                        IorD = 1'b1;
+                        SrcAddr = 3'b000;
+                        WR = 1'b0;
+                        @(posedge clk);
+                        @(posedge clk);
+                        SizeHandler = 3'b001;
+                        MemToReg = 3'b001;
+                        RegDest = 1'b0;
+                        RegWrite = 1'b1;
+
+                    end
+                6'd32: //lb
+                    begin
+
+                        ALUSrcA = 1'b1;
+                        ALUSrcB = 3'b010;
+                        ControlType = 5'b00001;
+                        @(posedge clk);
+                        IorD = 1'b1;
+                        SrcAddr = 3'b000;
+                        WR = 1'b0;
+                        @(posedge clk);
+                        @(posedge clk);
+                        SizeHandler = 3'b010;
+                        MemToReg = 3'b001;
+                        RegDest = 1'b0;
+                        RegWrite = 1'b1;
+
+                    end
 
             endcase
 
