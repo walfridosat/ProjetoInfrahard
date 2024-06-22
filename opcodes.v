@@ -33,15 +33,10 @@ module opcodelogic (
 
     integer opint;
     integer i;
-    always @(opcode, funct) begin
+    always @(posedge clk, posedge reset) begin
 
         opint = opcode;
 
-        if(reset == 1'b0)
-        begin
-
-        end
-        
         if(opint == 0) // tipo R
         begin 
             case(funct)
@@ -207,8 +202,8 @@ module opcodelogic (
                         ControlType = 5'b01010;
 
                         for (i = 31; i >= 0; i = i - 1) begin
-                            @(posedge clk);
-                        end
+                           @(posedge clk);
+                        end 
 
                     end
 
