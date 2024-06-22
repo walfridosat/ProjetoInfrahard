@@ -222,6 +222,23 @@ module opcodelogic (
                         PCWriteCond = 1'd0;
                     
                     end
+                
+                6'd16: //mfhi
+                    begin
+                        ControlType = 5'b01100;
+                        @(posedge clk);
+                        MemToReg = 3'b000;
+                        RegDest = 2'b01;
+                        RegWrite = 1'b1;
+                    end
+                6'd18: //mflo
+                    begin
+                        ControlType = 5'b01101;
+                        @(posedge clk);
+                        MemToReg = 3'b000;
+                        RegDest = 2'b01;
+                        RegWrite = 1'b1;
+                    end
 
             endcase
 
@@ -304,14 +321,6 @@ module opcodelogic (
                         MemToReg = 3'd0;
                         RegDest = 3'd0;
                         RegWrite = 1;
-
-                    end
-                6'd1: //divm
-                    begin
-
-                        ALUSrcA = 1'd1;
-                        ALUSrcB = 3'd2;
-                        ControlType = 5'd9;
 
                     end
                 6'd15: //lui
