@@ -37,6 +37,72 @@ module opcodelogic (
         if(opint == 0) // tipo R
         begin 
             case(funct)
+                6'd4: //SLLV
+                    begin
+                        SLLSourceA = 2'b00;
+                        ShiftType = 3'b001;
+                        @(posedge clk);
+                        SLLSourceB = 2'b00;
+                        ShiftType = 3'b010;
+                        ControlType = 5'b10010;
+                        @(posedge clk);
+                        MemToReg = 3'b000;
+                        RegDest = 2'b01;
+                        RegWrite = 1'b1;
+                    end
+                6'd7: //SRAV 
+                    begin
+                        SLLSourceA = 2'b00;
+                        ShiftType = 3'b001;
+                        @(posedge clk);
+                        SLLSourceB = 2'b00;
+                        ShiftType = 3'b100;
+                        ControlType = 5'b10010;
+                        @(posedge clk);
+                        MemToReg = 3'b000;
+                        RegDest = 2'b01;
+                        RegWrite = 1'b1;
+                    end
+                6'd3: //SRA
+                    begin
+                        SLLSourceA = 2'b10;
+                        ShiftType = 3'b001;
+                        @(posedge clk);
+                        SLLSourceB = 2'b10;
+                        ShiftType = 3'b100;
+                        ControlType = 5'b10010;
+                        @(posedge clk);
+                        MemToReg = 3'b000;
+                        RegDest = 2'b01;
+                        RegWrite = 1'b1;
+                    end
+                6'd2: //SRL
+                    begin
+                        SLLSourceA = 2'b10;
+                        ShiftType = 3'b001;
+                        @(posedge clk);
+                        SLLSourceB = 2'b10;
+                        ShiftType = 3'b011;
+                        ControlType = 5'b10010;
+                        @(posedge clk);
+                        MemToReg = 3'b000;
+                        RegDest = 2'b01;
+                        RegWrite = 1'b1;
+                    end
+                6'd0: //SLL
+                    begin
+                        SLLSourceA = 2'b10;
+                        ShiftType = 3'b001;
+                        @(posedge clk);
+                        SLLSourceB = 2'b10;
+                        ShiftType = 3'b010;
+                        ControlType = 5'b10010;
+                        @(posedge clk);
+                        MemToReg = 3'b000;
+                        RegDest = 2'b01;
+                        RegWrite = 1'b1;
+                    end
+                
                 6'd19:  // rte
                     begin 
 
