@@ -259,6 +259,7 @@ module opcodelogic (
                         DataSource = 1'b1;
                         SrcAddr = 4'b0100;
                         WR = 1'b1;
+                        SaveTemp = 1'b0;
                     end
 
             endcase
