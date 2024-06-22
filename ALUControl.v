@@ -7,7 +7,8 @@ module ALUControl (
     output reg [0:0] orOp,
     output reg [0:0] overflowOp,
     output reg [2:0] SrcOut,
-    output reg [1:0] StoreMD
+    output reg [1:0] StoreMD,
+    output reg [0:0] ALUOutSave
 );
 
     always @(controlType) begin
@@ -19,55 +20,65 @@ module ALUControl (
         overflowOp = 1'b0;
         SrcOut = 3'b000;
         StoreMD = 2'b00;
+        ALUOutSave = 1'b0;
         
         case (controlType)
             5'b00000:
                 begin
                     ALUOp = 3'b000;
                     SrcOut = 3'b011;
+                    ALUOutSave = 1'b1;
                 end
             5'b00001:
                 begin
                     ALUOp = 3'b001;
                     overflowOp = 1'b1;
                     SrcOut = 3'b011;
+                    ALUOutSave = 1'b1;
                 end
             5'b00010:
                 begin
                     ALUOp = 3'b010;
                     overflowOp = 1'b1;
                     SrcOut = 3'b011;
+                    ALUOutSave = 1'b1;
                 end
             5'b00011:
                 begin
                     ALUOp = 3'b011;
                     SrcOut = 3'b011;
+                    ALUOutSave = 1'b1;
                 end
             5'b00100:
                 begin
                     ALUOp = 3'b100;
                     overflowOp = 1'b1;
                     SrcOut = 3'b011;
+                    ALUOutSave = 1'b1;
                 end
             5'b00101:
                 begin
                     ALUOp = 3'b101;
                     SrcOut = 3'b011;
+                    ALUOutSave = 1'b1;
                 end
             5'b00110:
                 begin
                     ALUOp = 3'b110;
                     SrcOut = 3'b011;
+                    ALUOutSave = 1'b1;
                 end
             5'b00111:
                 begin
                     ALUOp = 3'b111;
                     SrcOut = 3'b010;
+                    ALUOutSave = 1'b1;
                 end
             5'b01000:
                 begin
                     orOp = 1'b1;
                     SrcOut = 3'b100;
+                    ALUOutSave = 1'b1;
                 end
             5'b01001:
                 begin
@@ -83,11 +94,14 @@ module ALUControl (
                 begin
                     ALUOp = 3'b001;
                     SrcOut = 3'b011;
+                    ALUOutSave = 1'b1;
                 end
             5'b01100:
                 SrcOut = 3'b001;
+                ALUOutSave = 1'b1;
             5'b01101:
                 SrcOut = 3'b000;
+                ALUOutSave = 1'b1;
             5'b01110:
                 condType = 2'b00;
             5'b01111:
@@ -98,6 +112,7 @@ module ALUControl (
                 condType = 2'b11;
             5'b10010:
                 SrcOut = 3'b110;
+                ALUOutSave = 1'b1;
 
         endcase
     end
