@@ -96,6 +96,8 @@ module ALUControl (
                 condType = 2'b10;
             5'b10001:
                 condType = 2'b11;
+            5'b10010:
+                SrcOut = 3'b110;
 
         endcase
     end

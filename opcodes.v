@@ -9,7 +9,6 @@ module opcodelogic (
     output reg [0:0] PCWrite,
     output reg [0:0] IorD,
     output reg [2:0] SrcAddr,
-    output reg [2:0] SrcOut,
     output reg [0:0] WR,
     output reg [0:0] ResetTrigger,
     output reg [0:0] SaveTemp,
@@ -42,9 +41,7 @@ module opcodelogic (
                     begin 
 
                         PCSource = 3'd4;
-                        PCWriteCond = 1'd1;
                         PCWrite = 1'd1; 
-                        PCWriteCond = 1'd0;
 
                     end
 
@@ -53,14 +50,14 @@ module opcodelogic (
                     begin
 
                         ALUSrcA = 1'd0;
-                        ALUSrcB = 3'd0;
+                        ALUSrcB = 3'd1;
                         ControlType = 5'd2;
+                        @(posedge clk);
                         PCSource = 3'd1;
-                        PCWriteCond = 1'd1;
                         PCWrite = 1'd1;
-                        PCWriteCond = 0;
                     
                     end
+
                 // ALUSrcA = 1 & ALUSrcB = 000
                 
                 6'd42:  //slt
@@ -68,6 +65,8 @@ module opcodelogic (
 
                         ALUSrcA = 1'd1;
                         ALUSrcB = 3'd0;
+                        ControlType = 5'b00111;
+                        @(posedge clk);
                         MemToReg = 2'd0;
                         RegDest = 3'd1;
                         RegWrite = 1'd1;
@@ -80,6 +79,7 @@ module opcodelogic (
                         ALUSrcA = 1'd1;
                         ALUSrcB = 3'd0;
                         ControlType = 5'd2;
+                        @(posedge clk);
                         MemToReg = 2'd0;
                         RegDest = 3'd1;
                         RegWrite = 1'd1;
@@ -92,6 +92,7 @@ module opcodelogic (
                         ALUSrcA = 1'd1;
                         ALUSrcB = 3'd0;
                         ControlType = 5'd1;
+                        @(posedge clk);
                         MemToReg = 2'd0;
                         RegDest = 3'd1;
                         RegWrite = 1'd1;
@@ -104,6 +105,7 @@ module opcodelogic (
                         ALUSrcA = 1'd1;
                         ALUSrcB = 3'd0;
                         ControlType = 5'd3;
+                        @(posedge clk);
                         MemToReg = 2'd0;
                         RegDest = 3'd1;
                         RegWrite = 1'd1;
@@ -116,6 +118,7 @@ module opcodelogic (
                         ALUSrcA = 1'd1;
                         ALUSrcB = 3'd0;
                         ControlType = 5'd2;
+                        @(posedge clk);
                         MemToReg = 2'd0;
                         RegDest = 3'd1;
                         RegWrite = 1'd1;
@@ -127,6 +130,7 @@ module opcodelogic (
 
                         ALUSrcA = 1'd1;
                         ALUSrcB = 3'd0;
+                        ControlType = 5'b01010;
 
                     end
 
@@ -135,6 +139,7 @@ module opcodelogic (
                     
                         ALUSrcA = 1'd1;
                         ALUSrcB = 3'd0;
+                        ControlType = 5'b01001;
 
                     end
 
@@ -144,6 +149,7 @@ module opcodelogic (
                         ALUSrcA = 1'd1;
                         ALUSrcB = 3'd0;
                         ControlType = 5'd0;
+                        @(posedge clk);
                         PCSource = 3'd1;
                         PCWriteCond = 1'd1;
                         PCWrite = 1'd1;
@@ -165,9 +171,7 @@ module opcodelogic (
                     begin
 
                         PCSource = 3'd0;
-                        PCWriteCond = 1'd1;
                         PCWrite = 1'd1;
-                        PCWriteCond = 1'd0;
 
                     end
 
@@ -175,9 +179,7 @@ module opcodelogic (
                     begin
 
                         PCSource = 2'd0;
-                        PCWriteCond = 1'd1;
                         PCWrite = 1'd1;
-                        PCWriteCond = 1'd0;
                         RegDest = 3'd2;
                         MemToReg = 3'd4;
                         WR = 1'd1;
@@ -208,7 +210,7 @@ module opcodelogic (
                         ALUSrcA = 1'd1;
                         ALUSrcB = 3'd2;
                         ControlType = 5'd1;
-                        SrcOut = 3'd3;
+                        @(posedge clk);
                         MemToReg = 3'd0;
                         RegDest = 3'd0;
                         RegWrite = 1;
@@ -220,7 +222,7 @@ module opcodelogic (
                         ALUSrcA = 1'd1;
                         ALUSrcB = 3'd2;
                         ControlType = 5'd1;
-                        SrcOut = 3'd3;
+                        @(posedge clk);
                         MemToReg = 3'd0;
                         RegDest = 3'd0;
                         RegWrite = 1;
@@ -232,7 +234,7 @@ module opcodelogic (
                         ALUSrcA = 1'd1;
                         ALUSrcB = 3'd2;
                         ControlType = 5'd7;
-                        SrcOut = 3'd2;
+                        @(posedge clk);
                         MemToReg = 3'd0;
                         RegDest = 3'd0;
                         RegWrite = 1;
@@ -255,22 +257,25 @@ module opcodelogic (
                         SLLSourceB = 2'd1;
                         ShiftType = 3'd2;
                         @(posedge clk);
-                        SrcOut = 3'd5;
+                        ControlType = 5'b10010;
                         MemToReg = 3'd0;
                         RegDest = 3'd0;
                         RegWrite = 1;
 
                     end
-                6'd4: //beq OS ABAIXO NAO TAO TERMINADOS
+                6'd4: //beq
                     begin
 
                         ALUSrcA = 0;
                         ALUSrcB = 3'd3;
                         ControlType = 5'd1;
-                        SrcOut = 3'd3;
+                        @(posedge clk);
+                        ALUSrcA = 1'd1;
+                        ALUSrcB = 0;
+                        ControlType = 5'b01111;
+                        PCSource = 3'b010;
+                        PCWriteCond = 1'b1;
                         
-                        
-
                     end
                 6'd5: //bne
                     begin
@@ -278,7 +283,12 @@ module opcodelogic (
                         ALUSrcA = 0;
                         ALUSrcB = 3'd3;
                         ControlType = 5'd1;
-                        SrcOut = 3'd3;
+                        @(posedge clk);
+                        ALUSrcA = 1'd1;
+                        ALUSrcB = 0;
+                        ControlType = 5'b01110;
+                        PCSource = 3'b010;
+                        PCWriteCond = 1'b1;
 
                     end
                 6'd6: //ble
@@ -287,7 +297,12 @@ module opcodelogic (
                         ALUSrcA = 0;
                         ALUSrcB = 3'd3;
                         ControlType = 5'd1;
-                        SrcOut = 3'd3;
+                        @(posedge clk);
+                        ALUSrcA = 1'd1;
+                        ALUSrcB = 0;
+                        ControlType = 5'b10000;
+                        PCSource = 3'b010;
+                        PCWriteCond = 1'b1;
 
                     end
                 6'd7: //bgt
@@ -296,7 +311,12 @@ module opcodelogic (
                         ALUSrcA = 0;
                         ALUSrcB = 3'd3;
                         ControlType = 5'd1;
-                        SrcOut = 3'd3;
+                        @(posedge clk);
+                        ALUSrcA = 1'd1;
+                        ALUSrcB = 0;
+                        ControlType = 5'b10001;
+                        PCSource = 3'b010;
+                        PCWriteCond = 1'b1;
 
                     end
 
