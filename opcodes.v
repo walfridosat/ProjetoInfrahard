@@ -182,16 +182,21 @@ module opcodelogic (
 
                         6'd32:  //add
                             begin 
-
-                                ALUSrcA = 1'd1;
-                                ALUSrcB = 3'd0;
-                                ControlType = 5'd1;
-                                @(posedge clk);
-                                MemToReg = 2'd0;
-                                RegDest = 3'd1;
-                                RegWrite = 1'd1;
-                                i = 0;
-
+                                case (i) 
+                                    32'd3:
+                                        begin
+                                            ALUSrcA = 1'd1;
+                                            ALUSrcB = 3'd0;
+                                            ControlType = 5'd1;
+                                        end
+                                    32'd4:
+                                        begin
+                                            MemToReg = 2'd0;
+                                            RegDest = 3'd1;
+                                            RegWrite = 1'd1;
+                                            i = 0;
+                                        end
+                                endcase
                             end
 
                         6'd36:  //and
