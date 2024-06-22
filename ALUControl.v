@@ -83,11 +83,21 @@ module ALUControl (
             5'b01001:
                 begin
                     divOp = 1'b1;
+
+                    for (i = 31; i >= 0; i = i - 1) begin
+                        @(posedge clk);
+                    end
+
                     StoreMD = 2'b01;
                 end
             5'b01010:
                 begin
                     multOp = 1'b1;
+
+                    for (i = 31; i >= 0; i = i - 1) begin
+                        @(posedge clk);
+                    end
+
                     StoreMD = 2'b10;
                 end
             5'b01011:
