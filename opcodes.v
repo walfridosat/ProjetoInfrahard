@@ -4,6 +4,7 @@ module opcodelogic (
     input wire overflowflag,
     input wire divby0flag,
     input wire clk,
+    input wire reset,
 
     output reg [0:0] PCWriteCond,
     output reg [0:0] PCWrite,
@@ -31,8 +32,15 @@ module opcodelogic (
 );
 
     integer opint;
+    integer i;
     always @(opcode, funct) begin
+
         opint = opcode;
+
+        if(reset == 1'b0)
+        begin
+
+        end
         
         if(opint == 0) // tipo R
         begin 
@@ -198,7 +206,7 @@ module opcodelogic (
                         ALUSrcB = 3'd0;
                         ControlType = 5'b01010;
 
-                        for (integer i = 31; i >= 0; i = i - 1) begin
+                        for (i = 31; i >= 0; i = i - 1) begin
                             @(posedge clk);
                         end
 
@@ -210,7 +218,7 @@ module opcodelogic (
                         ALUSrcA = 1'd1;
                         ALUSrcB = 3'd0;
                         ControlType = 5'b01001;
-                        for (integer i = 31; i >= 0; i = i - 1) begin
+                        for (i = 31; i >= 0; i = i - 1) begin
                             @(posedge clk);
                         end
 
@@ -314,7 +322,7 @@ module opcodelogic (
                         ALUSrcA = 1'd1;
                         ALUSrcB = 3'd2;
                         ControlType = 5'd9;
-                        for (integer i = 31; i >= 0; i = i - 1) begin
+                        for (i = 31; i >= 0; i = i - 1) begin
                             @(posedge clk);
                         end
 

@@ -1,6 +1,5 @@
 module ALUControl (
     input wire [4:0] controlType,
-    input wire [0:0] clk,
     output reg [1:0] condType,
     output reg [0:0] divOp,
     output reg [0:0] multOp,

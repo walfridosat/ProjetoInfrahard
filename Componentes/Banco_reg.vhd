@@ -3,9 +3,9 @@
 -- Project		: CPU Multi-ciclo
 --------------------------------------------------------------------------------
 -- File			: Banco_reg.vhd
--- Author		: Emannuel Gomes Macêdo (egm@cin.ufpe.br)
+-- Author		: Emannuel Gomes Macï¿½do (egm@cin.ufpe.br)
 --				  Fernando Raposo Camara da Silva (frcs@cin.ufpe.br)
---				  Pedro Machado Manhães de Castro (pmmc@cin.ufpe.br)
+--				  Pedro Machado Manhï¿½es de Castro (pmmc@cin.ufpe.br)
 --				  Rodrigo Alves Costa (rac2@cin.ufpe.br)
 -- Organization : Universidade Federal de Pernambuco
 -- Created		: 29/07/2002
@@ -40,8 +40,8 @@
 -- Revision Number	: 1.1
 -- Version			: 1.2
 -- Date				: 18/08/2008
--- Modifier			: João Paulo Fernandes Barbosa (jpfb@cin.ufpe.br)
--- Description		: Entradas e saídas e os sinais internos passaram a ser do
+-- Modifier			: Joï¿½o Paulo Fernandes Barbosa (jpfb@cin.ufpe.br)
+-- Description		: Entradas e saï¿½das e os sinais internos passaram a ser do
 --					  Std_Logic.	
 --------------------------------------------------------------------------------
 
@@ -54,13 +54,13 @@ ENTITY Banco_reg IS
 		PORT(
 			Clk			: IN	STD_LOGIC;						-- Clock do banco de registradores
 			Reset		: IN	STD_LOGIC;						-- Reinicializa o conteudo dos registradores
-			RegWrite	: IN	STD_LOGIC;						-- Indica se a operação é de escrita ou leitura
+			RegWrite	: IN	STD_LOGIC;						-- Indica se a operaï¿½ï¿½o ï¿½ de escrita ou leitura
 			ReadReg1	: IN	STD_LOGIC_VECTOR (4 downto 0);	-- Indica o registrador #1 a ser lido
 			ReadReg2	: IN	STD_LOGIC_VECTOR (4 downto 0);	-- Indica o registrador #2 a ser lido
 			WriteReg	: IN	STD_LOGIC_VECTOR (4 downto 0);	-- Indica o registrador a ser escrito
 			WriteData 	: IN	STD_LOGIC_VECTOR (31 downto 0);	-- Indica o dado a ser escrito
-			ReadData1	: OUT	STD_LOGIC_VECTOR (31 downto 0);	-- Mostra a informaçao presente no registrador #1
-			ReadData2	: OUT	STD_LOGIC_VECTOR (31 downto 0)	-- Mostra a informação presente no registrador #2
+			ReadData1	: OUT	STD_LOGIC_VECTOR (31 downto 0);	-- Mostra a informaï¿½ao presente no registrador #1
+			ReadData2	: OUT	STD_LOGIC_VECTOR (31 downto 0)	-- Mostra a informaï¿½ï¿½o presente no registrador #2
 			);
 END Banco_reg ;
 
@@ -69,7 +69,7 @@ END Banco_reg ;
 ARCHITECTURE behavioral_arch OF Banco_reg IS
 
 	SIGNAL Reg0		: STD_LOGIC_VECTOR (31 downto 0);		-- Conjunto 
-	SIGNAL Reg1		: STD_LOGIC_VECTOR (31 downto 0);		-- das informações
+	SIGNAL Reg1		: STD_LOGIC_VECTOR (31 downto 0);		-- das informaï¿½ï¿½es
 	SIGNAL Reg2		: STD_LOGIC_VECTOR (31 downto 0);		-- pertencentes
 	SIGNAL Reg3		: STD_LOGIC_VECTOR (31 downto 0);		-- aos registradores.
 	SIGNAL Reg4		: STD_LOGIC_VECTOR (31 downto 0);		-- Esta CPU
@@ -104,7 +104,7 @@ ARCHITECTURE behavioral_arch OF Banco_reg IS
 	
 	-- selecao do primeiro registrador
 	WITH ReadReg1 SELECT
-		ReadData1 <= Reg0  WHEN "00000",	-- acesso às informações do registrador correspondente
+		ReadData1 <= Reg0  WHEN "00000",	-- acesso ï¿½s informaï¿½ï¿½es do registrador correspondente
                      Reg1  WHEN "00001",
                      Reg2  WHEN "00010",
                 	 Reg3  WHEN "00011",
@@ -140,7 +140,7 @@ ARCHITECTURE behavioral_arch OF Banco_reg IS
 
 	-- selecao do segundo registrador 
 	WITH ReadReg2 SELECT
-		ReadData2 <= Reg0  WHEN "00000",	-- acesso às informações do registrador correspondente
+		ReadData2 <= Reg0  WHEN "00000",	-- acesso ï¿½s informaï¿½ï¿½es do registrador correspondente
                      Reg1  WHEN "00001",
                      Reg2  WHEN "00010",
                 	 Reg3  WHEN "00011",
@@ -209,11 +209,11 @@ ARCHITECTURE behavioral_arch OF Banco_reg IS
 				Reg26 <= "00000000000000000000000000000000";
 				Reg27 <= "00000000000000000000000000000000";
 				Reg28 <= "00000000000000000000000000000000";
-				Reg29 <= "00000000000000000000000000000000";
+				Reg29 <= "00000000000000000000000011100011"; -- !!! Pode fazer isso?
 				Reg30 <= "00000000000000000000000000000000";
 				Reg31 <= "00000000000000000000000000000000";
 			
------------------------------------------- Início do processo relacionado ao clock 
+------------------------------------------ Inï¿½cio do processo relacionado ao clock 
 			elsif (Clk = '1' and clk'event) then
 				if(RegWrite = '1') then		
 					case WriteReg is

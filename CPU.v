@@ -46,8 +46,8 @@ assign PChead = PCout[31:28];
 wire ALWAYS1;
 wire IRWrite; //instruction register load
 wire RegWrite; //Banco Reg write
-wire MemoOut;
 wire WriteMemo;
+wire [31:0] MemoOut;
 wire [31:0] ExceptionAdres; //From opcodes To Mux toWriteData
 wire [31:0] ExtendedIntruct;
 wire [31:0] Shifted2Intruct;
@@ -93,13 +93,13 @@ wire divby0flag;
 // alu wires ^
 
 // RegWires
-wire AluOut_out;
-wire AluOut_in;
+wire [31:0] AluOut_out;
+wire [31:0] AluOut_in;
 wire SaveTemp; //load
 wire EPCWrite;//load
-wire EPC_out;
-wire EPC_in; // !!! vem de onde?
-wire AluOutLoad;
+wire AluOutLoad; //load
+wire [31:0] EPC_out;
+wire [31:0] EPC_in; // !!! vem de onde? 
 wire [31:0] temp_out;
 wire [31:0] MemoDataReg_out;
 
@@ -112,7 +112,7 @@ wire [31:0] toWriteMemo_out;
 wire [31:0] mxToWriteData;
 wire [4:0]  mxToWriteRegi;
 wire [31:0] sllA_out;
-wire [5:0]  sllB_out;
+wire [4:0]  sllB_out;
 wire [31:0] jumpAdress;
 
 // Mux Selects
@@ -131,6 +131,7 @@ wire [1:0] SLLSourceB;
 assign PCload = PCwrite | (PCwriteCond & CHOut);
 assign HiLoLoad = divOp | multOp;
 assign ALWAYS1 = 1'b1; /// !!! Cuidado !!! Alguns regs talvez realmente precisem de um Load definido
+assign EPC_in = mxToWriteData;
 
 
 /////////////////////
@@ -144,12 +145,12 @@ opcodelogic Controle (
     .overflowflag(overflowflag),
     .divby0flag(divby0flag),
     .clk(clk),
+    .reset(reset),
 
     .PCWriteCond(PCwriteCond),
     .PCWrite(PCwrite),
     .IorD(IorDSel),
     .SrcAddr(SrcAddr),
-    .SrcOut(),          // Sendo gerenciado pelo ALU Control agora?
     .WR(WriteMemo),
     .ResetTrigger(),    //wire [0:0] ResetTrigger; // não necessário?
     .SaveTemp(SaveTemp),
@@ -175,7 +176,7 @@ opcodelogic Controle (
 
 // Principais
 Memoria     Memory   (.Clock(clock), .Address(Addr_Memo), .Wr(WriteMemo), .Datain(toWriteMemo_out), .Dataout(MemoOut));
-Registrador PC       (.Clock(clock), .Reset(reset), .Load(PCload), .Entrada(PCin), .Saida(PCout));
+Registrador PC         (.Clk(clock), .Reset(reset), .Load(PCload), .Entrada(PCin), .Saida(PCout));
 Banco_reg   Banco_regi (.Clk(clock), .Reset(reset), .RegWrite(RegWrite), .ReadReg1(Instr25_21), .ReadReg2(Instr20_16), .WriteReg(mxToWriteRegi), .WriteData(mxToWriteData), .ReadData1(ReadDataA), .ReadData2(ReadDataB) );
 Instr_Reg   Instruc_Reg(.Clk(clock), .Reset(reset), .Load_ir(IRWrite), .Entrada(MemoOut), .Instr31_26(Instr31_26), .Instr25_21(Instr25_21), .Instr20_16(Instr20_16), .Instr15_0(Instr15_0));
 
@@ -191,14 +192,14 @@ Or            OrCmpnt(.A(AluA), .B(AluB), .result(OrResult));
 
 
 // Registradores
-Registrador A       (.Clock(clock), .Reset(reset), .Load(ALWAYS1),   .Entrada(ReadDataA), .Saida(RegA_out)  );
-Registrador B       (.Clock(clock), .Reset(reset), .Load(ALWAYS1),   .Entrada(ReadDataB), .Saida(RegB_out)  );
-Registrador Hi      (.Clock(clock), .Reset(reset), .Load(HiLoLoad),  .Entrada(Hi2Reg),    .Saida(HiOut)     );
-Registrador Lo      (.Clock(clock), .Reset(reset), .Load(HiLoLoad),  .Entrada(Lo2Reg),    .Saida(LoOut)     );
-Registrador AluOutRg(.Clock(clock), .Reset(reset), .Load(AluOutLoad),.Entrada(AluOut_in), .Saida(AluOut_out)); // !!! faltando o LOAD
-Registrador EPC     (.Clock(clock), .Reset(reset), .Load(EPCWrite),  .Entrada(EPC_in),    .Saida(EPC_out)   );
-Registrador Temp    (.Clock(clock), .Reset(reset), .Load(SaveTemp),  .Entrada(SizeHandler_out), .Saida(temp_out) ); //relacionado ao sizehandler
-Registrador MemoData(.Clock(clock), .Reset(reset), .Load(ALWAYS1),   .Entrada(SizeHandler_out), .Saida(MemoDataReg_out) ); //relacionado ao sizehandler
+Registrador A       (.Clk(clock), .Reset(reset), .Load(ALWAYS1),   .Entrada(ReadDataA), .Saida(RegA_out)  );
+Registrador B       (.Clk(clock), .Reset(reset), .Load(ALWAYS1),   .Entrada(ReadDataB), .Saida(RegB_out)  );
+Registrador Hi      (.Clk(clock), .Reset(reset), .Load(HiLoLoad),  .Entrada(Hi2Reg),    .Saida(HiOut)     );
+Registrador Lo      (.Clk(clock), .Reset(reset), .Load(HiLoLoad),  .Entrada(Lo2Reg),    .Saida(LoOut)     );
+Registrador AluOutRg(.Clk(clock), .Reset(reset), .Load(AluOutLoad),.Entrada(AluOut_in), .Saida(AluOut_out)); // !!! faltando o LOAD
+Registrador EPC     (.Clk(clock), .Reset(reset), .Load(EPCWrite),  .Entrada(EPC_in),    .Saida(EPC_out)   );
+Registrador Temp    (.Clk(clock), .Reset(reset), .Load(SaveTemp),  .Entrada(SizeHandler_out), .Saida(temp_out) ); //relacionado ao sizehandler
+Registrador MemoData(.Clk(clock), .Reset(reset), .Load(ALWAYS1),   .Entrada(SizeHandler_out), .Saida(MemoDataReg_out) ); //relacionado ao sizehandler
 
 
 // Mux
