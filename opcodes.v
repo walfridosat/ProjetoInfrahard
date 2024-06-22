@@ -239,6 +239,27 @@ module opcodelogic (
                         RegDest = 2'b01;
                         RegWrite = 1'b1;
                     end
+                6'd5: //xchg
+                    begin
+                        SrcAddr = 4'b0100;
+                        WR = 1'b0;
+                        @(posedge clk);
+                        @(posedge clk);
+                        SizeHandler = 3'b000;
+                        SaveTemp = 1'b1;
+                        SrcAddr = 4'b0101;
+                        WR = 1'b0;
+                        @(posedge clk);
+                        @(posedge clk);
+                        DataSource = 1'b0;
+                        SrcAddr = 4'b0101;
+                        WR = 1'b1;
+                        @(posedge clk);
+                        WR = 1'b0;
+                        DataSource = 1'b1;
+                        SrcAddr = 4'b0100;
+                        WR = 1'b1;
+                    end
 
             endcase
 
