@@ -1,5 +1,6 @@
 module ALUControl (
     input wire [4:0] controlType,
+    input wire [0:0] clk,
     output reg [1:0] condType,
     output reg [0:0] divOp,
     output reg [0:0] multOp,
@@ -83,21 +84,11 @@ module ALUControl (
             5'b01001:
                 begin
                     divOp = 1'b1;
-
-                    for (i = 31; i >= 0; i = i - 1) begin
-                        @(posedge clk);
-                    end
-
                     StoreMD = 2'b01;
                 end
             5'b01010:
                 begin
                     multOp = 1'b1;
-
-                    for (i = 31; i >= 0; i = i - 1) begin
-                        @(posedge clk);
-                    end
-
                     StoreMD = 2'b10;
                 end
             5'b01011:
@@ -107,11 +98,15 @@ module ALUControl (
                     ALUOutSave = 1'b1;
                 end
             5'b01100:
-                SrcOut = 3'b001;
-                ALUOutSave = 1'b1;
+                begin 
+                    SrcOut = 3'b001;
+                    ALUOutSave = 1'b1;
+                end
             5'b01101:
-                SrcOut = 3'b000;
-                ALUOutSave = 1'b1;
+                begin
+                    SrcOut = 3'b000;
+                    ALUOutSave = 1'b1;
+                end
             5'b01110:
                 condType = 2'b00;
             5'b01111:
@@ -121,8 +116,10 @@ module ALUControl (
             5'b10001:
                 condType = 2'b11;
             5'b10010:
-                SrcOut = 3'b110;
-                ALUOutSave = 1'b1;
+                begin
+                    SrcOut = 3'b110;
+                    ALUOutSave = 1'b1;
+                end
 
         endcase
     end

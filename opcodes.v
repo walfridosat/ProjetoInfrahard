@@ -31,7 +31,7 @@ module opcodelogic (
 );
 
     integer opint;
-    always @(*) begin
+    always @(opcode, funct) begin
         opint = opcode;
         
         if(opint == 0) // tipo R
@@ -198,6 +198,10 @@ module opcodelogic (
                         ALUSrcB = 3'd0;
                         ControlType = 5'b01010;
 
+                        for (integer i = 31; i >= 0; i = i - 1) begin
+                            @(posedge clk);
+                        end
+
                     end
 
                 6'd24:  //div
@@ -206,6 +210,9 @@ module opcodelogic (
                         ALUSrcA = 1'd1;
                         ALUSrcB = 3'd0;
                         ControlType = 5'b01001;
+                        for (integer i = 31; i >= 0; i = i - 1) begin
+                            @(posedge clk);
+                        end
 
                     end
 
@@ -307,6 +314,9 @@ module opcodelogic (
                         ALUSrcA = 1'd1;
                         ALUSrcB = 3'd2;
                         ControlType = 5'd9;
+                        for (integer i = 31; i >= 0; i = i - 1) begin
+                            @(posedge clk);
+                        end
 
                     end
                 6'd8: //addi
