@@ -52,8 +52,6 @@ module opcodelogic (
         else
             begin
                 opint = opcode;
-
-
                 
                 if(opint == 0) // tipo R
                 begin 
@@ -70,6 +68,7 @@ module opcodelogic (
                                 MemToReg = 3'b000;
                                 RegDest = 2'b01;
                                 RegWrite = 1'b1;
+                                i = 0;
                             end
                         6'd7: //SRAV 
                             begin
@@ -83,6 +82,7 @@ module opcodelogic (
                                 MemToReg = 3'b000;
                                 RegDest = 2'b01;
                                 RegWrite = 1'b1;
+                                i = 0;
                             end
                         6'd3: //SRA
                             begin
@@ -96,6 +96,7 @@ module opcodelogic (
                                 MemToReg = 3'b000;
                                 RegDest = 2'b01;
                                 RegWrite = 1'b1;
+                                i = 0;
                             end
                         6'd2: //SRL
                             begin
@@ -109,6 +110,7 @@ module opcodelogic (
                                 MemToReg = 3'b000;
                                 RegDest = 2'b01;
                                 RegWrite = 1'b1;
+                                i = 0;
                             end
                         6'd0: //SLL
                             begin
@@ -122,6 +124,7 @@ module opcodelogic (
                                 MemToReg = 3'b000;
                                 RegDest = 2'b01;
                                 RegWrite = 1'b1;
+                                i = 0;
                             end
                         
                         6'd19:  // rte
@@ -129,6 +132,7 @@ module opcodelogic (
 
                                 PCSource = 3'd4;
                                 PCWrite = 1'd1; 
+                                i = 0;
 
                             end
 
@@ -142,6 +146,7 @@ module opcodelogic (
                                 @(posedge clk);
                                 PCSource = 3'd1;
                                 PCWrite = 1'd1;
+                                i = 0;
                             
                             end
 
@@ -157,6 +162,7 @@ module opcodelogic (
                                 MemToReg = 2'd0;
                                 RegDest = 3'd1;
                                 RegWrite = 1'd1;
+                                i = 0;
 
                             end
 
@@ -170,6 +176,7 @@ module opcodelogic (
                                 MemToReg = 2'd0;
                                 RegDest = 3'd1;
                                 RegWrite = 1'd1;
+                                i = 0;
 
                             end
 
@@ -183,6 +190,7 @@ module opcodelogic (
                                 MemToReg = 2'd0;
                                 RegDest = 3'd1;
                                 RegWrite = 1'd1;
+                                i = 0;
 
                             end
 
@@ -196,6 +204,7 @@ module opcodelogic (
                                 MemToReg = 2'd0;
                                 RegDest = 3'd1;
                                 RegWrite = 1'd1;
+                                i = 0;
 
                             end
                         
@@ -209,6 +218,7 @@ module opcodelogic (
                                 MemToReg = 2'd0;
                                 RegDest = 3'd1;
                                 RegWrite = 1'd1;
+                                i = 0;
 
                             end
 
@@ -222,6 +232,7 @@ module opcodelogic (
                                 for (i = 31; i >= 0; i = i - 1) begin
                                     @(posedge clk);
                                 end
+                                i = 0;
 
                             end
 
@@ -234,6 +245,7 @@ module opcodelogic (
                                 for (i = 31; i >= 0; i = i - 1) begin
                                     @(posedge clk);
                                 end
+                                i = 0;
 
                             end
 
@@ -248,6 +260,7 @@ module opcodelogic (
                                 PCWriteCond = 1'd1;
                                 PCWrite = 1'd1;
                                 PCWriteCond = 1'd0;
+                                i = 0;
                             
                             end
                         
@@ -258,6 +271,7 @@ module opcodelogic (
                                 MemToReg = 3'b000;
                                 RegDest = 2'b01;
                                 RegWrite = 1'b1;
+                                i = 0;
                             end
                         6'd18: //mflo
                             begin
@@ -266,6 +280,7 @@ module opcodelogic (
                                 MemToReg = 3'b000;
                                 RegDest = 2'b01;
                                 RegWrite = 1'b1;
+                                i = 0;
                             end
                         6'd5: //xchg
                             begin
@@ -288,6 +303,7 @@ module opcodelogic (
                                 SrcAddr = 4'b0100;
                                 WR = 1'b1;
                                 SaveTemp = 1'b0;
+                                i = 0;
                             end
 
                     endcase
@@ -305,6 +321,7 @@ module opcodelogic (
 
                                 PCSource = 3'd0;
                                 PCWrite = 1'd1;
+                                i = 0;
 
                             end
 
@@ -316,6 +333,7 @@ module opcodelogic (
                                 RegDest = 3'd2;
                                 MemToReg = 3'd4;
                                 WR = 1'd1;
+                                i = 0;
 
                             end
 
@@ -338,6 +356,7 @@ module opcodelogic (
                                 for (i = 31; i >= 0; i = i - 1) begin
                                     @(posedge clk);
                                 end
+                                i = 0;
 
                             end
                         6'd8: //addi
@@ -349,7 +368,8 @@ module opcodelogic (
                                 @(posedge clk);
                                 MemToReg = 3'd0;
                                 RegDest = 3'd0;
-                                RegWrite = 1;
+                                RegWrite = 1'b1;
+                                i = 0;
 
                             end
                         6'd9: //addiu
@@ -361,7 +381,8 @@ module opcodelogic (
                                 @(posedge clk);
                                 MemToReg = 3'd0;
                                 RegDest = 3'd0;
-                                RegWrite = 1;
+                                RegWrite = 1'b1;
+                                i = 0;
 
                             end
                         6'd9: // slti
@@ -373,7 +394,8 @@ module opcodelogic (
                                 @(posedge clk);
                                 MemToReg = 3'd0;
                                 RegDest = 3'd0;
-                                RegWrite = 1;
+                                RegWrite = 1'b1;
+                                i = 0;
 
                             end
                         6'd15: //lui
@@ -388,7 +410,8 @@ module opcodelogic (
                                 ControlType = 5'b10010;
                                 MemToReg = 3'd0;
                                 RegDest = 3'd0;
-                                RegWrite = 1;
+                                RegWrite = 1'b1;
+                                i = 0;
 
                             end
                         6'd4: //beq
@@ -403,6 +426,7 @@ module opcodelogic (
                                 ControlType = 5'b01111;
                                 PCSource = 3'b010;
                                 PCWriteCond = 1'b1;
+                                i = 0;
                                 
                             end
                         6'd5: //bne
@@ -417,6 +441,7 @@ module opcodelogic (
                                 ControlType = 5'b01110;
                                 PCSource = 3'b010;
                                 PCWriteCond = 1'b1;
+                                i = 0;
 
                             end
                         6'd6: //ble
@@ -431,6 +456,7 @@ module opcodelogic (
                                 ControlType = 5'b10000;
                                 PCSource = 3'b010;
                                 PCWriteCond = 1'b1;
+                                i = 0;
 
                             end
                         6'd7: //bgt
@@ -445,6 +471,7 @@ module opcodelogic (
                                 ControlType = 5'b10001;
                                 PCSource = 3'b010;
                                 PCWriteCond = 1'b1;
+                                i = 0;
 
                             end
                         6'd34: //sw
@@ -459,6 +486,7 @@ module opcodelogic (
                                 SizeHandler = 3'b000;
                                 DataSource = 1'b1;
                                 WR = 1'b1;
+                                i = 0;
 
                             end
                         6'd41: //sh
@@ -476,6 +504,7 @@ module opcodelogic (
                                 SizeHandler = 3'b011;
                                 DataSource = 1'b1;
                                 WR = 1'b1;
+                                i = 0;
 
                             end
                         6'd40: //sb
@@ -493,6 +522,7 @@ module opcodelogic (
                                 SizeHandler = 3'b101;
                                 DataSource = 1'b1;
                                 WR = 1'b1;
+                                i = 0;
 
                             end
                         6'd35: //lw
@@ -511,6 +541,7 @@ module opcodelogic (
                                 MemToReg = 3'b001;
                                 RegDest = 1'b0;
                                 RegWrite = 1'b1;
+                                i = 0;
 
                             end
                         6'd33: //lh
@@ -529,7 +560,7 @@ module opcodelogic (
                                 MemToReg = 3'b001;
                                 RegDest = 1'b0;
                                 RegWrite = 1'b1;
-
+                                i = 0;
                             end
                         6'd32: //lb
                             begin
@@ -547,7 +578,7 @@ module opcodelogic (
                                 MemToReg = 3'b001;
                                 RegDest = 1'b0;
                                 RegWrite = 1'b1;
-
+                                i = 0;
                             end
 
                     endcase
