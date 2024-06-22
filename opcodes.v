@@ -16,7 +16,7 @@ module opcodelogic (
     output reg [2:0] MemToReg,
     output reg [2:0] SizeHandler,
     output reg [0:0] IRWrite,
-    output reg [0:0] ExceptionAdress,
+    output reg [31:0] ExceptionAdress,
     output reg [0:0] DataSource,
     output reg [0:0] EPCWrite,
     output reg [1:0] RegDest,

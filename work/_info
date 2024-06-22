@@ -9,957 +9,957 @@ z2
 cModel Technology
 dC:/intelFPGA/18.1
 vALUControl
-Z0 !s110 1718942374
+Z0 !s110 1719015300
 !i10b 1
 !s100 ^bk<D:bJfR<DSgb2H6f7d3
 IRizTc?Lj_3;11G>[l0`bQ1
 Z1 VDg1SIo80bB@j0V0VzS_@n1
 Z2 dC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard
-Z3 w1718413113
+w1719014835
 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/ALUControl.v
 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/ALUControl.v
 L0 1
-Z4 OV;L;10.5b;63
+Z3 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z5 !s108 1718942374.000000
+Z4 !s108 1719015300.000000
 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/ALUControl.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/ALUControl.v|
 !i113 1
-Z6 o-work work
-Z7 tCvgOpt 0
+Z5 o-work work
+Z6 tCvgOpt 0
 n@a@l@u@control
 valuSrcAMUX
-Z8 !s110 1718942375
+R0
 !i10b 1
-!s100 HhVM_W>[GkU]4P6U[PE_M2
-IYmmQ_Lm?0kJFin[>E@HGo3
+!s100 P8C>fdT3JjT@P67OeT@f[3
+I9Q7B<ngfeQ`zf7En6dKcO0
 R1
 R2
-R3
+w1719006596
 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_alusrca.v
 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_alusrca.v
 L0 1
-R4
+R3
 r1
 !s85 0
 31
-Z9 !s108 1718942375.000000
+R4
 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_alusrca.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_alusrca.v|
 !i113 1
+R5
 R6
-R7
 nalu@src@a@m@u@x
 valuSrcBMUX
-R8
+R0
 !i10b 1
-!s100 ]diF<=QIb7_O8l^k^GMJ]2
-IkWHc0P=jHNAkJSN`YkHRf3
+!s100 3bgoWm:KeiWSaHISS>D:K3
+Ib_TaRA??Sa1DDK03]J2Y21
 R1
 R2
-R3
+w1719006716
 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_alusrcb.v
 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_alusrcb.v
 L0 1
-R4
+R3
 r1
 !s85 0
 31
-R9
+R4
 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_alusrcb.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_alusrcb.v|
 !i113 1
+R5
 R6
-R7
 nalu@src@b@m@u@x
 Ebanco_reg
-Z10 w1718942261
-Z11 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z12 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z7 w1718942261
+Z8 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z9 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
 R2
-Z13 8C:\Users\samue\Desktop\teste_infrahard\ProjetoInfrahard\Componentes\Banco_reg.vhd
-Z14 FC:\Users\samue\Desktop\teste_infrahard\ProjetoInfrahard\Componentes\Banco_reg.vhd
+Z10 8C:\Users\samue\Desktop\teste_infrahard\ProjetoInfrahard\Componentes\Banco_reg.vhd
+Z11 FC:\Users\samue\Desktop\teste_infrahard\ProjetoInfrahard\Componentes\Banco_reg.vhd
 l0
 L53
 V=dGkdO=J^HI2d?cULSzXd3
 !s100 h5`:HK2<JNo>eVVLEWM;92
-Z15 OV;C;10.5b;63
+Z12 OV;C;10.5b;63
 32
-Z16 !s110 1718942610
+Z13 !s110 1718942610
 !i10b 1
-Z17 !s108 1718942610.000000
-Z18 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:\Users\samue\Desktop\teste_infrahard\ProjetoInfrahard\Componentes\Banco_reg.vhd|
-Z19 !s107 C:\Users\samue\Desktop\teste_infrahard\ProjetoInfrahard\Componentes\Banco_reg.vhd|
+Z14 !s108 1718942610.000000
+Z15 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:\Users\samue\Desktop\teste_infrahard\ProjetoInfrahard\Componentes\Banco_reg.vhd|
+Z16 !s107 C:\Users\samue\Desktop\teste_infrahard\ProjetoInfrahard\Componentes\Banco_reg.vhd|
 !i113 1
-Z20 o-work work -2002 -explicit
-Z21 tExplicit 1 CvgOpt 0
+Z17 o-work work -2002 -explicit
+Z18 tExplicit 1 CvgOpt 0
 Abehavioral_arch
-R11
-R12
+R8
+R9
 DEx4 work 9 banco_reg 0 22 =dGkdO=J^HI2d?cULSzXd3
 l103
 L69
 V@]09aLOZAL8SYlF=:W?Oj2
 !s100 <dz4]hMhHmWIDQo5`d3ZL1
-R15
+R12
 32
-R16
+R13
 !i10b 1
+R14
+R15
+R16
+!i113 1
 R17
 R18
-R19
-!i113 1
-R20
-R21
 vconditionHandlerMUX
-R8
+!s110 1719019166
 !i10b 1
-!s100 bEL][o;;G[5JLE2ek7UO10
-IF7d4ELF^QJbN[>R9338_a0
+!s100 `S]RO@5fZ5X>Qz5P2GefQ1
+IiVCP8jU`deoAB6fnOAf^S0
 R1
 R2
-R3
+w1719016467
 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_condition_handler.v
 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_condition_handler.v
 L0 1
-R4
+R3
 r1
 !s85 0
 31
-R9
+!s108 1719019166.000000
 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_condition_handler.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_condition_handler.v|
 !i113 1
+R5
 R6
-R7
 ncondition@handler@m@u@x
 vCPU
-!s110 1718981536
+!s110 1719019156
 !i10b 1
-!s100 YZA?^zKEc6eE@KXdX86`60
-I@Y9=a=G58O_FUfjoM8;>I3
+!s100 ofBd>k=zma@Q@C7UZ`dcF3
+I?ncKUh^;0ZhE`H@JWCMlG3
 R1
 R2
-w1718981456
+w1719019145
 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/CPU.v
 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/CPU.v
 L0 2
-R4
+R3
 r1
 !s85 0
 31
-!s108 1718981536.000000
+!s108 1719019156.000000
 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/CPU.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/CPU.v|
 !i113 1
+R5
 R6
-R7
 n@c@p@u
 vdivisor
-Z22 !s110 1718942439
+!s110 1719019161
 !i10b 1
-!s100 ?1mif=LTl]VHIINFeDTAg1
-Iin1O71i;34joDcE7m<c@m1
+!s100 khb0ZMd:LVdBQM4>I4I8g1
+IkfQnNnT@DBOK:nRWROgHC3
 R1
 R2
-Z23 w1718942435
-Z24 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_divisor.v
-Z25 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_divisor.v
+w1719019121
+8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/divisor.v
+FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/divisor.v
 L0 1
-R4
+R3
 r1
 !s85 0
 31
-Z26 !s108 1718942439.000000
-Z27 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_divisor.v|
-Z28 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_divisor.v|
+!s108 1719019161.000000
+!s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/divisor.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/divisor.v|
 !i113 1
+R5
 R6
-R7
 vhi
-R8
+Z19 !s110 1718942375
 !i10b 1
 !s100 RDjCYdbY==;3iA@24NL0X3
 IdlKR>5[5lZJXTV7TA<ASD0
 R1
 R2
-R3
+Z20 w1718413113
 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/hi.v
 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/hi.v
 L0 1
-R4
+R3
 r1
 !s85 0
 31
-R9
+Z21 !s108 1718942375.000000
 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/hi.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/hi.v|
 !i113 1
+R5
 R6
-R7
 Einstr_reg
-Z29 w1717384956
-R11
-R12
+Z22 w1717384956
+R8
+R9
 R2
-Z30 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/Instr_Reg.vhd
-Z31 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/Instr_Reg.vhd
+Z23 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/Instr_Reg.vhd
+Z24 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/Instr_Reg.vhd
 l0
 L42
 VAfV1kYS402dnLRiFO;Z7_2
 !s100 _X]FAEHlMn?]L[?c6kUO?1
-R15
-32
-R16
-!i10b 1
-R17
-Z32 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/Instr_Reg.vhd|
-Z33 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/Instr_Reg.vhd|
-!i113 1
-R20
-R21
-Abehavioral_arch
-R11
 R12
+32
+R13
+!i10b 1
+R14
+Z25 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/Instr_Reg.vhd|
+Z26 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/Instr_Reg.vhd|
+!i113 1
+R17
+R18
+Abehavioral_arch
+R8
+R9
 DEx4 work 9 instr_reg 0 22 AfV1kYS402dnLRiFO;Z7_2
 l59
 L56
 VTD836jU:>9m^d?0ed1C0O3
 !s100 _AcjR?n;fJneQZzaIjJFa3
-R15
+R12
 32
-R16
+R13
 !i10b 1
-R17
-R32
-R33
+R14
+R25
+R26
 !i113 1
-R20
-R21
+R17
+R18
 vlo
-R8
+R19
 !i10b 1
 !s100 TchRTf5`I5fC:1QcSgA>i1
 IWPA96SJd:FdO2NWCe78IR0
 R1
 R2
-R3
+R20
 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/lo.v
 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/lo.v
 L0 1
-R4
+R3
 r1
 !s85 0
 31
-R9
+R21
 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/lo.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/lo.v|
 !i113 1
+R5
 R6
-R7
 Ememoria
-R29
-Z34 DPx4 work 13 ram_constants 0 22 fM5VG7Uh1aeMYE9LkAJ3B1
-Z35 DPx3 lpm 14 lpm_components 0 22 BZZBj]8LhndN7CkCjD@L`2
-Z36 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
-R11
-R12
+R22
+Z27 DPx4 work 13 ram_constants 0 22 fM5VG7Uh1aeMYE9LkAJ3B1
+Z28 DPx3 lpm 14 lpm_components 0 22 BZZBj]8LhndN7CkCjD@L`2
+Z29 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+R8
+R9
 R2
-Z37 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/Memoria.vhd
-Z38 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/Memoria.vhd
+Z30 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/Memoria.vhd
+Z31 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/Memoria.vhd
 l0
 L78
 VmkofzOhH?Zn05DR;dY2OP0
 !s100 gT17f6X9FdmoGl_MYE;1W0
-R15
-32
-R16
-!i10b 1
-R17
-Z39 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/Memoria.vhd|
-Z40 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/Memoria.vhd|
-!i113 1
-R20
-R21
-Abehavioral_arch
-R34
-R35
-R36
-R11
 R12
+32
+R13
+!i10b 1
+R14
+Z32 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/Memoria.vhd|
+Z33 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/Memoria.vhd|
+!i113 1
+R17
+R18
+Abehavioral_arch
+R27
+R28
+R29
+R8
+R9
 DEx4 work 7 memoria 0 22 mkofzOhH?Zn05DR;dY2OP0
 l122
 L90
 VN2]@ZD`;iA[GGoMB>`Vln1
 !s100 33@Cb8V_dh1DC=G=4KkG53
-R15
+R12
 32
-R16
+R13
 !i10b 1
-R17
-R39
-R40
+R14
+R32
+R33
 !i113 1
-R20
-R21
+R17
+R18
 vmemToRegMUX
-Z41 !s110 1718942376
+!s110 1719002105
 !i10b 1
-!s100 RWbhAbnk_`BUOKaImmoeA1
-IkA4YnP=:c8n_A^`hgNd=_2
+!s100 Q_2nN_Q^al38gjcegi`V[1
+ITRK?Y?fC;U:XgOH8TcKg;1
 R1
 R2
-R3
+w1719002090
 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_memtoreg.v
 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_memtoreg.v
 L0 2
-R4
+R3
 r1
 !s85 0
 31
-Z42 !s108 1718942376.000000
+!s108 1719002105.000000
 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_memtoreg.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_memtoreg.v|
 !i113 1
+R5
 R6
-R7
 nmem@to@reg@m@u@x
 vmultiplicador
-!s110 1718942398
+R0
 !i10b 1
-!s100 7RWcD6LF4<UMJUfYW<C9O0
-IW[eC<h9mcgQF=j2GiDWaa0
+!s100 I@Fk>RzX_<TAFFifTmIho2
+I17Ck=mJf2iGM3DO4^E]g63
 R1
 R2
-w1718942394
+w1719014332
 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/multiplicador.v
 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/multiplicador.v
 L0 2
-R4
+R3
 r1
 !s85 0
 31
-!s108 1718942398.000000
+R4
 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/multiplicador.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/multiplicador.v|
 !i113 1
+R5
 R6
-R7
 vMUX
-R8
+R19
 !i10b 1
 !s100 RYg=0Uabmk5VoNL45B`J73
 I`QdNB]7d@T6_0VMNkDXF_0
 R1
 R2
-R3
+R20
 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/modelo_mux.v
 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/modelo_mux.v
 L0 2
-R4
+R3
 r1
 !s85 0
 31
-R9
+R21
 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/modelo_mux.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/modelo_mux.v|
 !i113 1
+R5
 R6
-R7
 n@m@u@x
 vMUXDataSrc
-R8
+Z34 !s110 1719001246
 !i10b 1
 !s100 OL6Ic_71b?LfRCB8dYBGK3
 Ic=78e^db3QLFP5FooC5BP3
 R1
 R2
-R3
+w1718978447
 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_datasrc.v
 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_datasrc.v
 L0 2
-R4
+R3
 r1
 !s85 0
 31
-R9
+Z35 !s108 1719001246.000000
 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_datasrc.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_datasrc.v|
 !i113 1
+R5
 R6
-R7
 n@m@u@x@data@src
 vMUXIorD
-R8
+R34
 !i10b 1
 !s100 mkfMJ8lXBS:Sf:HGE?jDG3
 ImfeCIzSF_aVlTmEbcHGHY1
 R1
 R2
-R3
+w1718978208
 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_IorD.v
 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_IorD.v
 L0 2
-R4
+R3
 r1
 !s85 0
 31
-R9
+R35
 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_IorD.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_IorD.v|
 !i113 1
+R5
 R6
-R7
 n@m@u@x@ior@d
 vopcodelogic
-R41
+Z36 !s110 1719015309
 !i10b 1
-!s100 P[ObQV@X;d@8IUKM46R5H1
-Ia1KDol@X>1z7OfTk:c2LV0
+!s100 HJOY]`<<`3cT9=a?nRWMj2
+IS8[[XJZSnGa^>ZRHBA6E`3
 R1
 R2
-w1718941160
+w1719005810
 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/opcodes.v
 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/opcodes.v
 L0 1
-R4
+R3
 r1
 !s85 0
 31
-R42
+Z37 !s108 1719015309.000000
 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/opcodes.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/opcodes.v|
 !i113 1
+R5
 R6
-R7
 vOr
-!s110 1718966515
+R36
 !i10b 1
-!s100 j9PIA6Ljf9Rfi[LSD=U3`2
-I=4al>Ii9Lz`QV_;c81Y<?1
+!s100 S<BC1][S5cHNZCdm>VhIc2
+I>OkbNN=?719FeKR4iE4B`3
 R1
 R2
-w1718966430
+w1719014821
 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/or.v
 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/or.v
 L0 1
-R4
+R3
 r1
 !s85 0
 31
-!s108 1718966515.000000
+R37
 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/or.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/or.v|
 !i113 1
+R5
 R6
-R7
 n@or
 vpcSourceMUX
-R41
+!s110 1719001237
 !i10b 1
 !s100 VIVe:>j]Zi5NPdV<<?B8F0
 I6^TaoT68^VdNg?X6zYkZ^3
 R1
 R2
-R3
+w1718978662
 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_pcsource.v
 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_pcsource.v
 L0 1
-R4
+R3
 r1
 !s85 0
 31
-R42
+!s108 1719001237.000000
 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_pcsource.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_pcsource.v|
 !i113 1
+R5
 R6
-R7
 npc@source@m@u@x
 Pram_constants
-R29
+R22
 R2
-R37
-R38
+R30
+R31
 l0
 L58
 VfM5VG7Uh1aeMYE9LkAJ3B1
 !s100 EZlbReQ5cH1;cnZ4g48d:0
-R15
-32
-R16
-!i10b 1
-R17
-R39
-R40
-!i113 1
-R20
-R21
-Eregdesloc
-R29
-R36
-R11
 R12
+32
+R13
+!i10b 1
+R14
+R32
+R33
+!i113 1
+R17
+R18
+Eregdesloc
+R22
+R29
+R8
+R9
 R2
-Z43 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/RegDesloc.vhd
-Z44 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/RegDesloc.vhd
+Z38 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/RegDesloc.vhd
+Z39 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/RegDesloc.vhd
 l0
 L89
 Vn^6CTT0G6[TK<hMLAOdVE0
 !s100 h6S4QO2lP<LeKEbf`2MFI0
-R15
-32
-R16
-!i10b 1
-R17
-Z45 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/RegDesloc.vhd|
-Z46 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/RegDesloc.vhd|
-!i113 1
-R20
-R21
-Abehavioral_arch
-R36
-R11
 R12
+32
+R13
+!i10b 1
+R14
+Z40 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/RegDesloc.vhd|
+Z41 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/RegDesloc.vhd|
+!i113 1
+R17
+R18
+Abehavioral_arch
+R29
+R8
+R9
 DEx4 work 9 regdesloc 0 22 n^6CTT0G6[TK<hMLAOdVE0
 l107
 L102
 VEPn;3Dggf]^J6z<;P^o712
 !s100 8QCFN_T9_07koG]I6XRQS3
-R15
+R12
 32
-R16
+R13
 !i10b 1
-R17
-R45
-R46
-!i113 1
-R20
-R21
-vregDestMUX
+R14
+R40
 R41
+!i113 1
+R17
+R18
+vregDestMUX
+!s110 1719001230
 !i10b 1
-!s100 L>V3IPJWV`h1OJM>D55NF3
-I=g6IWFFdRj:OOCDObAWcc1
+!s100 5Qk=;=oEl6VB3m7N09@3`2
+I:d?H;Mda_4Zc^2gAWkf2h2
 R1
 R2
-R3
+w1719001213
 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_regdest.v
 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_regdest.v
 L0 2
-R4
+R3
 r1
 !s85 0
 31
-R42
+!s108 1719001230.000000
 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_regdest.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_regdest.v|
 !i113 1
+R5
 R6
-R7
 nreg@dest@m@u@x
 Eregistrador
-R29
-R11
-R12
+R22
+R8
+R9
 R2
-Z47 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/Registrador.vhd
-Z48 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/Registrador.vhd
+Z42 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/Registrador.vhd
+Z43 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/Registrador.vhd
 l0
 L53
 VD=`aG^VOPEDP69ifb8G;52
 !s100 ^e8=Z<CbNTLXR@XGZJMQo3
-R15
-32
-R16
-!i10b 1
-R17
-Z49 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/Registrador.vhd|
-Z50 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/Registrador.vhd|
-!i113 1
-R20
-R21
-Abehavioral_arch
-R11
 R12
+32
+R13
+!i10b 1
+R14
+Z44 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/Registrador.vhd|
+Z45 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/Registrador.vhd|
+!i113 1
+R17
+R18
+Abehavioral_arch
+R8
+R9
 DEx4 work 11 registrador 0 22 D=`aG^VOPEDP69ifb8G;52
 l66
 L65
 V<kVfXRZJUh40ja<<lN_3:3
 !s100 EXKKzlBL1ARAk5TCN4`Vg2
-R15
+R12
 32
-R16
+R13
 !i10b 1
-R17
-R49
-R50
+R14
+R44
+R45
 !i113 1
-R20
-R21
+R17
+R18
 vShiftLeftTwoJump
-Z51 !s110 1718942377
+Z46 !s110 1718942377
 !i10b 1
 !s100 0dUhIhzTii;?G27AWKAVX1
 I_`E?GGA5C[4e8QYEn<Io@2
 R1
 R2
-R3
-Z52 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_shiftleft2jump.v
-Z53 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_shiftleft2jump.v
+R20
+Z47 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_shiftleft2jump.v
+Z48 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_shiftleft2jump.v
 L0 1
-R4
+R3
 r1
 !s85 0
 31
-Z54 !s108 1718942377.000000
-Z55 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_shiftleft2jump.v|
-Z56 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_shiftleft2jump.v|
+Z49 !s108 1718942377.000000
+Z50 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_shiftleft2jump.v|
+Z51 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_shiftleft2jump.v|
 !i113 1
+R5
 R6
-R7
 n@shift@left@two@jump
 vShiftLeftTwoSign
-R51
+R46
 !i10b 1
 !s100 YLC3Q>1nYgn?CmzWR4l712
 ID8NOEIL1=SIFDG]WbXJ?B2
 R1
 R2
-R3
+R20
 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/shift_left_2_sign_extended.v
 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/shift_left_2_sign_extended.v
 L0 1
-R4
+R3
 r1
 !s85 0
 31
-R42
+!s108 1718942376.000000
 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/shift_left_2_sign_extended.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/shift_left_2_sign_extended.v|
 !i113 1
+R5
 R6
-R7
 n@shift@left@two@sign
 vsign_extender16_32
-R51
+R46
 !i10b 1
 !s100 [T:KFj0_Qb0Z_fX=OL2n02
 IXn^9<EO0OVb]JfldH=B?<3
 R1
 R2
-R3
+R20
 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/sign_extender16_32.v
 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/sign_extender16_32.v
 L0 1
-R4
+R3
 r1
 !s85 0
 31
-R54
+R49
 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/sign_extender16_32.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/sign_extender16_32.v|
 !i113 1
+R5
 R6
-R7
 vsign_extender1_32
-R51
+R46
 !i10b 1
 !s100 Zkk]zNim_o84ZNU09`VJb0
 I@fjQcZKE7WFD?_CMWQoH50
 R1
 R2
-R3
+R20
 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/sign_extender1_32.v
 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/sign_extender1_32.v
 L0 1
-R4
+R3
 r1
 !s85 0
 31
-R54
+R49
 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/sign_extender1_32.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/sign_extender1_32.v|
 !i113 1
+R5
 R6
-R7
 vsizehandlerMUX
-R51
+R46
 !i10b 1
 !s100 C5ocC^DV3Y;3n^BU7e_:82
 IlBlWlZTOHlHljbS20TGG<3
 R1
 R2
-R3
+R20
 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/sizehandler.v
 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/sizehandler.v
 L0 1
-R4
+R3
 r1
 !s85 0
 31
-R54
+R49
 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/sizehandler.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/sizehandler.v|
 !i113 1
+R5
 R6
-R7
 nsizehandler@m@u@x
 vsllsrcAMUX
-R41
+R36
 !i10b 1
-!s100 50XN7eYi5G45G^L;V47MZ3
-I3mPo0?_WlnU7:1VNh7zEk1
+!s100 64l:Z`CR330nH8f<P23_j3
+I_l5Oe]^<;nm:fn6;G7YQT2
 R1
 R2
-R3
+w1719007953
 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_sllsrca.v
 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_sllsrca.v
 L0 1
-R4
+R3
 r1
 !s85 0
 31
-R42
+R37
 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_sllsrca.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_sllsrca.v|
 !i113 1
+R5
 R6
-R7
 nsllsrc@a@m@u@x
 vsllsrcBMUX
-R41
+R36
 !i10b 1
-!s100 g7176HLD692I_UTJm6j2Y0
-IK5YIEjgBj;0AGnQbba=^90
+!s100 LV0alJRR@iML:aT`6YMP22
+IVz[bIj4WZ^Uh2[]z<V6gH2
 R1
 R2
-R3
+w1719009412
 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_sllsrcb.v
 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_sllsrcb.v
 L0 1
-R4
+R3
 r1
 !s85 0
 31
-R42
+R37
 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_sllsrcb.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_sllsrcb.v|
 !i113 1
+R5
 R6
-R7
 nsllsrc@b@m@u@x
 vSrcAddrMUX
-R41
+!s110 1719001233
 !i10b 1
 !s100 `1d[0^D;1YKCB3@<o`g<72
 IFTZ]@ZL1>>OB]Lgm1TGec3
 R1
 R2
-R3
+w1718978098
 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_srcaddr.v
 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_srcaddr.v
 L0 2
-R4
+R3
 r1
 !s85 0
 31
-R42
+!s108 1719001233.000000
 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_srcaddr.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_srcaddr.v|
 !i113 1
+R5
 R6
-R7
 n@src@addr@m@u@x
 vSrcOutMUX
-R41
+!s110 1719001221
 !i10b 1
 !s100 cbWPo1QN0]zTJe^?G?Q=_1
 I<:4WVU4MU5W=bX[D:CS;R2
 R1
 R2
-R3
+w1718980694
 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_srcout.v
 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_srcout.v
 L0 1
-R4
+R3
 r1
 !s85 0
 31
-R42
+!s108 1719001221.000000
 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_srcout.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_srcout.v|
 !i113 1
+R5
 R6
-R7
 n@src@out@m@u@x
 vtb_booth_multiplier
-R51
+R46
 !i10b 1
 !s100 >ghe;Lk5l0?Q=91Z7^GHL1
 I>f<ICE`]R_OOQPNVUGiAL2
 R1
 R2
-R29
+R22
 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_multilpicador.v
 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_multilpicador.v
 L0 1
-R4
+R3
 r1
 !s85 0
 31
-R54
+R49
 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_multilpicador.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_multilpicador.v|
 !i113 1
+R5
 R6
-R7
 vtb_sign_extender16_32
-Z57 !s110 1718942564
+Z52 !s110 1718942564
 !i10b 1
 !s100 VQLWZaMM7Z[4jj8KEoB1;2
 I381J>6VS`YK2zZfHCzASf0
 R1
 R2
-Z58 w1718942547
-Z59 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_sign_extender.v
-Z60 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_sign_extender.v
+Z53 w1718942547
+Z54 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_sign_extender.v
+Z55 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_sign_extender.v
 L0 1
-R4
+R3
 r1
 !s85 0
 31
-Z61 !s108 1718942564.000000
-Z62 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_sign_extender.v|
-Z63 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_sign_extender.v|
+Z56 !s108 1718942564.000000
+Z57 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_sign_extender.v|
+Z58 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_sign_extender.v|
 !i113 1
+R5
 R6
-R7
 vtb_sign_extender1_32
-R57
+R52
 !i10b 1
 !s100 N<f?>d^OPmS^no3lBC0h50
 Iji=XiE`l4f[3HQL9jaURh0
 R1
 R2
-R58
-R59
-R60
+R53
+R54
+R55
 L0 21
-R4
+R3
 r1
 !s85 0
 31
-R61
-R62
-R63
+R56
+R57
+R58
 !i113 1
+R5
 R6
-R7
 vtestbench_divisor
-R22
+!s110 1718942439
 !i10b 1
 !s100 1A<XVW7m;XSK7IlQeb2I:1
 IWo3=OS3BD[hHXhiKaWC9Q0
 R1
 R2
-R23
-R24
-R25
+w1718942435
+8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_divisor.v
+FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_divisor.v
 L0 38
-R4
+R3
 r1
 !s85 0
 31
-R26
-R27
-R28
+!s108 1718942439.000000
+!s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_divisor.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_divisor.v|
 !i113 1
+R5
 R6
-R7
 vtestbench_shiftleft2jump
-R51
+R46
 !i10b 1
 !s100 NLU:=J_ZW^[3WVCWg>1gG2
 I:C950Ff5WFWiEoNXEc`hD1
 R1
 R2
-R3
-R52
-R53
+R20
+R47
+R48
 L0 17
-R4
+R3
 r1
 !s85 0
 31
-R54
-R55
-R56
+R49
+R50
+R51
 !i113 1
+R5
 R6
-R7
 vtestbench_sizehandlerMUX
-R0
+!s110 1718942374
 !i10b 1
 !s100 ab<V413l;E;;9`2h`HH]g3
 Il6d:@PXfO`YR?goK;kEm;1
 R1
 R2
-R29
+R22
 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_sizehandler.v
 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_sizehandler.v
 L0 1
-R4
+R3
 r1
 !s85 0
 31
-R5
+!s108 1718942374.000000
 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_sizehandler.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_sizehandler.v|
 !i113 1
+R5
 R6
-R7
 ntestbench_sizehandler@m@u@x
 Eula32
+R22
 R29
-R36
-R11
-R12
+R8
+R9
 R2
-Z64 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/ula32.vhd
-Z65 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/ula32.vhd
+Z59 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/ula32.vhd
+Z60 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/ula32.vhd
 l0
 L70
 V7;A2o1dNA?ebYYPhMG1c70
 !s100 `T`IV8d5:=6dX5^lg]oam2
-R15
-32
-R16
-!i10b 1
-R17
-Z66 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/ula32.vhd|
-Z67 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/ula32.vhd|
-!i113 1
-R20
-R21
-Abehavioral
-R36
-R11
 R12
+32
+R13
+!i10b 1
+R14
+Z61 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/ula32.vhd|
+Z62 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/ula32.vhd|
+!i113 1
+R17
+R18
+Abehavioral
+R29
+R8
+R9
 DEx4 work 5 ula32 0 22 7;A2o1dNA?ebYYPhMG1c70
 l96
 L86
 VhDUi_mNh2[oS[:2HcEDN>0
 !s100 `6BCj1jhNY1a=kdKG23zo1
-R15
+R12
 32
-R16
+R13
 !i10b 1
-R17
-R66
-R67
+R14
+R61
+R62
 !i113 1
-R20
-R21
+R17
+R18
