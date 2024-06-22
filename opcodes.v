@@ -23,6 +23,7 @@ module opcodelogic (
     output reg [0:0] RegWrite,
     output reg [0:0] ALUSrcA,
     output reg [2:0] ALUSrcB,
+    output reg [0:0] AluOutLoad,
     output reg [4:0] ControlType,
     output reg [2:0] PCSource,
     output reg [1:0] SLLSourceA,

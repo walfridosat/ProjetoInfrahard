@@ -231,19 +231,26 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling entity Registrador
 -- Compiling architecture behavioral_arch of Registrador
 
-} {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_alusrcb.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_alusrcb.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module aluSrcBMUX
-
-Top level modules:
-	aluSrcBMUX
-
 } {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_pcsource.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_pcsource.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module pcSourceMUX
 
 Top level modules:
 	pcSourceMUX
+
+} {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_condition_handler.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_condition_handler.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module conditionHandlerMUX
+
+Top level modules:
+	conditionHandlerMUX
+
+} {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_alusrcb.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_alusrcb.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module aluSrcBMUX
+
+Top level modules:
+	aluSrcBMUX
 
 } {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_regdest.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_regdest.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -252,9 +259,11 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	regDestMUX
 
-} {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/CPU.v {0 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/CPU.v
+} {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/divisor.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/divisor.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module CPU
-** Error (suppressible): C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/CPU.v(117): (vlog-2388) 'overflowflag' already declared in this scope (CPU).
+-- Compiling module divisor
+
+Top level modules:
+	divisor
 
 } {} {}}

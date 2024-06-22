@@ -14,10 +14,12 @@ wire [4:0]  Instr20_16;
 wire [15:0] Instr15_0;
 wire [25:0] Instr25_0; //
 wire [4:0]  Instr15_11;//
-wire [5:0] Instr5_0;   //
+wire [5:0]  Instr5_0;   //
+wire [4:0]  Instr10_6;
 assign Instr25_0  = {Instr25_21, Instr20_16, Instr15_0};
 assign Instr15_11 = Instr15_0[15:11];
 assign Instr5_0   = Instr15_0[5:0];
+assign Instr10_6  = Instr15_0[10:6];
  
 // Banco de Reg out
 wire [31:0] ReadDataA;
@@ -26,25 +28,33 @@ wire [31:0] RegA_out;
 wire [31:0] RegB_out;
 wire [31:0] AluA;
 wire [31:0] AluB;
+wire [4:0] RegB4_0;
+assign RegB4_0 = RegB_out[4:0];
 
 // PC
 wire [31:0] PCout;
 wire [31:0] PCin;  //from toPCnxt
+wire [3:0]  PChead; 
+wire [2:0]  PCSource;
 wire PCwrite;
 wire PCwriteCond;
 wire PCload; //assign
+assign PChead = PCout[31:28];
+
 
 // Others
 wire ALWAYS1;
 wire IRWrite; //instruction register load
 wire RegWrite; //Banco Reg write
 wire MemoOut;
+wire WriteMemo;
 wire [31:0] ExceptionAdres; //From opcodes To Mux toWriteData
 wire [31:0] ExtendedIntruct;
 wire [31:0] Shifted2Intruct;
 wire [2:0]  ShiftType;
 
 // Alu Wires v
+wire [31:0] AluMuxOut;
 wire [31:0] UlaResult;
 wire [31:0] OrResult;
 wire [31:0] Desloc_out;
@@ -80,7 +90,6 @@ wire overflowAlu;
 wire overflowflag; 
 assign overflowflag = overflowAlu & overflowOp;
 wire divby0flag;
-
 // alu wires ^
 
 // RegWires
@@ -88,6 +97,9 @@ wire AluOut_out;
 wire AluOut_in;
 wire SaveTemp; //load
 wire EPCWrite;//load
+wire EPC_out;
+wire EPC_in; // !!! vem de onde?
+wire AluOutLoad;
 wire [31:0] temp_out;
 wire [31:0] MemoDataReg_out;
 
@@ -101,6 +113,7 @@ wire [31:0] mxToWriteData;
 wire [4:0]  mxToWriteRegi;
 wire [31:0] sllA_out;
 wire [5:0]  sllB_out;
+wire [31:0] jumpAdress;
 
 // Mux Selects
 wire [0:0] IorDSel;
@@ -115,18 +128,10 @@ wire [1:0] SLLSourceA;
 wire [1:0] SLLSourceB;
 
 
-// wire [2:0] SrcOut; // alu control
-wire [0:0] WR;
-wire [0:0] ResetTrigger;
-
-wire [4:0] ControlType;
-wire [2:0] PCSource;
-
-
-/// Assigns ///
 assign PCload = PCwrite | (PCwriteCond & CHOut);
-assign ALWAYS1 = 1'b1; /// !!! Cuidado !!! Alguns regs talvez realmente precisem de um Load definido
 assign HiLoLoad = divOp | multOp;
+assign ALWAYS1 = 1'b1; /// !!! Cuidado !!! Alguns regs talvez realmente precisem de um Load definido
+
 
 /////////////////////
 //// componentes ////
@@ -140,26 +145,27 @@ opcodelogic Controle (
     .divby0flag(divby0flag),
     .clk(clk),
 
-    .PCWriteCond(),
-    .PCWrite(),
+    .PCWriteCond(PCwriteCond),
+    .PCWrite(PCwrite),
     .IorD(IorDSel),
     .SrcAddr(SrcAddr),
-    .SrcOut(), // Sendo gerenciado pelo ALU out agora?
-    .WR(),
-    .ResetTrigger(),
+    .SrcOut(),          // Sendo gerenciado pelo ALU Control agora?
+    .WR(WriteMemo),
+    .ResetTrigger(),    //wire [0:0] ResetTrigger; // não necessário?
     .SaveTemp(SaveTemp),
     .MemToReg(MemToReg),
     .SizeHandler(SzHndlrSel),
     .IRWrite(IRWrite),
     .ExceptionAdress(ExceptionAdress),
-    .DataSource(),
-    .EPCWrite(),
+    .DataSource(DataSource),
+    .EPCWrite(EPCWrite),
     .RegDest(RegDest),
     .RegWrite(RegWrite),
+    .AluOutLoad(AluOutLoad),    // !!! Adicionado agora!!! Precisa colocar no Opcode
     .ALUSrcA(ALUSrcA),
     .ALUSrcB(ALUSrcB),
     .ControlType(controlType),
-    .PCSource(),
+    .PCSource(PCSource),
     .SLLSourceA(SLLSourceA),
     .SLLSourceB(SLLSourceB),
     .ShiftType(ShiftType)
@@ -168,7 +174,7 @@ opcodelogic Controle (
 
 
 // Principais
-Memoria     Memory   (.Clock(clock), .Address(Addr_Memo), .Wr(), .Datain(), .Dataout(MemoOut));
+Memoria     Memory   (.Clock(clock), .Address(Addr_Memo), .Wr(WriteMemo), .Datain(toWriteMemo_out), .Dataout(MemoOut));
 Registrador PC       (.Clock(clock), .Reset(reset), .Load(PCload), .Entrada(PCin), .Saida(PCout));
 Banco_reg   Banco_regi (.Clk(clock), .Reset(reset), .RegWrite(RegWrite), .ReadReg1(Instr25_21), .ReadReg2(Instr20_16), .WriteReg(mxToWriteRegi), .WriteData(mxToWriteData), .ReadData1(ReadDataA), .ReadData2(ReadDataB) );
 Instr_Reg   Instruc_Reg(.Clk(clock), .Reset(reset), .Load_ir(IRWrite), .Entrada(MemoOut), .Instr31_26(Instr31_26), .Instr25_21(Instr25_21), .Instr20_16(Instr20_16), .Instr15_0(Instr15_0));
@@ -185,14 +191,14 @@ Or            OrCmpnt(.A(AluA), .B(AluB), .result(OrResult));
 
 
 // Registradores
-Registrador A       (.Clock(clock), .Reset(reset), .Load(ALWAYS1),  .Entrada(ReadDataA), .Saida(RegA_out) );
-Registrador B       (.Clock(clock), .Reset(reset), .Load(ALWAYS1),  .Entrada(ReadDataB), .Saida(RegB_out) );
-Registrador Hi      (.Clock(clock), .Reset(reset), .Load(HiLoLoad), .Entrada(Hi2Reg),    .Saida(HiOut) );
-Registrador Lo      (.Clock(clock), .Reset(reset), .Load(HiLoLoad), .Entrada(Lo2Reg),    .Saida(LoOut) );
-Registrador AluOutRg(.Clock(clock), .Reset(reset), .Load(),         .Entrada(AluOut_in), .Saida(AluOut_out)); // !!! faltando o LOAD
-Registrador EPC     (.Clock(clock), .Reset(reset), .Load(EPCWrite), .Entrada(), .Saida() );
-Registrador Temp    (.Clock(clock), .Reset(reset), .Load(SaveTemp), .Entrada(SizeHandler_out), .Saida(temp_out) ); //relacionado ao sizehandler
-Registrador MemoData(.Clock(clock), .Reset(reset), .Load(ALWAYS1),  .Entrada(SizeHandler_out), .Saida(MemoDataReg_out) ); //relacionado ao sizehandler
+Registrador A       (.Clock(clock), .Reset(reset), .Load(ALWAYS1),   .Entrada(ReadDataA), .Saida(RegA_out)  );
+Registrador B       (.Clock(clock), .Reset(reset), .Load(ALWAYS1),   .Entrada(ReadDataB), .Saida(RegB_out)  );
+Registrador Hi      (.Clock(clock), .Reset(reset), .Load(HiLoLoad),  .Entrada(Hi2Reg),    .Saida(HiOut)     );
+Registrador Lo      (.Clock(clock), .Reset(reset), .Load(HiLoLoad),  .Entrada(Lo2Reg),    .Saida(LoOut)     );
+Registrador AluOutRg(.Clock(clock), .Reset(reset), .Load(AluOutLoad),.Entrada(AluOut_in), .Saida(AluOut_out)); // !!! faltando o LOAD
+Registrador EPC     (.Clock(clock), .Reset(reset), .Load(EPCWrite),  .Entrada(EPC_in),    .Saida(EPC_out)   );
+Registrador Temp    (.Clock(clock), .Reset(reset), .Load(SaveTemp),  .Entrada(SizeHandler_out), .Saida(temp_out) ); //relacionado ao sizehandler
+Registrador MemoData(.Clock(clock), .Reset(reset), .Load(ALWAYS1),   .Entrada(SizeHandler_out), .Saida(MemoDataReg_out) ); //relacionado ao sizehandler
 
 
 // Mux
@@ -206,12 +212,12 @@ SrcAddrMUX     MuxAddr_Memo(.sel(SrcAddr),    .out(Addr_Memo),       .IorD_out(I
 regDestMUX     toWriteRegi (.sel(RegDest),    .out(mxToWriteRegi),   .rt(Instr20_16),     .rd(Instr15_11));
 memToRegMUX    toWriteData (.sel(MemToReg),   .out(mxToWriteData),   .AluOut(AluOut_out), .memorydataregister(MemoDataReg_out), .exceptionadress(ExceptionAdres), .pc(PCout));
 MUXDataSrc     toWriteMemo (.sel(DataSource), .out(toWriteMemo_out), .temp(temp_out),     .size_handler(SizeHandler_out));
-sizehandlerMUX SizeHandler (.sel(SzHndlrSel), .out(SizeHandler_out), .mem(MemoOut),       .B());
+sizehandlerMUX SizeHandler (.sel(SzHndlrSel), .out(SizeHandler_out), .mem(MemoOut),       .B(RegB_out));
 
-SrcOutMUX   toAluOut(.SrcOut(SrcOut));
-pcSourceMUX toPCnxt();  //Seleciona próximo endereço do PC
+SrcOutMUX   toAluOut (.SrcOut(SrcOut),  .out(AluMuxOut), .Lo(LoOut), .Hi(HiOut), .LT(LT_extended), .result(UlaResult), .orOut(orOut), .shiftOut(Desloc_out));
+pcSourceMUX toPCnxt  (.sel(PCSource),   .out(PCin),  .jumpAdress(jumpAdress), .aluOut(AluOut_out), .result(UlaResult), .memData(MemoDataReg_out), .EPCReg(EPC_out));  //Seleciona próximo endereço do PC
 sllsrcAMUX  toDeslocA(.sel(SLLSourceA), .out(sllA_out), .A(RegA_out), .B(RegB_out), .imediato(ExtendedIntruct));
-sllsrcBMUX  toDeslocB(.sel(SLLSourceB), .out(sllB_out), .B(), .Instruction());
+sllsrcBMUX  toDeslocB(.sel(SLLSourceB), .out(sllB_out), .B(RegB4_0), .Instruction(Instr10_6));
 conditionHandlerMUX ConditinHandler(.sel(condType), .out(CHOut), .NE(NE_cmp), .EQ(EQ_cmp), .LE(LE_cmp), .GT(GT_cmp));
 
 
@@ -219,5 +225,6 @@ conditionHandlerMUX ConditinHandler(.sel(condType), .out(CHOut), .NE(NE_cmp), .E
 sign_extender16_32 SignExt16_32   (.data(Instr15_0), .data_extended(ExtendedIntruct));
 sign_extender1_32  Extend_UlaLT   (.data(LT_ula),    .data_extended(LT_extended));
 ShiftLeftTwoSign ShiftFromExtender(.data(ExtendedIntruct), .out(Shifted2Intruct));
+ShiftLeftTwoJump ShiftFromJump    (.Instruction(Instr25_0), .PC(PChead), .out(jumpAdress), .y());
 
 endmodule
