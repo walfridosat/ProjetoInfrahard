@@ -53,13 +53,13 @@ R3
 R4
 nalu@src@a@m@u@x
 valuSrcBMUX
-R5
+!s110 1719096230
 !i10b 1
 !s100 3bgoWm:KeiWSaHISS>D:K3
 Ib_TaRA??Sa1DDK03]J2Y21
 R0
 R1
-w1719006716
+w1719095933
 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_alusrcb.v
 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_alusrcb.v
 L0 1
@@ -67,7 +67,7 @@ R2
 r1
 !s85 0
 31
-R6
+!s108 1719096230.000000
 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_alusrcb.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_alusrcb.v|
 !i113 1
@@ -136,13 +136,13 @@ R3
 R4
 ncondition@handler@m@u@x
 vCPU
-!s110 1719083321
+!s110 1719098755
 !i10b 1
-!s100 99?FY8oHjmZFhV4FEYcg53
-Ilb[YdEXizzao2KH9UVahW2
+!s100 GdBeOf@:3WCBjVg;XWha=2
+IIEmI12A3o^AG>iCM71:<]2
 R0
 R1
-w1719083310
+w1719098752
 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/CPU.v
 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/CPU.v
 L0 2
@@ -150,7 +150,7 @@ R2
 r1
 !s85 0
 31
-!s108 1719083321.000000
+!s108 1719098755.000000
 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/CPU.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/CPU.v|
 !i113 1
@@ -436,13 +436,13 @@ R3
 R4
 n@m@u@x@ior@d
 vopcodelogic
-!s110 1719094219
+!s110 1719098219
 !i10b 1
-!s100 QX<dlRfJ_Gb4VlkZa<_cD2
-IaC0DEOR2fGY5lJen1^>6k1
+!s100 XP1GmQCU1e9en3cC6B8Gz2
+IhX5jzAX6CC_Y`TLfD1_A82
 R0
 R1
-w1719094209
+w1719098209
 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/opcodes.v
 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/opcodes.v
 L0 1
@@ -450,7 +450,7 @@ R2
 r1
 !s85 0
 31
-!s108 1719094219.000000
+!s108 1719098219.000000
 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/opcodes.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/opcodes.v|
 !i113 1

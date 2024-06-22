@@ -144,7 +144,7 @@ opcodelogic Controle (
     .funct(Instr5_0),
     .overflowflag(overflowflag),
     .divby0flag(divby0flag),
-    .clk(clk),
+    .clk(clock),
     .reset(reset),
 
     .PCWriteCond(PCwriteCond),
@@ -162,7 +162,7 @@ opcodelogic Controle (
     .EPCWrite(EPCWrite),
     .RegDest(RegDest),
     .RegWrite(RegWrite),
-    .AluOutLoad(AluOutLoad),    // !!! Adicionado agora!!! Precisa colocar no Opcode
+    .AluOutLoad(),    // !!! Adicionado agora!!! Precisa colocar no Opcode
     .ALUSrcA(ALUSrcA),
     .ALUSrcB(ALUSrcB),
     .ControlType(controlType),
@@ -182,7 +182,7 @@ Instr_Reg   Instruc_Reg(.Clk(clock), .Reset(reset), .Load_ir(IRWrite), .Entrada(
 
 
 // Operações 
-ALUControl    AluCtrl(.controlType(controlType),  .condType(condType), .divOp(divOp), .multOp(multOp), .ALUOp(ALUOp), .orOp(orOp), .overflowOp(overflowOp), .SrcOut(SrcOut), .StoreMD(StoreMD));
+ALUControl    AluCtrl(.controlType(controlType),  .condType(condType), .divOp(divOp), .multOp(multOp), .ALUOp(ALUOp), .orOp(orOp), .overflowOp(overflowOp), .SrcOut(SrcOut), .StoreMD(StoreMD), .ALUOutSave(AluOutLoad));
 Ula32         ULA (.A(AluA), .B(AluB), .Seletor(ALUOp), .S(UlaResult), .Overflow(overflowAlu), .Negativo(), .z(), .Igual(EQ_cmp), .Maior(), .Menor(LT_ula));
 divisor       Divisor(.clk(clock), .divOp (divOp ), .dividend    (AluA), .divisor   (AluB), .div_hi (HiDiv), .div_lo (LoDiv), .divby0flag(divby0flag)); // !!! atenção com o divisor - alterações no modulo
 multiplicador Multip (.clk(clock), .multOp(multOp), .multiplicand(AluA), .multiplier(AluB), .mult_hi(HiMul), .mult_lo(LoMul)); // !!! Multiplicador alterado
@@ -215,7 +215,7 @@ memToRegMUX    toWriteData (.sel(MemToReg),   .out(mxToWriteData),   .AluOut(Alu
 MUXDataSrc     toWriteMemo (.sel(DataSource), .out(toWriteMemo_out), .temp(temp_out),     .size_handler(SizeHandler_out));
 sizehandlerMUX SizeHandler (.sel(SzHndlrSel), .out(SizeHandler_out), .mem(MemoOut),       .B(RegB_out));
 
-SrcOutMUX   toAluOut (.SrcOut(SrcOut),  .out(AluMuxOut), .Lo(LoOut), .Hi(HiOut), .LT(LT_extended), .result(UlaResult), .orOut(orOut), .shiftOut(Desloc_out));
+SrcOutMUX   toAluOut (.SrcOut(SrcOut),  .out(AluOut_in), .Lo(LoOut), .Hi(HiOut), .LT(LT_extended), .result(UlaResult), .orOut(orOut), .shiftOut(Desloc_out));
 pcSourceMUX toPCnxt  (.sel(PCSource),   .out(PCin),  .jumpAdress(jumpAdress), .aluOut(AluOut_out), .result(UlaResult), .memData(MemoDataReg_out), .EPCReg(EPC_out));  //Seleciona próximo endereço do PC
 sllsrcAMUX  toDeslocA(.sel(SLLSourceA), .out(sllA_out), .A(RegA_out), .B(RegB_out), .imediato(ExtendedIntruct));
 sllsrcBMUX  toDeslocB(.sel(SLLSourceB), .out(sllB_out), .B(RegB4_0), .Instruction(Instr10_6));
