@@ -107,125 +107,172 @@ module opcodelogic (
                     case(funct)
                         6'd4: //SLLV
                             begin
-                                SLLSourceA = 2'b00;
-                                ShiftType = 3'b001;
+                                case(i)
+                                    32'd3: begin
+                                        SLLSourceA = 2'b00;
+                                        ShiftType = 3'b001;
+                                    end
+                                    32'd4: begin
                                 @(posedge clk);
-                                SLLSourceB = 2'b00;
-                                ShiftType = 3'b010;
-                                ControlType = 5'b10010;
-                                @(posedge clk);
-                                MemToReg = 3'b000;
-                                RegDest = 2'b01;
-                                RegWrite = 1'b1;
-                                i = 0;
+                                        SLLSourceB = 2'b00;
+                                        ShiftType = 3'b010;
+                                        ControlType = 5'b10010;
+                                    end
+                                    32'd5: begin
+                                        MemToReg = 3'b000;
+                                        RegDest = 2'b01;
+                                        RegWrite = 1'b1;
+                                        i = 0;
+                                    end
+                                endcase
                             end
                         6'd7: //SRAV 
                             begin
-                                SLLSourceA = 2'b00;
-                                ShiftType = 3'b001;
-                                @(posedge clk);
-                                SLLSourceB = 2'b00;
-                                ShiftType = 3'b100;
-                                ControlType = 5'b10010;
-                                @(posedge clk);
-                                MemToReg = 3'b000;
-                                RegDest = 2'b01;
-                                RegWrite = 1'b1;
-                                i = 0;
+                                case(i)
+                                    32'd3: begin
+                                        SLLSourceA = 2'b00;
+                                        ShiftType = 3'b001;
+                                    end
+                                    32'd4: begin
+                                        SLLSourceB = 2'b00;
+                                        ShiftType = 3'b100;
+                                        ControlType = 5'b10010;
+                                    end
+                                    32'd5: begin
+                                        MemToReg = 3'b000;
+                                        RegDest = 2'b01;
+                                        RegWrite = 1'b1;
+                                        i = 0;
+                                    end
+                                endcase
                             end
                         6'd3: //SRA
                             begin
-                                SLLSourceA = 2'b10;
-                                ShiftType = 3'b001;
-                                @(posedge clk);
-                                SLLSourceB = 2'b10;
-                                ShiftType = 3'b100;
-                                ControlType = 5'b10010;
-                                @(posedge clk);
-                                MemToReg = 3'b000;
-                                RegDest = 2'b01;
-                                RegWrite = 1'b1;
-                                i = 0;
+                                case(i)
+                                    32'd3: begin
+                                        SLLSourceA = 2'b10;
+                                        ShiftType = 3'b001;
+                                    end
+                                    32'd4: begin
+                                        SLLSourceB = 2'b10;
+                                        ShiftType = 3'b100;
+                                        ControlType = 5'b10010;
+                                    end
+                                    32'd5: begin
+                                        MemToReg = 3'b000;
+                                        RegDest = 2'b01;
+                                        RegWrite = 1'b1;
+                                        i = 0;
+                                    end
+                                endcase
                             end
                         6'd2: //SRL
                             begin
-                                SLLSourceA = 2'b10;
-                                ShiftType = 3'b001;
-                                @(posedge clk);
-                                SLLSourceB = 2'b10;
-                                ShiftType = 3'b011;
-                                ControlType = 5'b10010;
-                                @(posedge clk);
-                                MemToReg = 3'b000;
-                                RegDest = 2'b01;
-                                RegWrite = 1'b1;
-                                i = 0;
+                                case(i)
+                                    32'd3: begin
+                                        SLLSourceA = 2'b10;
+                                        ShiftType = 3'b001;
+                                    end
+                                    32'd4: begin
+                                        SLLSourceB = 2'b10;
+                                        ShiftType = 3'b011;
+                                        ControlType = 5'b10010;
+                                    end
+                                    32'd5: begin
+                                        MemToReg = 3'b000;
+                                        RegDest = 2'b01;
+                                        RegWrite = 1'b1;
+                                        i = 0;
+                                    end
+                                endcase
                             end
                         6'd0: //SLL
                             begin
-                                SLLSourceA = 2'b10;
-                                ShiftType = 3'b001;
-                                @(posedge clk);
-                                SLLSourceB = 2'b10;
-                                ShiftType = 3'b010;
-                                ControlType = 5'b10010;
-                                @(posedge clk);
-                                MemToReg = 3'b000;
-                                RegDest = 2'b01;
-                                RegWrite = 1'b1;
-                                i = 0;
+                                case(i)
+                                    32'd3: begin
+                                        SLLSourceA = 2'b10;
+                                        ShiftType = 3'b001;
+                                    end
+                                    32'd4: begin
+                                        SLLSourceB = 2'b10;
+                                        ShiftType = 3'b010;
+                                        ControlType = 5'b10010;
+                                    end
+                                    32'd5: begin
+                                        MemToReg = 3'b000;
+                                        RegDest = 2'b01;
+                                        RegWrite = 1'b1;
+                                        i = 0;
+                                    end
+                                endcase
                             end
                         
                         6'd19:  // rte
                             begin 
-
-                                PCSource = 3'd4;
-                                PCWrite = 1'd1; 
-                                i = 0;
+                                case(i)
+                                    32'd3: begin
+                                        PCSource = 3'd4;
+                                        PCWrite = 1'd1; 
+                                        i = 0;
+                                    end
+                                endcase
 
                             end
 
                         6'd13:  //break
-
                             begin
+                                case(i)
+                                    32'd3: begin
 
-                                ALUSrcA = 1'd0;
-                                ALUSrcB = 3'd1;
-                                ControlType = 5'd2;
-                                @(posedge clk);
-                                PCSource = 3'd1;
-                                PCWrite = 1'd1;
-                                i = 0;
-                            
+                                        ALUSrcA = 1'd0;
+                                        ALUSrcB = 3'd1;
+                                        ControlType = 5'd2;
+                                    end
+                                    32'd4: begin
+                                        PCSource = 3'd1;
+                                        PCWrite = 1'd1;
+                                        i = 0;
+                                    end
+                                endcase
                             end
 
                         // ALUSrcA = 1 & ALUSrcB = 000
                         
                         6'd42:  //slt
                             begin 
+                                case(i)
+                                    32'd3: begin
 
-                                ALUSrcA = 1'd1;
-                                ALUSrcB = 3'd0;
-                                ControlType = 5'b00111;
-                                @(posedge clk);
-                                MemToReg = 2'd0;
-                                RegDest = 3'd1;
-                                RegWrite = 1'd1;
-                                i = 0;
+                                        ALUSrcA = 1'd1;
+                                        ALUSrcB = 3'd0;
+                                        ControlType = 5'b00111;
+                                    end
+                                    32'd4: begin
+                                        MemToReg = 2'd0;
+                                        RegDest = 3'd1;
+                                        RegWrite = 1'd1;
+                                        i = 0;
+                                    end
+                                endcase
 
                             end
 
                         6'd34:  //sub
                             begin 
+                                case(i)
+                                    32'd3: begin
 
-                                ALUSrcA = 1'd1;
-                                ALUSrcB = 3'd0;
-                                ControlType = 5'd2;
-                                @(posedge clk);
-                                MemToReg = 2'd0;
-                                RegDest = 3'd1;
-                                RegWrite = 1'd1;
-                                i = 0;
+                                        ALUSrcA = 1'd1;
+                                        ALUSrcB = 3'd0;
+                                        ControlType = 5'd2;
+                                    end
+                                    32'd4: begin
+                                        MemToReg = 2'd0;
+                                        RegDest = 3'd1;
+                                        RegWrite = 1'd1;
+                                        i = 0;
+                                    end
+                                endcase
 
                             end
 
@@ -250,114 +297,147 @@ module opcodelogic (
 
                         6'd36:  //and
                             begin 
+                                case(i)
+                                    32'd3: begin
 
-                                ALUSrcA = 1'd1;
-                                ALUSrcB = 3'd0;
-                                ControlType = 5'd3;
-                                @(posedge clk);
-                                MemToReg = 2'd0;
-                                RegDest = 3'd1;
-                                RegWrite = 1'd1;
-                                i = 0;
-
+                                        ALUSrcA = 1'd1;
+                                        ALUSrcB = 3'd0;
+                                        ControlType = 5'd3;
+                                    end
+                                    32'd5: begin
+                                        MemToReg = 2'd0;
+                                        RegDest = 3'd1;
+                                        RegWrite = 1'd1;
+                                        i = 0;
+                                    end
+                                endcase
                             end
                         
                         6'd37:  //or
                             begin 
+                                case(i)
+                                    32'd3: begin
 
-                                ALUSrcA = 1'd1;
-                                ALUSrcB = 3'd0;
-                                ControlType = 5'd2;
-                                @(posedge clk);
-                                MemToReg = 2'd0;
-                                RegDest = 3'd1;
-                                RegWrite = 1'd1;
-                                i = 0;
+                                        ALUSrcA = 1'd1;
+                                        ALUSrcB = 3'd0;
+                                        ControlType = 5'd2;
+                                    end
+                                    32'd4: begin
+                                        MemToReg = 2'd0;
+                                        RegDest = 3'd1;
+                                        RegWrite = 1'd1;
+                                        i = 0;
+                                    end
+                                endcase
 
                             end
 
                         6'd26:  //mult
                             begin 
+                                case(i)
+                                    32'd3: begin
 
-                                ALUSrcA = 1'd1;
-                                ALUSrcB = 3'd0;
-                                ControlType = 5'b01010;
-
-                                for (i = 31; i >= 0; i = i - 1) begin
-                                    @(posedge clk);
-                                end
-                                i = 0;
+                                        ALUSrcA = 1'd1;
+                                        ALUSrcB = 3'd0;
+                                        ControlType = 5'b01010;
+                                    end
+                                    32'd35: begin
+                                        i = 0;
+                                    end
+                                endcase
 
                             end
 
                         6'd24:  //div
                             begin 
+                                case(i)
+                                    32'd3: begin
                             
-                                ALUSrcA = 1'd1;
-                                ALUSrcB = 3'd0;
-                                ControlType = 5'b01001;
-                                for (i = 31; i >= 0; i = i - 1) begin
-                                    @(posedge clk);
-                                end
-                                i = 0;
-
+                                        ALUSrcA = 1'd1;
+                                        ALUSrcB = 3'd0;
+                                        ControlType = 5'b01001;
+                                    end
+                                    32'd35: begin
+                                        i = 0;
+                                    end
+                                endcase
                             end
 
                         6'd24:  //jr
                             begin 
+                                case(i)
+                                    32'd3: begin
 
-                                ALUSrcA = 1'd1;
-                                ALUSrcB = 3'd0;
-                                ControlType = 5'd0;
-                                @(posedge clk);
-                                PCSource = 3'd1;
-                                PCWriteCond = 1'd1;
-                                PCWrite = 1'd1;
-                                PCWriteCond = 1'd0;
-                                i = 0;
+                                        ALUSrcA = 1'd1;
+                                        ALUSrcB = 3'd0;
+                                        ControlType = 5'd0;
+                                    end
+                                    32'd4: begin
+                                        PCSource = 3'd1;
+                                        PCWriteCond = 1'd1;
+                                        PCWrite = 1'd1;
+                                        PCWriteCond = 1'd0;
+                                        i = 0;
+                                    end
+                                endcase
                             
                             end
                         
                         6'd16: //mfhi
                             begin
-                                ControlType = 5'b01100;
-                                @(posedge clk);
-                                MemToReg = 3'b000;
-                                RegDest = 2'b01;
-                                RegWrite = 1'b1;
-                                i = 0;
+                                case(i)
+                                    32'd3: begin
+                                        ControlType = 5'b01100;
+                                    end
+                                    32'd4: begin
+                                        MemToReg = 3'b000;
+                                        RegDest = 2'b01;
+                                        RegWrite = 1'b1;
+                                        i = 0;
+                                    end
+                                endcase
                             end
                         6'd18: //mflo
                             begin
-                                ControlType = 5'b01101;
-                                @(posedge clk);
-                                MemToReg = 3'b000;
-                                RegDest = 2'b01;
-                                RegWrite = 1'b1;
-                                i = 0;
+                                case(i)
+                                    32'd3: begin
+                                        ControlType = 5'b01101; 
+                                    end
+                                    32'd4: begin
+                                        MemToReg = 3'b000;
+                                        RegDest = 2'b01;
+                                        RegWrite = 1'b1;
+                                        i = 0;
+                                    end
+                                endcase
                             end
                         6'd5: //xchg
                             begin
-                                SrcAddr = 4'b0100;
-                                WR = 1'b0;
-                                @(posedge clk);
-                                @(posedge clk);
-                                SizeHandler = 3'b000;
-                                SaveTemp = 1'b1;
-                                SrcAddr = 4'b0101;
-                                WR = 1'b0;
-                                @(posedge clk);
-                                @(posedge clk);
-                                DataSource = 1'b0;
-                                SrcAddr = 4'b0101;
-                                WR = 1'b1;
-                                @(posedge clk);
-                                WR = 1'b0;
-                                DataSource = 1'b1;
-                                SrcAddr = 4'b0100;
-                                WR = 1'b1;
-                                SaveTemp = 1'b0;
-                                i = 0;
+                                case(i)
+                                    32'd3: begin
+                                        SrcAddr = 4'b0100;
+                                        WR = 1'b0;
+                                    end
+                                    32'd5: begin
+                                        SizeHandler = 3'b000;
+                                        SaveTemp = 1'b1;
+                                        SrcAddr = 4'b0101;
+                                        WR = 1'b0;
+                                    end
+                                    32'd7: begin
+                                        DataSource = 1'b0;
+                                        SrcAddr = 4'b0101;
+                                        WR = 1'b1;
+                                    end
+                                    32'd8: begin
+                                        WR = 1'b0;
+                                        DataSource = 1'b1;
+                                        SrcAddr = 4'b0100;
+                                        WR = 1'b1;
+                                        SaveTemp = 1'b0;
+                                        i = 0;
+                                    end
+                                endcase
                             end
 
                     endcase
@@ -368,27 +448,31 @@ module opcodelogic (
 
                 begin
 
-                    case(opcode)
+                    case(opint)
 
                         6'd2: //j
                             begin
-
-                                PCSource = 3'd0;
-                                PCWrite = 1'd1;
-                                i = 0;
-
+                                case(i)
+                                    32'd3: begin
+                                        PCSource = 3'd0;
+                                        PCWrite = 1'd1;
+                                        i = 0;
+                                    end
+                                endcase
                             end
 
                         6'd3: //jal
                             begin
-
-                                PCSource = 2'd0;
-                                PCWrite = 1'd1;
-                                RegDest = 3'd2;
-                                MemToReg = 3'd4;
-                                WR = 1'd1;
-                                i = 0;
-
+                                case(i)
+                                    32'd3: begin
+                                        PCSource = 2'd0;
+                                        PCWrite = 1'd1;
+                                        RegDest = 3'd2;
+                                        MemToReg = 3'd4;
+                                        WR = 1'd1;
+                                        i = 0;
+                                    end
+                                endcase
                             end
 
                     endcase
@@ -399,19 +483,21 @@ module opcodelogic (
 
                 begin
 
-                    case(opcode)
+                    case(opint)
 
                         6'd1: //divm
                             begin
+                                case(i)
+                                    32'd3: begin
 
-                                ALUSrcA = 1'd1;
-                                ALUSrcB = 3'd2;
-                                ControlType = 5'd9;
-                                for (i = 31; i >= 0; i = i - 1) begin
-                                    @(posedge clk);
-                                end
-                                i = 0;
-
+                                        ALUSrcA = 1'd1;
+                                        ALUSrcB = 3'd2;
+                                        ControlType = 5'd9;
+                                    end
+                                    32'd35: begin
+                                        i = 0;
+                                    end
+                                endcase
                             end
                         6'd8: //addi
                             begin
@@ -432,211 +518,264 @@ module opcodelogic (
                             end
                         6'd9: //addiu
                             begin
-
-                                ALUSrcA = 1'd1;
-                                ALUSrcB = 3'd2;
-                                ControlType = 5'd1;
-                                @(posedge clk);
-                                MemToReg = 3'd0;
-                                RegDest = 3'd0;
-                                RegWrite = 1'b1;
-                                i = 0;
+                                case(i)
+                                    32'd3: begin
+                                        ALUSrcA = 1'd1;
+                                        ALUSrcB = 3'd2;
+                                        ControlType = 5'd1;
+                                    end
+                                    32'd4: begin
+                                        MemToReg = 3'd0;
+                                        RegDest = 3'd0;
+                                        RegWrite = 1'b1;
+                                        i = 0;
+                                    end
+                                endcase                                
 
                             end
                         6'd9: // slti
                             begin
-
-                                ALUSrcA = 1'd1;
-                                ALUSrcB = 3'd2;
-                                ControlType = 5'd7;
-                                @(posedge clk);
-                                MemToReg = 3'd0;
-                                RegDest = 3'd0;
-                                RegWrite = 1'b1;
-                                i = 0;
+                                case(i)
+                                    32'd3: begin
+                                        ALUSrcA = 1'd1;
+                                        ALUSrcB = 3'd2;
+                                        ControlType = 5'd7;
+                                    end
+                                    32'd4: begin
+                                        MemToReg = 3'd0;
+                                        RegDest = 3'd0;
+                                        RegWrite = 1'b1;
+                                        i = 0;
+                                    end
+                                endcase
 
                             end
                         6'd15: //lui
                             begin
-
-                                SLLSourceA = 2'd1;
-                                ShiftType = 3'd1;
-                                @(posedge clk);
-                                SLLSourceB = 2'd1;
-                                ShiftType = 3'd2;
-                                @(posedge clk);
-                                ControlType = 5'b10010;
-                                MemToReg = 3'd0;
-                                RegDest = 3'd0;
-                                RegWrite = 1'b1;
-                                i = 0;
+                                case(i)
+                                    32'd3: begin
+                                        SLLSourceA = 2'd1;
+                                        ShiftType = 3'd1;
+                                    end
+                                    32'd4: begin
+                                        SLLSourceB = 2'd1;
+                                        ShiftType = 3'd2;
+                                    end
+                                    32'd5: begin
+                                        ControlType = 5'b10010;
+                                        MemToReg = 3'd0;
+                                        RegDest = 3'd0;
+                                        RegWrite = 1'b1;
+                                        i = 0;
+                                    end
+                                endcase
 
                             end
                         6'd4: //beq
                             begin
-
-                                ALUSrcA = 0;
-                                ALUSrcB = 3'd3;
-                                ControlType = 5'd1;
-                                @(posedge clk);
-                                ALUSrcA = 1'd1;
-                                ALUSrcB = 3'd0;
-                                ControlType = 5'b01111;
-                                PCSource = 3'b010;
-                                PCWriteCond = 1'b1;
-                                i = 0;
-                                
+                                case(i)
+                                    32'd3: begin
+                                        ALUSrcA = 0;
+                                        ALUSrcB = 3'd3;
+                                        ControlType = 5'd1;
+                                    end
+                                    32'd4: begin
+                                        ALUSrcA = 1'd1;
+                                        ALUSrcB = 3'd0;
+                                        ControlType = 5'b01111;
+                                        PCSource = 3'b010;
+                                        PCWriteCond = 1'b1;
+                                        i = 0;
+                                    end
+                                endcase
                             end
                         6'd5: //bne
                             begin
-
-                                ALUSrcA = 0;
-                                ALUSrcB = 3'd3;
-                                ControlType = 5'd1;
-                                @(posedge clk);
-                                ALUSrcA = 1'd1;
-                                ALUSrcB = 3'd0;
-                                ControlType = 5'b01110;
-                                PCSource = 3'b010;
-                                PCWriteCond = 1'b1;
-                                i = 0;
-
+                                case(i)
+                                    32'd3: begin
+                                        ALUSrcA = 0;
+                                        ALUSrcB = 3'd3;
+                                        ControlType = 5'd1;
+                                    end
+                                    32'd4: begin
+                                        ALUSrcA = 1'd1;
+                                        ALUSrcB = 3'd0;
+                                        ControlType = 5'b01110;
+                                        PCSource = 3'b010;
+                                        PCWriteCond = 1'b1;
+                                        i = 0;
+                                    end
+                                endcase
                             end
                         6'd6: //ble
                             begin
-
-                                ALUSrcA = 0;
-                                ALUSrcB = 3'd3;
-                                ControlType = 5'd1;
-                                @(posedge clk);
-                                ALUSrcA = 1'd1;
-                                ALUSrcB = 0;
-                                ControlType = 5'b10000;
-                                PCSource = 3'b010;
-                                PCWriteCond = 1'b1;
-                                i = 0;
-
+                                case(i)
+                                    32'd3: begin
+                                        ALUSrcA = 0;
+                                        ALUSrcB = 3'd3;
+                                        ControlType = 5'd1;
+                                    end
+                                    32'd4: begin
+                                        ALUSrcA = 1'd1;
+                                        ALUSrcB = 0;
+                                        ControlType = 5'b10000;
+                                        PCSource = 3'b010;
+                                        PCWriteCond = 1'b1;
+                                        i = 0;
+                                    end
+                                endcase
                             end
                         6'd7: //bgt
                             begin
-
-                                ALUSrcA = 0;
-                                ALUSrcB = 3'd3;
-                                ControlType = 5'd1;
-                                @(posedge clk);
-                                ALUSrcA = 1'd1;
-                                ALUSrcB = 0;
-                                ControlType = 5'b10001;
-                                PCSource = 3'b010;
-                                PCWriteCond = 1'b1;
-                                i = 0;
+                                case(i)
+                                    32'd3: begin
+                                        ALUSrcA = 0;
+                                        ALUSrcB = 3'd3;
+                                        ControlType = 5'd1;
+                                    end
+                                    32'd4: begin
+                                        ALUSrcA = 1'd1;
+                                        ALUSrcB = 0;
+                                        ControlType = 5'b10001;
+                                        PCSource = 3'b010;
+                                        PCWriteCond = 1'b1;
+                                        i = 0;
+                                    end
+                                endcase
 
                             end
                         6'd34: //sw
                             begin
+                                case(i)
+                                    32'd3: begin
 
-                                ALUSrcA = 1'b1;
-                                ALUSrcB = 3'b010;
-                                ControlType = 5'b00001;
-                                @(posedge clk);
-                                IorD = 1'b1;
-                                SrcAddr = 3'b000;
-                                SizeHandler = 3'b000;
-                                DataSource = 1'b1;
-                                WR = 1'b1;
-                                i = 0;
-
+                                        ALUSrcA = 1'b1;
+                                        ALUSrcB = 3'b010;
+                                        ControlType = 5'b00001;
+                                    end
+                                    32'd4: begin
+                                        IorD = 1'b1;
+                                        SrcAddr = 3'b000;
+                                        SizeHandler = 3'b000;
+                                        DataSource = 1'b1;
+                                        WR = 1'b1;
+                                        i = 0;
+                                    end
+                                endcase
                             end
                         6'd41: //sh
                             begin
-
-                                ALUSrcA = 1'b1;
-                                ALUSrcB = 3'b010;
-                                ControlType = 5'b00001;
-                                @(posedge clk);
-                                IorD = 1'b1;
-                                SrcAddr = 3'b000;
-                                WR = 1'b0;
-                                @(posedge clk);
-                                @(posedge clk);
-                                SizeHandler = 3'b011;
-                                DataSource = 1'b1;
-                                WR = 1'b1;
-                                i = 0;
-
+                                case(i)
+                                    32'd3: begin
+                                        ALUSrcA = 1'b1;
+                                        ALUSrcB = 3'b010;
+                                        ControlType = 5'b00001;
+                                    end
+                                    32'd4: begin
+                                        IorD = 1'b1;
+                                        SrcAddr = 3'b000;
+                                        WR = 1'b0;
+                                    end
+                                    32'd6: begin
+                                        SizeHandler = 3'b011;
+                                        DataSource = 1'b1;
+                                        WR = 1'b1;
+                                        i = 0;
+                                    end
+                                endcase
                             end
                         6'd40: //sb
                             begin
+                                case(i)
+                                    32'd3: begin
 
-                                ALUSrcA = 1'b1;
-                                ALUSrcB = 3'b010;
-                                ControlType = 5'b00001;
-                                @(posedge clk);
-                                IorD = 1'b1;
-                                SrcAddr = 3'b000;
-                                WR = 1'b0;
-                                @(posedge clk);
-                                @(posedge clk);
-                                SizeHandler = 3'b101;
-                                DataSource = 1'b1;
-                                WR = 1'b1;
-                                i = 0;
+                                        ALUSrcA = 1'b1;
+                                        ALUSrcB = 3'b010;
+                                        ControlType = 5'b00001;
+                                    end
+                                    32'd4: begin
+                                        IorD = 1'b1;
+                                        SrcAddr = 3'b000;
+                                        WR = 1'b0;
+                                    end
+                                    32'd6: begin
+                                        SizeHandler = 3'b101;
+                                        DataSource = 1'b1;
+                                        WR = 1'b1;
+                                        i = 0;
+                                    end
+                                endcase
 
                             end
                         6'd35: //lw
                             begin
+                                case(i)
+                                    32'd3: begin
 
-                                ALUSrcA = 1'b1;
-                                ALUSrcB = 3'b010;
-                                ControlType = 5'b00001;
-                                @(posedge clk);
-                                IorD = 1'b1;
-                                SrcAddr = 3'b000;
-                                WR = 1'b0;
-                                @(posedge clk);
-                                @(posedge clk);
-                                SizeHandler = 3'b000;
-                                MemToReg = 3'b001;
-                                RegDest = 1'b0;
-                                RegWrite = 1'b1;
-                                i = 0;
+                                        ALUSrcA = 1'b1;
+                                        ALUSrcB = 3'b010;
+                                        ControlType = 5'b00001;
+                                    end
+                                    32'd4: begin
+                                        IorD = 1'b1;
+                                        SrcAddr = 3'b000;
+                                        WR = 1'b0;
+                                    end
+                                    32'd6: begin
+                                        SizeHandler = 3'b000;
+                                        MemToReg = 3'b001;
+                                        RegDest = 1'b0;
+                                        RegWrite = 1'b1;
+                                        i = 0;
+                                    end
+                                endcase
 
                             end
                         6'd33: //lh
                             begin
+                                case(i)
+                                    32'd3: begin
 
-                                ALUSrcA = 1'b1;
-                                ALUSrcB = 3'b010;
-                                ControlType = 5'b00001;
-                                @(posedge clk);
-                                IorD = 1'b1;
-                                SrcAddr = 3'b000;
-                                WR = 1'b0;
-                                @(posedge clk);
-                                @(posedge clk);
-                                SizeHandler = 3'b001;
-                                MemToReg = 3'b001;
-                                RegDest = 1'b0;
-                                RegWrite = 1'b1;
-                                i = 0;
+                                        ALUSrcA = 1'b1;
+                                        ALUSrcB = 3'b010;
+                                        ControlType = 5'b00001;
+                                    end
+                                    32'd4: begin
+                                        IorD = 1'b1;
+                                        SrcAddr = 3'b000;
+                                        WR = 1'b0;
+                                    end
+                                    32'd6: begin
+                                        SizeHandler = 3'b001;
+                                        MemToReg = 3'b001;
+                                        RegDest = 1'b0;
+                                        RegWrite = 1'b1;
+                                        i = 0;
+                                    end
+                                endcase
                             end
                         6'd32: //lb
                             begin
+                                case(i)
+                                    32'd3: begin
 
-                                ALUSrcA = 1'b1;
-                                ALUSrcB = 3'b010;
-                                ControlType = 5'b00001;
-                                @(posedge clk);
-                                IorD = 1'b1;
-                                SrcAddr = 3'b000;
-                                WR = 1'b0;
-                                @(posedge clk);
-                                @(posedge clk);
-                                SizeHandler = 3'b010;
-                                MemToReg = 3'b001;
-                                RegDest = 1'b0;
-                                RegWrite = 1'b1;
-                                i = 0;
+                                        ALUSrcA = 1'b1;
+                                        ALUSrcB = 3'b010;
+                                        ControlType = 5'b00001;
+                                    end
+                                    32'd4: begin
+                                        IorD = 1'b1;
+                                        SrcAddr = 3'b000;
+                                        WR = 1'b0;
+                                    end
+                                    32'd6: begin
+                                        SizeHandler = 3'b010;
+                                        MemToReg = 3'b001;
+                                        RegDest = 1'b0;
+                                        RegWrite = 1'b1;
+                                        i = 0;
+                                    end
+                                endcase
                             end
 
                     endcase
