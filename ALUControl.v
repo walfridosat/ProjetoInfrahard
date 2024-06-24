@@ -11,6 +11,26 @@ module ALUControl (
     output reg [0:0] ALUOutSave
 );
 
+    parameter ALULOAD = 5'b00000; 
+    parameter ALUOADD = 5'b00001;
+    parameter ALUSUB  = 5'b00010;
+    parameter ALUAND  = 5'b00011;
+    parameter ALUADD1 = 5'b00100;
+    parameter ALUNOT  = 5'b00101;
+    parameter ALUXOR  = 5'b00110;
+    parameter ALUCMP  = 5'b00111;
+    parameter ALUOR   = 5'b01000;
+    parameter ALUDIV  = 5'b01001;
+    parameter ALUMUL  = 5'b01010;
+    parameter ALUSADD = 5'b01011;
+    parameter ALUMFHI = 5'b01100;
+    parameter ALUMFLO = 5'b01101;
+    parameter ALUNE   = 5'b01110;
+    parameter ALUEQ   = 5'b01111;
+    parameter ALULE   = 5'b10000;
+    parameter ALUGT   = 5'b10001;
+    parameter ALUSFT  = 5'b10010;
+
     always @(controlType) begin
         condType = 2'b00;
         divOp = 1'b0;
@@ -124,3 +144,34 @@ module ALUControl (
     end
 
 endmodule
+
+/*
+
+TODOS OS CASOS DE CONTROLTYPE
+
+* 00000: S = X
+* 00001: S = X + Y (com overflow)
+* 00010: S = X - Y
+* 00011: S = X and Y
+* 00100: S = X + 1
+* 00101: S = not X
+* 00110: S = X xor Y
+* 00111: S = X comp Y
+* 01000: S = X or Y
+* 01001: S = X / Y
+* 01010: S = X * Y
+* 01011: S = X + Y (sem overflow)
+* 01100: S = hi
+* 01101: S = lo
+* 01110: cond NE 
+* 01111: cond EQ
+* 10000: cond LE
+* 10001: cond GT
+* 10010: qualquer caso de shift
+
+*/
+
+
+
+
+
