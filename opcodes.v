@@ -36,8 +36,7 @@ module opcodelogic (
     // parameter SAVELT     = SAVEREGRD; //6
     // parameter SAVEALU    = SAVEREGRD; //10
     // parameter SAVEOR     = SAVEREGRD; //12
-    // parameter LOADSHIFT  = 17;
-    // parameter SAVESHIFT  = 25;
+    // parameter SAVESHIFT  = 17;
     parameter RESET      =  0;
     parameter READINST1  =  1;
     parameter READINST2  =  2;
@@ -51,6 +50,7 @@ module opcodelogic (
     parameter MULT       = 14;
     parameter JR         = 15;
     parameter SAVEPC     = 16;
+    parameter LOADSHFT   = 25;
     parameter SLLV       = 21;
     parameter SRAV       = 18;
     parameter SRA        = 19;
@@ -123,24 +123,24 @@ module opcodelogic (
                 //INSTRUÇÕES R
                 if(opcode == 6'b000000) 
                 begin
-                         if(funct == 6'b010000) estado = MFHI;  //mfhi  0x10
-                    else if(funct == 6'b010010) estado = MFLO;  //mflo  0x12
-                    else if(funct == 6'b001101) estado = BREAK; //break 0xd
-                    else if(funct == 6'b010011) estado = RTE;   //rte   0x13
-                    else if(funct == 6'b000101) estado = LOADA; //xchg  0x5
-                    else if(funct == 6'b101010) estado = SLT;   //slt   0x2a
-                    else if(funct == 6'b100010) estado = SUB;   //sub   0x22
-                    else if(funct == 6'b100000) estado = ADD;   //add   0x20
-                    else if(funct == 6'b100100) estado = AND;   //and   0x24
-                    else if(funct == 6'b100101) estado = OR;    //or    0x25
-                    else if(funct == 6'b011010) estado = DIV;   //div   0x1a
-                    else if(funct == 6'b011000) estado = MULT;  //mul   0x18
-                    else if(funct == 6'b001000) estado = JR;    //JR    0x8
-                    else if(funct == 6'b000100) estado = SLLV;  //SLLV  0x4
-                    else if(funct == 6'b000111) estado = SRAV;  //SRAV  0x7
-                    else if(funct == 6'b000011) estado = SRA;   //SRA   0x3
-                    else if(funct == 6'b000010) estado = SRL;   //SRL   0x2
-                    else if(funct == 6'b000000) estado = SLL;   //SLL   0x0
+                         if(funct == 6'b010000) estado = MFHI;    //mfhi  0x10
+                    else if(funct == 6'b010010) estado = MFLO;    //mflo  0x12
+                    else if(funct == 6'b001101) estado = BREAK;   //break 0xd
+                    else if(funct == 6'b010011) estado = RTE;     //rte   0x13
+                    else if(funct == 6'b000101) estado = LOADA;   //xchg  0x5
+                    else if(funct == 6'b101010) estado = SLT;     //slt   0x2a
+                    else if(funct == 6'b100010) estado = SUB;     //sub   0x22
+                    else if(funct == 6'b100000) estado = ADD;     //add   0x20
+                    else if(funct == 6'b100100) estado = AND;     //and   0x24
+                    else if(funct == 6'b100101) estado = OR;      //or    0x25
+                    else if(funct == 6'b011010) estado = DIV;     //div   0x1a
+                    else if(funct == 6'b011000) estado = MULT;    //mul   0x18
+                    else if(funct == 6'b001000) estado = JR;      //JR    0x8
+                    else if(funct == 6'b000100) estado = LOADSHFT;//SLLV  0x4
+                    else if(funct == 6'b000111) estado = LOADSHFT;//SRAV  0x7
+                    else if(funct == 6'b000011) estado = LOADSHFT;//SRA   0x3
+                    else if(funct == 6'b000010) estado = LOADSHFT;//SRL   0x2
+                    else if(funct == 6'b000000) estado = LOADSHFT;//SLL   0x0
                     else estado = INVALIDOP;
                 end
                 // INSTRUÇÕES I
@@ -172,11 +172,49 @@ module opcodelogic (
             else if(estado == OR)      estado = SAVEREGRD;//SAVEOR;
             else if(estado == JR)      estado = SAVEPC;
             else if(estado == SAVEPC)  estado = READINST1;
-            else if(estado == SLLV)    estado = SAVEREGRD;
-            else if(estado == SRAV)    estado = SAVEREGRD;
-            else if(estado == SRA)     estado = SAVEREGRD;
-            else if(estado == SRL)     estado = SAVEREGRD;
-            else if(estado == SLL)     estado = SAVEREGRD;
+            else if(estado == LOADSHFT)
+            begin
+                if(tempo == 0) tempo = 2;
+                tempo = tempo - 1;
+                if(tempo == 0)
+                begin
+                         if(funct == 6'b000100) estado = SLLV;  //SLLV  0x4
+                    else if(funct == 6'b000111) estado = SRAV;  //SRAV  0x7
+                    else if(funct == 6'b000011) estado = SRA;   //SRA   0x3
+                    else if(funct == 6'b000010) estado = SRL;   //SRL   0x2
+                    else if(funct == 6'b000000) estado = SLL;   //SLL   0x0
+                end
+            end
+            else if(estado == SLLV)    //estado = SAVEREGRD;
+            begin
+                if(tempo == 0) tempo = 2;
+                tempo = tempo - 1;
+                if(tempo == 0) estado = SAVEREGRD;
+            end
+            else if(estado == SRAV)    //estado = SAVEREGRD;
+            begin
+                if(tempo == 0) tempo = 2;
+                tempo = tempo - 1;
+                if(tempo == 0) estado = SAVEREGRD;
+            end
+            else if(estado == SRA)     //estado = SAVEREGRD;
+            begin
+                if(tempo == 0) tempo = 2;
+                tempo = tempo - 1;
+                if(tempo == 0) estado = SAVEREGRD;
+            end
+            else if(estado == SRL)     //estado = SAVEREGRD;
+            begin
+                if(tempo == 0) tempo = 2;
+                tempo = tempo - 1;
+                if(tempo == 0) estado = SAVEREGRD;
+            end
+            else if(estado == SLL)     //estado = SAVEREGRD;
+            begin
+                if(tempo == 0) tempo = 2;
+                tempo = tempo - 1;
+                if(tempo == 0) estado = SAVEREGRD;
+            end
             else if(estado == MFHI)    estado = SAVEREGRD;
             else if(estado == MFLO)    estado = SAVEREGRD;
             else if(estado == SAVEREGRD)estado= READINST1;
@@ -184,7 +222,7 @@ module opcodelogic (
             else if(estado == RTE)     estado = READINST1;
             else if(estado == DIV || estado == MULT)
             begin
-                if(tempo == 0) tempo = 32; //espera 32 ciclos para completar a divisão/multiplicação
+                if(tempo == 0) tempo = 34; //espera 32 ciclos para completar a divisão/multiplicação
                 tempo = tempo - 1;
                 if(tempo == 0) estado = READINST1;
                 if(divby0flag) estado = DIVBY0;
@@ -211,7 +249,7 @@ module opcodelogic (
             else if(estado == SAVEREGRT)estado= READINST1;
             else if(estado == DIVM)
             begin 
-                if(tempo == 0) tempo = 33;
+                if(tempo == 0) tempo = 34;
                 tempo = tempo - 1;
                 if(tempo == 0) estado = READINST1;
                 if(divby0flag) estado = DIVBY0;
@@ -401,6 +439,15 @@ module opcodelogic (
             PCSource = 3'b001;
             PCWrite  = 1'b1;
         end
+        else if(estado == LOADSHFT)
+        begin
+            ALUSrcA = 1'b1;
+            ALUSrcB  = 3'b000;
+            SLLSourceA = 2'b10; //!!! Entrada é o B
+            SLLSourceB = 2'b00;
+            ShiftType = 3'b001;
+            ControlType = ALUSFT;
+        end
         else if(estado == SLLV)
         begin
             ALUSrcA = 1'b1;
@@ -441,7 +488,7 @@ module opcodelogic (
         begin
             ALUSrcA = 1'b1;
             ALUSrcB  = 3'b000;
-            SLLSourceA = 1'b0;
+            SLLSourceA = 2'b10; //!!! Entrada é o B
             SLLSourceB = 2'b10;
             ShiftType = 3'b010;
             ControlType = ALUSFT;
