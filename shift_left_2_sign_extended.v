@@ -1,5 +1,5 @@
 module ShiftLeftTwoSign(
-    input wire [1:0] data,
+    input wire [31:0] data,
     output wire [31:0] out
 );
 

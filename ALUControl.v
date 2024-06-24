@@ -1,5 +1,6 @@
 module ALUControl (
     input wire [4:0] controlType,
+    input wire [0:0] ALUOutSaveCPU,
     output reg [1:0] condType,
     output reg [0:0] divOp,
     output reg [0:0] multOp,
@@ -31,8 +32,10 @@ module ALUControl (
     parameter ALUGT   = 5'b10001;
     parameter ALUSFT  = 5'b10010;
 
+    initial condType = 2'b00;
+
     always @(controlType) begin
-        condType = 2'b00;
+        // condType = 2'b00; // não deixa mudar enquanto não explicitamente tentar mudar
         divOp = 1'b0;
         multOp = 1'b0;
         ALUOp = 3'b000;
@@ -141,6 +144,8 @@ module ALUControl (
                 end
 
         endcase
+
+        ALUOutSave = ALUOutSave & ALUOutSaveCPU; // !!! ALUOutSaveCPU é constante 1 exceto no Branch
     end
 
 endmodule

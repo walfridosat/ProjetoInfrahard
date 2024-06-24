@@ -101,6 +101,7 @@ wire [31:0] EPC_out;
 wire [31:0] EPC_in; // !!! vem de onde? 
 wire [31:0] temp_out;
 wire [31:0] MemoDataReg_out;
+wire ALUOutSaveCPU; // !!! novo
 
 // Mux outputs
 wire CHOut; //condition handler out
@@ -165,6 +166,7 @@ opcodelogic Controle (
     .AluOutLoad(),    // !!! Adicionado agora!!! Precisa colocar no Opcode
     .ALUSrcA(ALUSrcA),
     .ALUSrcB(ALUSrcB),
+    .ALUOutSaveCPU(ALUOutSaveCPU),
     .ControlType(controlType),
     .PCSource(PCSource),
     .SLLSourceA(SLLSourceA),
@@ -182,7 +184,7 @@ Instr_Reg   Instruc_Reg(.Clk(clock), .Reset(reset), .Load_ir(IRWrite), .Entrada(
 
 
 // Operações 
-ALUControl    AluCtrl(.controlType(controlType),  .condType(condType), .divOp(divOp), .multOp(multOp), .ALUOp(ALUOp), .orOp(orOp), .overflowOp(overflowOp), .SrcOut(SrcOut), .StoreMD(StoreMD), .ALUOutSave(AluOutLoad));
+ALUControl    AluCtrl(.controlType(controlType),  .condType(condType), .divOp(divOp), .multOp(multOp), .ALUOp(ALUOp), .orOp(orOp), .overflowOp(overflowOp), .SrcOut(SrcOut), .StoreMD(StoreMD), .ALUOutSave(AluOutLoad), .ALUOutSaveCPU(ALUOutSaveCPU));
 Ula32         ULA (.A(AluA), .B(AluB), .Seletor(ALUOp), .S(UlaResult), .Overflow(overflowAlu), .Negativo(), .z(), .Igual(EQ_cmp), .Maior(), .Menor(LT_ula));
 divisor       Divisor(.clk(clock), .divOp (divOp ), .dividend    (AluA), .divisor   (AluB), .div_hi (HiDiv), .div_lo (LoDiv), .divby0flag(divby0flag)); // !!! atenção com o divisor - alterações no modulo
 multiplicador Multip (.clk(clock), .multOp(multOp), .multiplicand(AluA), .multiplier(AluB), .mult_hi(HiMul), .mult_lo(LoMul)); // !!! Multiplicador alterado

@@ -9,13 +9,13 @@ z2
 cModel Technology
 dC:/intelFPGA/18.1
 vALUControl
-!s110 1719220208
+!s110 1719266853
 !i10b 1
-!s100 h`AgkZ33neRJM0H=]=Gb61
-INJi>>N6?fA5:O8;fT4]7k3
+!s100 B3f1dHZBU:U:7L2T4:55R0
+IcPbTDPVK7eDz_8UW]<^DS1
 Z0 VDg1SIo80bB@j0V0VzS_@n1
 Z1 dC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard
-w1719215111
+w1719266692
 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/ALUControl.v
 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/ALUControl.v
 L0 1
@@ -23,7 +23,7 @@ Z2 OV;L;10.5b;63
 r1
 !s85 0
 31
-!s108 1719220208.000000
+!s108 1719266853.000000
 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/ALUControl.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/ALUControl.v|
 !i113 1
@@ -136,13 +136,13 @@ R3
 R4
 ncondition@handler@m@u@x
 vCPU
-!s110 1719220211
+!s110 1719257812
 !i10b 1
-!s100 kYOK4Wl[oo<m0AkB4koM:2
-I5BmVb_GF0iB88d2PfJYZT0
+!s100 LFK:]no?P^LjbU_hRl_zl3
+Iho^fa02FTj59<Ji<Lo40`3
 R0
 R1
-w1719199005
+w1719257805
 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/CPU.v
 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/CPU.v
 L0 2
@@ -150,7 +150,7 @@ R2
 r1
 !s85 0
 31
-!s108 1719220211.000000
+!s108 1719257812.000000
 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/CPU.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/CPU.v|
 !i113 1
@@ -436,13 +436,13 @@ R3
 R4
 n@m@u@x@ior@d
 vopcodelogic
-!s110 1719252505
+!s110 1719266632
 !i10b 1
-!s100 i;AdGafHaOX>z3kVNS[;03
-IVn1<Y:F5ZF1@>5NeCKnoD0
+!s100 Ud8Yn[?>E5KI0:IkX7J^I2
+IBUWO8>LfMhD9X7jnLjgH_0
 R0
 R1
-w1719252500
+w1719266623
 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/opcodes.v
 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/opcodes.v
 L0 1
@@ -450,7 +450,7 @@ R2
 r1
 !s85 0
 31
-!s108 1719252505.000000
+!s108 1719266632.000000
 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/opcodes.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/opcodes.v|
 !i113 1
@@ -644,13 +644,13 @@ R3
 R4
 n@shift@left@two@jump
 vShiftLeftTwoSign
-R44
+!s110 1719260572
 !i10b 1
-!s100 YLC3Q>1nYgn?CmzWR4l712
-ID8NOEIL1=SIFDG]WbXJ?B2
+!s100 dI=c9c@;Gf0RhDgDKl9O:0
+I[K21:WT=ana3DHBVK1[K91
 R0
 R1
-R18
+w1719260561
 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/shift_left_2_sign_extended.v
 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/shift_left_2_sign_extended.v
 L0 1
@@ -658,7 +658,7 @@ R2
 r1
 !s85 0
 31
-!s108 1718942376.000000
+!s108 1719260572.000000
 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/shift_left_2_sign_extended.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/shift_left_2_sign_extended.v|
 !i113 1

@@ -25,6 +25,7 @@ module opcodelogic (
     output reg [2:0] ALUSrcB,
     output reg [0:0] AluOutLoad,
     output reg [4:0] ControlType,
+    output reg [0:0] ALUOutSaveCPU,  // !!! para auxiliar no branch // 
     output reg [2:0] PCSource,
     output reg [1:0] SLLSourceA,
     output reg [1:0] SLLSourceB,
@@ -32,7 +33,6 @@ module opcodelogic (
 );
 
     // ESTADOS
-    // parameter READAANDB  = 4;
     // parameter SAVELT     = SAVEREGRD; //6
     // parameter SAVEALU    = SAVEREGRD; //10
     // parameter SAVEOR     = SAVEREGRD; //12
@@ -69,6 +69,7 @@ module opcodelogic (
     parameter ADDIU      = 34;
     parameter SLTI       = 35;
     parameter DIVM       = 36;
+    parameter LOADSLUI   = 12; 
     parameter LUI        = 37;
     parameter SAVEREGRT  = 53;
     parameter BRNCHCALC  = 38;
@@ -116,7 +117,12 @@ module opcodelogic (
                 if(tempo == 0) estado = READINST1;
             end
             else if(overflowflag)          estado = OVERFLOW;
-            else if(estado == READINST1)   estado = READINST2;
+            else if(estado == READINST1) //estado = READINST2;
+            begin 
+                if(tempo == 0) tempo = 2;
+                tempo = tempo - 1;
+                if(tempo == 0)  estado = READINST2;
+            end
             else if(estado == READINST2)   estado = DECODEINST;
             else if(estado == DECODEINST)
             begin
@@ -148,7 +154,7 @@ module opcodelogic (
                 else if(opcode == 6'b001001) estado = ADDIU;    //ADDIU 0x9
                 else if(opcode == 6'b001010) estado = SLTI;     //SLTI  0xa
                 else if(opcode == 6'b000001) estado = DIVM;     //DIVM  0x1
-                else if(opcode == 6'b001111) estado = LUI;      //LUI   0xf
+                else if(opcode == 6'b001111) estado = LOADSLUI; //LUI   0xf
                 else if(opcode == 6'b000100) estado = BRNCHCALC;//BEQ   0x4
                 else if(opcode == 6'b000101) estado = BRNCHCALC;//BNE   0x5
                 else if(opcode == 6'b000110) estado = BRNCHCALC;//BLE   0x6
@@ -185,31 +191,7 @@ module opcodelogic (
                     else if(funct == 6'b000000) estado = SLL;   //SLL   0x0
                 end
             end
-            else if(estado == SLLV)    //estado = SAVEREGRD;
-            begin
-                if(tempo == 0) tempo = 2;
-                tempo = tempo - 1;
-                if(tempo == 0) estado = SAVEREGRD;
-            end
-            else if(estado == SRAV)    //estado = SAVEREGRD;
-            begin
-                if(tempo == 0) tempo = 2;
-                tempo = tempo - 1;
-                if(tempo == 0) estado = SAVEREGRD;
-            end
-            else if(estado == SRA)     //estado = SAVEREGRD;
-            begin
-                if(tempo == 0) tempo = 2;
-                tempo = tempo - 1;
-                if(tempo == 0) estado = SAVEREGRD;
-            end
-            else if(estado == SRL)     //estado = SAVEREGRD;
-            begin
-                if(tempo == 0) tempo = 2;
-                tempo = tempo - 1;
-                if(tempo == 0) estado = SAVEREGRD;
-            end
-            else if(estado == SLL)     //estado = SAVEREGRD;
+            else if(estado == SLLV || estado == SRAV || estado == SRA || estado == SRL || estado == SLL) //todos os shift tipo R
             begin
                 if(tempo == 0) tempo = 2;
                 tempo = tempo - 1;
@@ -245,7 +227,18 @@ module opcodelogic (
             else if(estado == ADDI)    estado = SAVEREGRT;
             else if(estado == ADDIU)   estado = SAVEREGRT;
             else if(estado == SLTI)    estado = SAVEREGRT;
-            else if(estado == LUI)     estado = SAVEREGRT;
+            else if(estado == LOADSLUI)
+            begin
+                 if(tempo == 0) tempo = 2;
+                tempo = tempo - 1;
+                if(tempo == 0) estado = LUI;
+            end
+            else if(estado == LUI)     //estado = SAVEREGRT;
+            begin
+                 if(tempo == 0) tempo = 2;
+                tempo = tempo - 1;
+                if(tempo == 0) estado = SAVEREGRT;
+            end
             else if(estado == SAVEREGRT)estado= READINST1;
             else if(estado == DIVM)
             begin 
@@ -353,6 +346,7 @@ module opcodelogic (
         ALUSrcB = 3'b000;
         AluOutLoad = 1'b0;
         ControlType = 5'b00000;
+        ALUOutSaveCPU = 1'b1;   // !!! Padrão 1 !!!
         PCSource = 3'd2;
         SLLSourceA = 2'b00;
         SLLSourceB = 2'b00;
@@ -368,6 +362,7 @@ module opcodelogic (
         end
         else if(estado == READINST1)
         begin
+            
             IorD    = 1'b0;    // seleciona o endereço do pc p/ o mux
             SrcAddr = 3'b000;  // seleciona o endereço do pc p/ a memo
             // MemRead = 1'b1; // memória lê automaticamente
@@ -377,13 +372,12 @@ module opcodelogic (
             ALUSrcA = 1'b0;   // seleciona o PC para operação na ULA como A
             ALUSrcB = 3'b001; // seleciona o 4  para operação na ULA como B
             ControlType = ALUOADD; // soma com overflow
-            PCWrite = 1'b1;  // carrega PC+4 no PC
-            IRWrite = 1'b1; // !!! cuidado !!! nesse caso, o primeiro endereço visitado não seria o 4?
+            IRWrite = 1'b1; // carrega a instrução !!! cuidado !!!
         end
         else if(estado == DECODEINST)
         begin
             PCWrite = 1'b1; // !!! Adicionado !!!
-            // acho que esse irwrite deveria ser no estado anterior
+            // IRWrite = 1'b1; // !!! cuidado !!!
         end
         // INSTRUÇÕES R
         else if(estado == SLT)
@@ -566,10 +560,19 @@ module opcodelogic (
             ALUSrcB = 3'b010;
             ControlType = ALUDIV;
         end
+        else  if(estado == LOADSLUI)
+        begin
+            ALUSrcA = 1'b1;
+            ALUSrcB  = 3'b000;
+            SLLSourceA = 2'b01; //!!! Entrada é o imediato
+            SLLSourceB = 2'b01;
+            ShiftType = 3'b001;
+            ControlType = ALUSFT;
+        end
         else if(estado == LUI)
         begin
-            SLLSourceA = 1'b1;
-            SLLSourceB = 1'b1;
+            SLLSourceA = 2'b01; //!!! Entrada é o imediato
+            SLLSourceB = 2'b01;
             ShiftType = 3'b010;
             ControlType = ALUSFT; //shift
         end
@@ -581,8 +584,8 @@ module opcodelogic (
         end
         else if(estado == BRNCHCALC)
         begin
-            ALUSrcA = 0;
-            ALUSrcB = 011;  //calcula o novo PC após o branch
+            ALUSrcA = 1'b0;   //seleciona o PC
+            ALUSrcB = 3'b011; //+4  // calcula o novo PC após o branch
             ControlType = ALUOADD; // soma com overflow
         end
         else if(estado == BEQ)
@@ -611,8 +614,11 @@ module opcodelogic (
         end
         else if(estado == CONDSAVEPC)
         begin
+            ALUSrcA = 1'b1;
+            ALUSrcB = 3'b000;   //mantem a entrada por segurança
             PCSource = 3'b010;
             PCWriteCond = 1'b1;
+            // ControlType = ALUGT; // !!! ???
         end
         else if(estado == MEMOCALC)
         begin

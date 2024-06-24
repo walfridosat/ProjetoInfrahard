@@ -1,4 +1,11 @@
-C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/multiplicador.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/multiplicador.v
+C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/shift_left_2_sign_extended.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/shift_left_2_sign_extended.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module ShiftLeftTwoSign
+
+Top level modules:
+	ShiftLeftTwoSign
+
+} {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/multiplicador.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/multiplicador.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module multiplicador
 
@@ -18,13 +25,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 
 Top level modules:
 	sizehandlerMUX
-
-} {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/shift_left_2_sign_extended.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/shift_left_2_sign_extended.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module ShiftLeftTwoSign
-
-Top level modules:
-	ShiftLeftTwoSign
 
 } {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/modelo_mux.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/modelo_mux.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -46,13 +46,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 
 Top level modules:
 	sign_extender16_32
-
-} {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/ALUControl.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/ALUControl.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module ALUControl
-
-Top level modules:
-	ALUControl
 
 } {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_datasrc.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_datasrc.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -92,6 +85,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 
 Top level modules:
 	testbench_shiftleft2jump
+
+} {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/opcodes.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/opcodes.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module opcodelogic
+
+Top level modules:
+	opcodelogic
 
 } {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/ula32.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/ula32.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
