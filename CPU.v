@@ -88,7 +88,6 @@ wire StoreMD; // não está sendo utilizado
 
 wire overflowAlu;
 wire overflowflag; 
-assign overflowflag = overflowAlu & overflowOp;
 wire divby0flag;
 // alu wires ^
 
@@ -128,6 +127,7 @@ wire [1:0] SLLSourceA;
 wire [1:0] SLLSourceB;
 
 
+assign overflowflag = overflowAlu & overflowOp;
 assign PCload = PCwrite | (PCwriteCond & CHOut);
 assign HiLoLoad = divOp | multOp;
 assign ALWAYS1 = 1'b1; /// !!! Cuidado !!! Alguns regs talvez realmente precisem de um Load definido
