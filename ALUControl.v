@@ -130,13 +130,25 @@ module ALUControl (
                     ALUOutSave = 1'b1;
                 end
             5'b01110:
-                condType = 2'b00;
+                begin
+                    ALUOp = ALUCMP;
+                    condType = 2'b00;
+                end
             5'b01111:
-                condType = 2'b01;
+                begin 
+                    ALUOp = ALUCMP;
+                    condType = 2'b01;
+                end
             5'b10000:
-                condType = 2'b10;
+                begin
+                    ALUOp = ALUCMP;
+                    condType = 2'b10;
+                end
             5'b10001:
-                condType = 2'b11;
+                begin
+                    ALUOp = ALUCMP;
+                    condType = 2'b11;
+                end
             5'b10010:
                 begin
                     SrcOut = 3'b110;

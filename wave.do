@@ -7,9 +7,9 @@ add wave -noupdate /CPU/Controle/estado
 add wave -noupdate -expand -group Aluinfo -radix decimal /CPU/AluA
 add wave -noupdate -expand -group Aluinfo -radix decimal /CPU/AluB
 add wave -noupdate -expand -group Aluinfo -radix decimal /CPU/AluOut_out
-add wave -noupdate -expand -group LoadInfo -radix decimal /CPU/PCwrite
-add wave -noupdate -expand -group LoadInfo /CPU/IRWrite
-add wave -noupdate -expand -group LoadInfo /CPU/AluOutLoad
+add wave -noupdate -group LoadInfo -radix decimal /CPU/PCwrite
+add wave -noupdate -group LoadInfo /CPU/IRWrite
+add wave -noupdate -group LoadInfo /CPU/AluOutLoad
 add wave -noupdate -group BancoReg -radix decimal /CPU/Banco_regi/Reg0
 add wave -noupdate -group BancoReg -radix decimal /CPU/Banco_regi/Reg1
 add wave -noupdate -group BancoReg -radix decimal /CPU/Banco_regi/Reg2
@@ -54,6 +54,8 @@ add wave -noupdate -group ToAluB -radix decimal /CPU/BtoAlu/sign_extend
 add wave -noupdate -group ToAluB -radix decimal /CPU/BtoAlu/sign_extend_sl2
 add wave -noupdate -group ToAluB -radix decimal /CPU/BtoAlu/memorydataregister
 add wave -noupdate -group ToAluB -radix decimal /CPU/BtoAlu/out
+add wave -noupdate -expand -group Conditions /CPU/LT_ula
+add wave -noupdate -expand -group Conditions /CPU/EQ_cmp
 add wave -noupdate -expand -group Conditions /CPU/CHOut
 add wave -noupdate -expand -group Conditions /CPU/condType
 add wave -noupdate -expand -group Conditions /CPU/ConditinHandler/EQ
@@ -69,8 +71,8 @@ add wave -noupdate /CPU/Instruc_Reg/Instr25_21
 add wave -noupdate /CPU/Instruc_Reg/Instr20_16
 add wave -noupdate /CPU/Instruc_Reg/Instr15_0
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {3647 ps} 0} {{Edit Cursor} {3647 ps} 0}
-quietly wave cursor active 2
+WaveRestoreCursors {{Cursor 1} {2105 ps} 0} {{Edit Cursor} {587 ps} 0}
+quietly wave cursor active 1
 configure wave -namecolwidth 122
 configure wave -valuecolwidth 58
 configure wave -justifyvalue left
@@ -85,12 +87,18 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {2462 ps} {5134 ps}
+WaveRestoreZoom {1462 ps} {4134 ps}
 view wave 
 wave clipboard store
 wave create -driver freeze -pattern clock -initialvalue HiZ -period 100ps -dutycycle 50 -starttime 0ps -endtime 20000ps sim:/CPU/clock 
 wave create -driver freeze -pattern constant -value HiZ -starttime 0ps -endtime 2000ps sim:/CPU/reset 
+wave create -driver freeze -pattern clock -initialvalue 1 -period 100ps -dutycycle 50 -starttime 0ps -endtime 1000ps sim:/CPU/clock 
+wave create -driver freeze -pattern clock -initialvalue 1 -period 100ps -dutycycle 50 -starttime 0ps -endtime 1000ps sim:/CPU/clock 
+wave create -driver freeze -pattern constant -value 1 -starttime 0ps -endtime 2000ps sim:/CPU/reset 
+wave create -driver freeze -pattern clock -initialvalue {-No Data-} -period 100ps -dutycycle 50 -starttime 0ps -endtime 20000ps sim:/CPU/clock 
 wave create -driver freeze -pattern constant -value 1 -starttime 0ps -endtime 20000ps sim:/CPU/reset 
-wave edit invert -start 500ps -end 20000ps Edit:/CPU/reset 
+wave edit invert -start 400ps -end 20000ps Edit:/CPU/clock 
+wave edit invert -start 300ps -end 2000ps Edit:/CPU/reset 
+wave edit invert -start 2000ps -end 20000ps Edit:/CPU/reset 
 WaveCollapseAll -1
 wave clipboard restore
