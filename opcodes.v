@@ -179,6 +179,7 @@ module opcodelogic (
             else if(estado == SLL)     estado = SAVEREGRD;
             else if(estado == MFHI)    estado = SAVEREGRD;
             else if(estado == MFLO)    estado = SAVEREGRD;
+            else if(estado == SAVEREGRD)estado= READINST1;
             else if(estado == BREAK)   estado = SAVEPC;
             else if(estado == RTE)     estado = READINST1;
             else if(estado == DIV || estado == MULT)
@@ -284,6 +285,10 @@ module opcodelogic (
     parameter ALUGT   = 5'b10001;
     parameter ALUSFT  = 5'b10010;
 
+
+
+
+
     //// SAÍDAS DE ACORDO COM OS ESTADOS
 
     always @(estado) begin
@@ -310,7 +315,7 @@ module opcodelogic (
         ALUSrcB = 3'b000;
         AluOutLoad = 1'b0;
         ControlType = 5'b00000;
-        PCSource = 3'd0;
+        PCSource = 3'd2;
         SLLSourceA = 2'b00;
         SLLSourceB = 2'b00;
         ShiftType = 3'b000;
@@ -335,10 +340,11 @@ module opcodelogic (
             ALUSrcB = 3'b001; // seleciona o 4  para operação na ULA como B
             ControlType = ALUOADD; // soma com overflow
             PCWrite = 1'b1;  // carrega PC+4 no PC
+            IRWrite = 1'b1; // !!! cuidado !!! nesse caso, o primeiro endereço visitado não seria o 4?
         end
         else if(estado == DECODEINST)
         begin
-            IRWrite = 1'b1; // !!! cuidado !!! nesse caso, o primeiro endereço visitado não seria o 4?
+            PCWrite = 1'b1; // !!! Adicionado !!!
             // acho que esse irwrite deveria ser no estado anterior
         end
         // INSTRUÇÕES R

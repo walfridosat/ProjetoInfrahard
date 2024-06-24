@@ -47,6 +47,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	sign_extender16_32
 
+} {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/ALUControl.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/ALUControl.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module ALUControl
+
+Top level modules:
+	ALUControl
+
 } {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_datasrc.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_datasrc.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module MUXDataSrc
@@ -86,13 +93,7 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	testbench_shiftleft2jump
 
-} {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/opcodes.v {0 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/opcodes.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module opcodelogic
-** Error: C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/opcodes.v(311): (vlog-2730) Undefined variable: 'controlType'.
-** Error: (vlog-13069) C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/opcodes.v(312): near "end": syntax error, unexpected end.
-
-} {4.0 6.0} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/ula32.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/ula32.vhd
+} {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/ula32.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/ula32.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -257,6 +258,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 
 Top level modules:
 	regDestMUX
+
+} {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/CPU.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/CPU.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module CPU
+
+Top level modules:
+	CPU
 
 } {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/divisor.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/divisor.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
