@@ -218,7 +218,7 @@ memToRegMUX    toWriteData (.sel(MemToReg),   .out(mxToWriteData),   .AluOut(Alu
 MUXDataSrc     toWriteMemo (.sel(DataSource), .out(toWriteMemo_out), .temp(temp_out),     .size_handler(SizeHandler_out));
 sizehandlerMUX SizeHandler (.sel(SzHndlrSel), .out(SizeHandler_out), .mem(MemoOut),       .B(RegB_out));
 
-SrcOutMUX   toAluOut (.SrcOut(SrcOut),  .out(AluOut_in), .Lo(LoOut), .Hi(HiOut), .LT(LT_extended), .result(UlaResult), .orOut(orOut), .shiftOut(Desloc_out));
+SrcOutMUX   toAluOut (.SrcOut(SrcOut),  .out(AluOut_in), .Lo(LoOut), .Hi(HiOut), .LT(LT_extended), .result(UlaResult), .orOut(OrResult), .shiftOut(Desloc_out));
 pcSourceMUX toPCnxt  (.sel(PCSource),   .out(PCin),  .jumpAdress(jumpAdress), .aluOut(AluOut_out), .result(UlaResult), .memData(MemoDataReg_out), .EPCReg(EPC_out));  //Seleciona próximo endereço do PC
 sllsrcAMUX  toDeslocA(.sel(SLLSourceA), .out(sllA_out), .A(RegA_out), .B(RegB_out), .imediato(ExtendedIntruct));
 sllsrcBMUX  toDeslocB(.sel(SLLSourceB), .out(sllB_out), .B(RegB4_0), .Instruction(Instr10_6));

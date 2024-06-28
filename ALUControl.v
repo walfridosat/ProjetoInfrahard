@@ -151,13 +151,13 @@ module ALUControl (
                 end
             5'b10010:
                 begin
-                    SrcOut = 3'b110;
+                    SrcOut = 3'b101;
                     ALUOutSave = 1'b1;
                 end
 
         endcase
 
-        ALUOutSave = ALUOutSave & ALUOutSaveCPU; // !!! ALUOutSaveCPU é constante 1 exceto no Branch
+        //ALUOutSave = ALUOutSave & ALUOutSaveCPU; // !!! ALUOutSaveCPU é constante 1 exceto no Branch
     end
 
 endmodule

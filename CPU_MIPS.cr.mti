@@ -69,14 +69,6 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling entity Instr_Reg
 -- Compiling architecture behavioral_arch of Instr_Reg
 
-} {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_shiftleft2jump.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_shiftleft2jump.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module ShiftLeftTwoJump
--- Compiling module testbench_shiftleft2jump
-
-Top level modules:
-	testbench_shiftleft2jump
-
 } {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/sign_extender1_32.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/sign_extender1_32.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module sign_extender1_32
@@ -92,6 +84,14 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	tb_sign_extender16_32
 	tb_sign_extender1_32
+
+} {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_shiftleft2jump.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/tb_shiftleft2jump.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module ShiftLeftTwoJump
+-- Compiling module testbench_shiftleft2jump
+
+Top level modules:
+	testbench_shiftleft2jump
 
 } {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_sllsrca.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_sllsrca.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -116,13 +116,6 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Loading package NUMERIC_STD
 -- Compiling entity Ula32
 -- Compiling architecture behavioral of Ula32
-
-} {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/opcodes.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/opcodes.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module opcodelogic
-
-Top level modules:
-	opcodelogic
 
 } {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_sllsrcb.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_sllsrcb.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016

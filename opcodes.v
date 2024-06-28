@@ -36,7 +36,7 @@ module opcodelogic (
     // parameter SAVELT     = SAVEREGRD; //6
     // parameter SAVEALU    = SAVEREGRD; //10
     // parameter SAVEOR     = SAVEREGRD; //12
-    // parameter SAVESHIFT  = 17;
+    // parameter SAVESHIFT  = ;
     parameter RESET      =  0;
     parameter READINST1  =  1;
     parameter READINST2  =  2;
@@ -51,6 +51,7 @@ module opcodelogic (
     parameter JR         = 15;
     parameter SAVEPC     = 16;
     parameter LOADSHFT   = 25;
+    parameter LOADSHFTV  = 17;
     parameter SLLV       = 21;
     parameter SRAV       = 18;
     parameter SRA        = 19;
@@ -60,6 +61,7 @@ module opcodelogic (
     parameter MFLO       = 24;
     parameter SAVEREGRD  = 26;
     parameter BREAK      = 27;
+    parameter SAVEPCBK   = 06;
     parameter RTE        = 28;
     parameter LOADA      = 29;
     parameter LOADB      = 30;
@@ -142,8 +144,8 @@ module opcodelogic (
                     else if(funct == 6'b011010) estado = DIV;     //div   0x1a
                     else if(funct == 6'b011000) estado = MULT;    //mul   0x18
                     else if(funct == 6'b001000) estado = JR;      //JR    0x8
-                    else if(funct == 6'b000100) estado = LOADSHFT;//SLLV  0x4
-                    else if(funct == 6'b000111) estado = LOADSHFT;//SRAV  0x7
+                    else if(funct == 6'b000100) estado = LOADSHFTV;//SLLV  0x4
+                    else if(funct == 6'b000111) estado = LOADSHFTV;//SRAV  0x7
                     else if(funct == 6'b000011) estado = LOADSHFT;//SRA   0x3
                     else if(funct == 6'b000010) estado = LOADSHFT;//SRL   0x2
                     else if(funct == 6'b000000) estado = LOADSHFT;//SLL   0x0
@@ -178,7 +180,20 @@ module opcodelogic (
             else if(estado == OR)      estado = SAVEREGRD;//SAVEOR;
             else if(estado == JR)      estado = SAVEPC;
             else if(estado == SAVEPC)  estado = READINST1;
+            else if(estado == SAVEPCBK)estado = READINST1;
             else if(estado == LOADSHFT)
+            begin
+                if(tempo == 0) tempo = 2;
+                tempo = tempo - 1;
+                if(tempo == 0)
+                begin
+                         if(funct == 6'b000011) estado = SRA;   //SRA   0x3
+                    else if(funct == 6'b000010) estado = SRL;   //SRL   0x2
+                    else if(funct == 6'b000000) estado = SLL;   //SLL   0x0
+                    else estado = INVALIDOP;
+                end
+            end
+            else if(estado == LOADSHFTV)
             begin
                 if(tempo == 0) tempo = 2;
                 tempo = tempo - 1;
@@ -186,9 +201,7 @@ module opcodelogic (
                 begin
                          if(funct == 6'b000100) estado = SLLV;  //SLLV  0x4
                     else if(funct == 6'b000111) estado = SRAV;  //SRAV  0x7
-                    else if(funct == 6'b000011) estado = SRA;   //SRA   0x3
-                    else if(funct == 6'b000010) estado = SRL;   //SRL   0x2
-                    else if(funct == 6'b000000) estado = SLL;   //SLL   0x0
+                    else estado = INVALIDOP;
                 end
             end
             else if(estado == SLLV || estado == SRAV || estado == SRA || estado == SRL || estado == SLL) //todos os shift tipo R
@@ -200,7 +213,7 @@ module opcodelogic (
             else if(estado == MFHI)    estado = SAVEREGRD;
             else if(estado == MFLO)    estado = SAVEREGRD;
             else if(estado == SAVEREGRD)estado= READINST1;
-            else if(estado == BREAK)   estado = SAVEPC;
+            else if(estado == BREAK)   estado = SAVEPCBK;
             else if(estado == RTE)     estado = READINST1;
             else if(estado == DIV || estado == MULT)
             begin
@@ -427,18 +440,34 @@ module opcodelogic (
             ALUSrcA = 1'b1;
             ALUSrcB  = 3'b000;
             ControlType = ALULOAD;
+            PCSource = 3'b001;
+            PCWrite = 1'b1;
         end
         else if(estado == SAVEPC)
         begin
             PCSource = 3'b001;
             PCWrite  = 1'b1;
         end
+        else if(estado == SAVEPCBK)
+        begin
+            PCSource = 3'b010;
+            PCWrite  = 1'b1;
+        end
         else if(estado == LOADSHFT)
         begin
             ALUSrcA = 1'b1;
             ALUSrcB  = 3'b000;
-            SLLSourceA = 2'b10; //!!! Entrada é o B
-            SLLSourceB = 2'b00;
+            SLLSourceA = 2'b10; //Entrada A é o B !!!
+            SLLSourceB = 2'b10; //Entrada B é o SHAMT !!!
+            ShiftType = 3'b001;
+            ControlType = ALUSFT;
+        end
+        else if(estado == LOADSHFTV)
+        begin
+            ALUSrcA = 1'b1;
+            ALUSrcB  = 3'b000;
+            SLLSourceA = 2'b00; //Entrada A é o A !!!
+            SLLSourceB = 2'b00; //Entrada B é o B !!!
             ShiftType = 3'b001;
             ControlType = ALUSFT;
         end
@@ -447,7 +476,7 @@ module opcodelogic (
             ALUSrcA = 1'b1;
             ALUSrcB  = 3'b000;
             SLLSourceA = 2'b00;
-            SLLSourceB = 2'b00;
+            SLLSourceB = 2'b00; //
             ShiftType = 3'b010;
             ControlType = ALUSFT;
         end
@@ -455,7 +484,7 @@ module opcodelogic (
         begin
             ALUSrcA = 1'b1;
             ALUSrcB  = 3'b000;
-            SLLSourceA = 1'b0;
+            SLLSourceA = 2'b00;
             SLLSourceB = 2'b00;
             ShiftType = 3'b100;
             ControlType = ALUSFT;
@@ -464,7 +493,7 @@ module opcodelogic (
         begin
             ALUSrcA = 1'b1;
             ALUSrcB  = 3'b000;
-            SLLSourceA = 1'b0;
+            SLLSourceA = 2'b10;
             SLLSourceB = 2'b10;
             ShiftType = 3'b100;
             ControlType = ALUSFT;
@@ -473,7 +502,7 @@ module opcodelogic (
         begin
             ALUSrcA = 1'b1;
             ALUSrcB  = 3'b000;
-            SLLSourceA = 1'b0;
+            SLLSourceA = 2'b10;
             SLLSourceB = 2'b10;
             ShiftType = 3'b011;
             ControlType = ALUSFT;
