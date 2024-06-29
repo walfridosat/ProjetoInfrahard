@@ -23,13 +23,13 @@ OK bne rs,rt, offset
 OK ble rs,rt,offset
 OK bgt rs,rt,offset
 OK divm rt, offset(rs)
-REV lb rt, offset(rs)
-REV lh rt, offset(rs)
+OK lb rt, offset(rs)
+OK lh rt, offset(rs)
 OK lw rt, offset(rs)
-   lui rt, imediato
-REV sb rt, offset(rs)
-REV sh rt, offset(rs)
+OK lui rt, imediato
+OK sb rt, offset(rs)
+OK sh rt, offset(rs)
 OK sw rt, offset(rs)
-   slti rt, rs, imediato
+OK slti rt, rs, imediato
 OK j offset
 OK jal offset
