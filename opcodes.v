@@ -220,7 +220,7 @@ module opcodelogic (
                 if(tempo == 0) tempo = 34; //espera 32 ciclos para completar a divisão/multiplicação
                 tempo = tempo - 1;
                 if(tempo == 0) estado = READINST1;
-                if(divby0flag) estado = DIVBY0;
+                if(divby0flag)begin tempo = 0; estado = DIVBY0; end
             end
             else if(estado == LOADA)   //xchg load a
             begin
@@ -258,7 +258,7 @@ module opcodelogic (
                 if(tempo == 0) tempo = 34;
                 tempo = tempo - 1;
                 if(tempo == 0) estado = READINST1;
-                if(divby0flag) estado = DIVBY0;
+                if(divby0flag)begin tempo = 0; estado = DIVBY0; end
             end
             else if(estado == BRNCHCALC)
             begin
@@ -314,13 +314,32 @@ module opcodelogic (
             else if(estado == LB) estado = READINST1;
             // INSTRUÇÕES J - TRANSIÇÃO
             else if(estado == JUMP) estado = READINST1;
-            else if(estado == JAL)  estado = READINST1;
+            else if(estado == JAL)  //estado = READINST1;
+            begin
+                if(tempo == 0) tempo = 1;
+                tempo = tempo - 1;
+                if(tempo == 0) estado = READINST1;
+            end
             // TRATAMENTOS DE ERROS
             else if(estado == EXEPTION)  estado = READINST1;
-            else if(estado == INVALIDOP) estado = EXEPTION;
-            else if(estado == DIVBY0)    estado = EXEPTION;
-            else if(estado == OVERFLOW)  estado = EXEPTION;
-            else ExceptionAdress = -1; /// !!! marcação para debug
+            else if(estado == INVALIDOP) // estado = EXEPTION;
+            begin
+                if(tempo == 0) tempo = 3;
+                tempo = tempo - 1;
+                if(tempo == 0) estado = EXEPTION;
+            end
+            else if(estado == DIVBY0)   // estado = EXEPTION;
+            begin
+                if(tempo == 0) tempo = 3;
+                tempo = tempo - 1;
+                if(tempo == 0) estado = EXEPTION;
+            end
+            else if(estado == OVERFLOW)
+            begin
+                if(tempo == 0) tempo = 3;
+                tempo = tempo - 1;
+                if(tempo == 0) estado = EXEPTION;
+            end
         end
     end
 
@@ -560,22 +579,25 @@ module opcodelogic (
         else if(estado == LOADA)
         begin
             SrcAddr = 3'b100; // Lê da memória na posição de A
+            SizeHandler = 3'b100;
         end
         else if(estado == LOADB)
         begin
-            SizeHandler = 3'b000;
+            SizeHandler = 3'b111;
             SaveTemp = 1'b1;
             SrcAddr = 3'b101;
             // Lê a memória no posição B e salva o A em Temp
         end
         else if(estado == ATOB)
         begin
+            SizeHandler = 3'b111;
             DataSource = 1'b0;
             SrcAddr = 3'b101;   // Salva A na pos de B
             WR = 1'b1;
         end
         else if(estado == BTOA)
         begin
+            SizeHandler = 3'b111;
             DataSource = 1'b1;
             SrcAddr = 3'b100;   // Salva B na pos de A
             WR = 1'b1;
@@ -760,43 +782,49 @@ module opcodelogic (
             PCWrite = 1'b1;
             RegDest = 3'b010;
             MemToReg = 3'b100;
-            WR = 1'b1;
+            // WR = 1'b1;
+            RegWrite = 1'b1;
         end
         // TRATAMENTO DE ERROS
         else if(estado == EXEPTION)
         begin
             MemToReg = 2'b11;
             RegDest = 3'b011;
-            SizeHandler = 3'b100; //LW !!! É realmente isso?
+            SizeHandler = 3'b011; //LB !!!
             PCSource = 3'b011;
         end
         else if(estado == INVALIDOP)
         begin
-            //MemRead = 0; // !!!
             SrcAddr = 3'b011;
             // !!!
-            MemToReg = 2'b11;
+            MemToReg = 2'b01;
             RegDest = 3'b011;
-            SizeHandler = 3'b100; //LW !!! É realmente isso?
+            SizeHandler = 3'b011; //LB !!!
             PCSource = 3'b011;
+            PCWrite = 1'b1;
+            EPCWrite = 1'b1;
         end
         else if(estado == OVERFLOW)
         begin
             SrcAddr = 3'b001;
             // !!!
-            MemToReg = 2'b11;
+            MemToReg = 2'b01;
             RegDest = 3'b011;
-            SizeHandler = 3'b100; //LW !!! É realmente isso?
+            SizeHandler = 3'b011; //LB !!!
             PCSource = 3'b011;
+            PCWrite = 1'b1;
+            EPCWrite = 1'b1;
         end
         else if(estado == DIVBY0)
         begin
             SrcAddr = 3'b010;
             // !!!
-            MemToReg = 2'b11;
+            MemToReg = 2'b01;
             RegDest = 3'b011;
-            SizeHandler = 3'b100; //LW !!! É realmente isso?
+            SizeHandler = 3'b011; //LB !!!
             PCSource = 3'b011;
+            PCWrite = 1'b1;
+            EPCWrite = 1'b1;
         end
 
     end

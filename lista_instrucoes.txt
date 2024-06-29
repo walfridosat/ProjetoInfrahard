@@ -14,22 +14,22 @@ OK srav rd, rs, rt
 OK srl rd, rt, shamt
 OK sub rd, rs, rt
 OK break
-   Rte
-   xchg rs,rt 
+REV Rte
+OK xchg rs,rt 
 OK addi rt, rs imediato
 OK addiu rt, rs imediato
 OK beq rs,rt, offset
 OK bne rs,rt, offset
 OK ble rs,rt,offset
 OK bgt rs,rt,offset
-   divm rt, offset(rs)
-OK? lb rt, offset(rs)
-OK? lh rt, offset(rs)
+OK divm rt, offset(rs)
+REV lb rt, offset(rs)
+REV lh rt, offset(rs)
 OK lw rt, offset(rs)
    lui rt, imediato
-   sb rt, offset(rs)
-OK sh rt, offset(rs)
+REV sb rt, offset(rs)
+REV sh rt, offset(rs)
 OK sw rt, offset(rs)
    slti rt, rs, imediato
 OK j offset
-   jal offset
+OK jal offset
