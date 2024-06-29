@@ -290,9 +290,24 @@ module opcodelogic (
                     else if(opcode == 6'b101000) estado = SB;  //SB    0x28
                 end
             end
-            else if(estado == LW) estado = READINST1;
-            else if(estado == LH) estado = READINST1;
-            else if(estado == LB) estado = READINST1;
+            else if(estado == LW)
+            begin
+                if(tempo == 0) tempo = 2;
+                tempo = tempo - 1;
+                if(tempo == 0) estado = READINST1;
+            end
+            else if(estado == LH)// estado = READINST1;
+            begin
+                if(tempo == 0) tempo = 2;
+                tempo = tempo - 1;
+                if(tempo == 0) estado = READINST1;
+            end
+            else if(estado == LB)// estado = READINST1;
+            begin
+                if(tempo == 0) tempo = 2;
+                tempo = tempo - 1;
+                if(tempo == 0) estado = READINST1;
+            end
             else if(estado == SW) estado = READINST1;
             else if(estado == SH) estado = READINST1;
             else if(estado == LB) estado = READINST1;
@@ -670,11 +685,19 @@ module opcodelogic (
             SizeHandler =3'b001;
             DataSource = 1'b1;
             WR = 1'b1;
+
+            ALUSrcA = 1'b1;
+            ALUSrcB = 3'b010;
+            ControlType = ALUOADD;
         end
         else if(estado == READMEM)
         begin
             IorD = 1'b1;
             SrcAddr = 3'b000; //Lê da memória na pos calculada em MEMOCALC
+
+            ALUSrcA = 1'b1;
+            ALUSrcB = 3'b010;
+            ControlType = ALUOADD;
         end
         else if(estado == LW)
         begin
@@ -682,6 +705,9 @@ module opcodelogic (
             MemToReg = 3'b001;
             RegDest = 1'b0;
             RegWrite = 1'b1;
+
+            IorD = 1'b1;
+            SrcAddr = 3'b000;
         end
         else if(estado == LH)
         begin
@@ -689,6 +715,9 @@ module opcodelogic (
             MemToReg = 3'b001;
             RegDest = 1'b0;
             RegWrite = 1'b1;
+
+            IorD = 1'b1;
+            SrcAddr = 3'b000;
         end
         else if(estado == LB)
         begin
@@ -696,18 +725,27 @@ module opcodelogic (
             MemToReg = 3'b001;
             RegDest = 1'b0;
             RegWrite = 1'b1;
+
+            IorD = 1'b1;
+            SrcAddr = 3'b000;
         end
         else if(estado == SH)
         begin
             SizeHandler = 3'b010;
             DataSource = 1'b1;
             WR = 1'b1;
+
+            IorD = 1'b1;
+            SrcAddr = 3'b000;
         end
         else if(estado == SB)
         begin
             SizeHandler = 3'b000;
             DataSource = 1'b1;
             WR = 1'b1;
+
+            IorD = 1'b1;
+            SrcAddr = 3'b000;
         end
         // INSTRUÇÕES J
         else if(estado == JUMP)
