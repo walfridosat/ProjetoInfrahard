@@ -72,7 +72,7 @@ wire [31:0] LoOut;
 
 wire LT_ula;
 wire EQ_OUT; 
-wire EQ_cmp; assign EQ_cmp = ~EQ_OUT;
+wire EQ_cmp; assign EQ_cmp =  EQ_OUT;
 wire NE_cmp; assign NE_cmp = ~EQ_cmp;
 wire LE_cmp; assign LE_cmp =  EQ_cmp | LT_ula;
 wire GT_cmp; assign GT_cmp = ~LE_cmp;

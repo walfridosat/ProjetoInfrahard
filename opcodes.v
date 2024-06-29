@@ -358,7 +358,7 @@ module opcodelogic (
         ALUSrcA = 1'b0;
         ALUSrcB = 3'b000;
         AluOutLoad = 1'b0;
-        ControlType = 5'b00000;
+        if(tempo != 1) ControlType = 5'b00000;
         ALUOutSaveCPU = 1'b1;   // !!! Padrão 1 !!!
         PCSource = 3'd2;
         SLLSourceA = 2'b00;
@@ -622,32 +622,40 @@ module opcodelogic (
             ALUSrcA = 1'b1;
             ALUSrcB = 3'b000;
             ControlType = ALUEQ;
+            PCWriteCond = 1'b1;
+            tempo = 1;
         end
         else if(estado == BNE)
         begin
             ALUSrcA = 1'b1;
             ALUSrcB = 3'b000;
             ControlType = ALUNE;   
+            PCWriteCond = 1'b1;
+            tempo = 1;
         end
         else if(estado == BLE)
         begin
             ALUSrcA = 1'b1;
             ALUSrcB = 3'b000;
             ControlType = ALULE;
+            PCWriteCond = 1'b1;
+            tempo = 1;
         end
         else if(estado == BGT)
         begin
             ALUSrcA = 1'b1;
             ALUSrcB = 3'b000;
             ControlType = ALUGT;
+            PCWriteCond = 1'b1;
+            tempo = 1;
         end
         else if(estado == CONDSAVEPC)
         begin
             ALUSrcA = 1'b1;
             ALUSrcB = 3'b000;   //mantem a entrada por segurança
             PCSource = 3'b010;
-            PCWriteCond = 1'b1;
-            // ControlType = ALUGT; // !!! ???
+            // PCWriteCond = 1'b1;
+            tempo = 0;
         end
         else if(estado == MEMOCALC)
         begin

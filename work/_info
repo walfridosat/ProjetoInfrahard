@@ -136,13 +136,13 @@ R3
 R4
 ncondition@handler@m@u@x
 vCPU
-!s110 1719608694
+!s110 1719631759
 !i10b 1
-!s100 <Uh9d0Ko646`m?1oV2M@H1
-I43U66bUV]c;I0fS[_[TnL0
+!s100 TPeifn8=?]GJ?a=XE<J]T1
+IEA`8z9AFQanWbc^b[ZMP`2
 R0
 R1
-w1719608682
+w1719631747
 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/CPU.v
 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/CPU.v
 L0 2
@@ -150,7 +150,7 @@ R2
 r1
 !s85 0
 31
-!s108 1719608694.000000
+!s108 1719631759.000000
 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/CPU.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/CPU.v|
 !i113 1
@@ -436,13 +436,13 @@ R3
 R4
 n@m@u@x@ior@d
 vopcodelogic
-!s110 1719617218
+!s110 1719632412
 !i10b 1
-!s100 EOED[Me@z9YaaLCiDCMdb2
-IJ97@^H0gZnz^RzFkEW5]83
+!s100 PC`UhZThCi8ZHAY91flzo3
+I0`J329TZC@NDb[88c]dNV0
 R0
 R1
-w1719617061
+w1719632405
 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/opcodes.v
 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/opcodes.v
 L0 1
@@ -450,7 +450,7 @@ R2
 r1
 !s85 0
 31
-!s108 1719617218.000000
+!s108 1719632412.000000
 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/opcodes.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/opcodes.v|
 !i113 1
