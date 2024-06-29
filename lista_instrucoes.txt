@@ -28,8 +28,8 @@ OK? lh rt, offset(rs)
 OK lw rt, offset(rs)
    lui rt, imediato
    sb rt, offset(rs)
-   sh rt, offset(rs)
+OK sh rt, offset(rs)
+OK sw rt, offset(rs)
    slti rt, rs, imediato
-   sw rt, offset(rs)
 OK j offset
    jal offset

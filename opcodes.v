@@ -310,6 +310,7 @@ module opcodelogic (
             end
             else if(estado == SW) estado = READINST1;
             else if(estado == SH) estado = READINST1;
+            else if(estado == SB) estado = READINST1;
             else if(estado == LB) estado = READINST1;
             // INSTRUÇÕES J - TRANSIÇÃO
             else if(estado == JUMP) estado = READINST1;

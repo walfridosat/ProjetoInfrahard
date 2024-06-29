@@ -8,11 +8,11 @@ module sizehandlerMUX (
     always @* begin
         case (sel)
             3'b000: //sb
-                out = {B[7:0], mem[15:8], mem[23:16], mem[31:24]};
+                out = {B[7:0], mem[23:16], mem[15:8], mem[7:0]};
             3'b001://sw
                 out = {B[7:0], B[15:8], B[23:16], B[31:24]};
             3'b010: // sh
-                out = {B[7:0], B[15:8], mem[23:16], mem[31:24]};
+                out = {B[7:0], B[15:8], mem[15:8], mem[7:0]}; // !!! MODIFICADO !!! Está correto
             3'b011: // lb
                 out = {8'b00000000, 8'b00000000, 8'b00000000, mem[7:0]};
             3'b100: // lw

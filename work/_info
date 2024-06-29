@@ -436,13 +436,13 @@ R3
 R4
 n@m@u@x@ior@d
 vopcodelogic
-!s110 1719638856
+!s110 1719641508
 !i10b 1
-!s100 QZS1H?DD>Q>4>I7SXce6C1
-IJ@B1<RMBcBT9fJX<XUkL60
+!s100 zgSihN5`g=HFzhn83WMUe2
+IM>4zRakmYT]Bijz?fH8bW0
 R0
 R1
-w1719638851
+w1719641501
 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/opcodes.v
 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/opcodes.v
 L0 1
@@ -450,7 +450,7 @@ R2
 r1
 !s85 0
 31
-!s108 1719638856.000000
+!s108 1719641507.000000
 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/opcodes.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/opcodes.v|
 !i113 1
@@ -708,13 +708,13 @@ R47
 R3
 R4
 vsizehandlerMUX
-!s110 1719639641
+!s110 1719641684
 !i10b 1
-!s100 <gXBi:FL3PoPh72G6@P4B0
-I3<TaNPkCHQ5_l=R3JRS2T0
+!s100 JInZ0>7Sn=YG7ngI;5V<@1
+I3AQOXSEizaEHHLJTiSbki2
 R0
 R1
-w1719639635
+w1719641590
 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/sizehandler.v
 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/sizehandler.v
 L0 1
@@ -722,7 +722,7 @@ R2
 r1
 !s85 0
 31
-!s108 1719639640.000000
+!s108 1719641684.000000
 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/sizehandler.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/sizehandler.v|
 !i113 1
