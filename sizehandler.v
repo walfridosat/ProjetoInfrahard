@@ -21,6 +21,8 @@ module sizehandlerMUX (
                 out={8'b00000000,8'b00000000,8'b00000000, mem[31:24]};
             3'b111: // rep
                 out = {mem[31:24], mem[23:16], mem[15:8], mem[7:0]};
+            3'b110: //exeption
+                out={8'b00000000,8'b00000000,8'b00000000, mem[7:0]};
             default:
                 out = 32'b00000000000000000000000000000000; // Valor padrão
         endcase

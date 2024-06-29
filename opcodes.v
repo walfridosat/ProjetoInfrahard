@@ -324,19 +324,19 @@ module opcodelogic (
             else if(estado == EXEPTION)  estado = READINST1;
             else if(estado == INVALIDOP) // estado = EXEPTION;
             begin
-                if(tempo == 0) tempo = 1;
+                if(tempo == 0) tempo = 5;
                 tempo = tempo - 1;
                 if(tempo == 0) estado = EXEPTION;
             end
             else if(estado == DIVBY0)   // estado = EXEPTION;
             begin
-                if(tempo == 0) tempo = 1;
+                if(tempo == 0) tempo = 5;
                 tempo = tempo - 1;
                 if(tempo == 0) estado = EXEPTION;
             end
             else if(estado == OVERFLOW)
             begin
-                if(tempo == 0) tempo = 1;
+                if(tempo == 0) tempo = 5;
                 tempo = tempo - 1;
                 if(tempo == 0) estado = EXEPTION;
             end
@@ -790,7 +790,7 @@ module opcodelogic (
         begin
             MemToReg = 2'b11;
             RegDest = 3'b011;
-            SizeHandler = 3'b011; //LB !!!
+            SizeHandler = 3'b110; //Exeption !!!
             PCSource = 3'b011;
         end
         else if(estado == INVALIDOP)
@@ -799,7 +799,7 @@ module opcodelogic (
             // !!!
             MemToReg = 2'b01;
             RegDest = 3'b011;
-            SizeHandler = 3'b011; //LB !!!
+            SizeHandler = 3'b110; //Exeption !!!
             PCSource = 3'b011;
             PCWrite = 1'b1;
             EPCWrite = 1'b1;
@@ -810,7 +810,7 @@ module opcodelogic (
             // !!!
             MemToReg = 2'b01;
             RegDest = 3'b011;
-            SizeHandler = 3'b011; //LB !!!
+            SizeHandler = 3'b110; //Exeption !!!
             PCSource = 3'b011;
             PCWrite = 1'b1;
             EPCWrite = 1'b1;
@@ -821,7 +821,7 @@ module opcodelogic (
             // !!!
             MemToReg = 2'b01;
             RegDest = 3'b011;
-            SizeHandler = 3'b011; //LB !!!
+            SizeHandler = 3'b110; //Exeption !!!
             PCSource = 3'b011;
             PCWrite = 1'b1;
             EPCWrite = 1'b1;
