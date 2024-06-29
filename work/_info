@@ -9,13 +9,13 @@ z2
 cModel Technology
 dC:/intelFPGA/18.1
 vALUControl
-!s110 1719612475
+!s110 1719697025
 !i10b 1
-!s100 =5jbcWjno=[L;faGUR0;93
-IAgPXfn0Z=gVS7R3Mc[WFE1
+!s100 F<=UNZ77>?[hT^?<UVhem3
+Ij_SMfFiOkCoj`>4@6LC^;0
 Z0 VDg1SIo80bB@j0V0VzS_@n1
 Z1 dC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard
-w1719612462
+w1719696992
 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/ALUControl.v
 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/ALUControl.v
 L0 1
@@ -23,7 +23,7 @@ Z2 OV;L;10.5b;63
 r1
 !s85 0
 31
-!s108 1719612475.000000
+!s108 1719697025.000000
 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/ALUControl.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/ALUControl.v|
 !i113 1
@@ -136,13 +136,13 @@ R3
 R4
 ncondition@handler@m@u@x
 vCPU
-!s110 1719631759
+!s110 1719697027
 !i10b 1
-!s100 TPeifn8=?]GJ?a=XE<J]T1
-IEA`8z9AFQanWbc^b[ZMP`2
+!s100 MAISP4THe@BQRL1o?QB<62
+IlzEcc`;L=DY:bTEWWbJ?Z2
 R0
 R1
-w1719631747
+w1719696964
 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/CPU.v
 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/CPU.v
 L0 2
@@ -150,7 +150,7 @@ R2
 r1
 !s85 0
 31
-!s108 1719631759.000000
+!s108 1719697027.000000
 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/CPU.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/CPU.v|
 !i113 1
@@ -436,13 +436,13 @@ R3
 R4
 n@m@u@x@ior@d
 vopcodelogic
-!s110 1719696136
+!s110 1719697012
 !i10b 1
-!s100 Y<R<7AZm7hjMfaL?aEIRV1
-IVzZN:H779kf9kCGFnnzFa1
+!s100 SkAh?ZD?OHF<RzH3k3DD>0
+I7GgKlM?nKEZN_X[bi>UgH2
 R0
 R1
-w1719696126
+w1719696834
 8C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/opcodes.v
 FC:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/opcodes.v
 L0 1
@@ -450,7 +450,7 @@ R2
 r1
 !s85 0
 31
-!s108 1719696136.000000
+!s108 1719697012.000000
 !s107 C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/opcodes.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/opcodes.v|
 !i113 1

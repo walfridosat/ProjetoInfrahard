@@ -102,7 +102,6 @@ wire [31:0] EPC_out;
 wire [31:0] EPC_in; // !!! vem de onde? 
 wire [31:0] temp_out;
 wire [31:0] MemoDataReg_out;
-wire ALUOutSaveCPU; // !!! novo
 
 // Mux outputs
 wire CHOut; //condition handler out
@@ -154,20 +153,16 @@ opcodelogic Controle (
     .IorD(IorDSel),
     .SrcAddr(SrcAddr),
     .WR(WriteMemo),
-    .ResetTrigger(),    //wire [0:0] ResetTrigger; // não necessário?
     .SaveTemp(SaveTemp),
     .MemToReg(MemToReg),
     .SizeHandler(SzHndlrSel),
     .IRWrite(IRWrite),
-    .ExceptionAdress(ExceptionAdress),
     .DataSource(DataSource),
     .EPCWrite(EPCWrite),
     .RegDest(RegDest),
     .RegWrite(RegWrite),
-    .AluOutLoad(),    // !!! Adicionado agora!!! Precisa colocar no Opcode
     .ALUSrcA(ALUSrcA),
     .ALUSrcB(ALUSrcB),
-    .ALUOutSaveCPU(ALUOutSaveCPU),
     .ControlType(controlType),
     .PCSource(PCSource),
     .SLLSourceA(SLLSourceA),
@@ -185,7 +180,7 @@ Instr_Reg   Instruc_Reg(.Clk(clock), .Reset(reset), .Load_ir(IRWrite), .Entrada(
 
 
 // Operações 
-ALUControl    AluCtrl(.controlType(controlType),  .condType(condType), .divOp(divOp), .multOp(multOp), .ALUOp(ALUOp), .orOp(orOp), .overflowOp(overflowOp), .SrcOut(SrcOut), .StoreMD(StoreMD), .ALUOutSave(AluOutLoad), .ALUOutSaveCPU(ALUOutSaveCPU));
+ALUControl    AluCtrl(.controlType(controlType),  .condType(condType), .divOp(divOp), .multOp(multOp), .ALUOp(ALUOp), .orOp(orOp), .overflowOp(overflowOp), .SrcOut(SrcOut), .StoreMD(StoreMD), .ALUOutSave(AluOutLoad));
 Ula32         ULA (.A(AluA), .B(AluB), .Seletor(ALUOp), .S(UlaResult), .Overflow(overflowAlu), .Negativo(), .z(), .Igual(EQ_OUT), .Maior(), .Menor(LT_ula));
 divisor       Divisor(.clk(clock), .divOp (divOp ), .dividend    (AluA), .divisor   (AluB), .div_hi (HiDiv), .div_lo (LoDiv), .divby0flag(divby0flag)); // !!! atenção com o divisor - alterações no modulo
 multiplicador Multip (.clk(clock), .multOp(multOp), .multiplicand(AluA), .multiplier(AluB), .mult_hi(HiMul), .mult_lo(LoMul)); // !!! Multiplicador alterado
@@ -214,7 +209,7 @@ MUX32       DMtoLo(.sel(divOp), .A(LoMul), .B(LoDiv), .out(Lo2Reg));
 MUXIorD        PC_Mux2Mux  (.sel(IorDSel),    .out(IorD_Out),        .AluOut(AluOut_out), .PC(PCout));   //Seleciona entre PC e aluOut e manda pra MuxAddr_Memo
 SrcAddrMUX     MuxAddr_Memo(.sel(SrcAddr),    .out(Addr_Memo),       .IorD_out(IorD_Out), .A(ReadDataA), .B(ReadDataB)); //Seleciona entre "PC", endereços padrão, ou A/B
 regDestMUX     toWriteRegi (.sel(RegDest),    .out(mxToWriteRegi),   .rt(Instr20_16),     .rd(Instr15_11));
-memToRegMUX    toWriteData (.sel(MemToReg),   .out(mxToWriteData),   .AluOut(AluOut_out), .memorydataregister(MemoDataReg_out), .exceptionadress(ExceptionAdres), .pc(PCout));
+memToRegMUX    toWriteData (.sel(MemToReg),   .out(mxToWriteData),   .AluOut(AluOut_out), .memorydataregister(MemoDataReg_out), .exceptionadress(ExceptionAdres), .pc(PCout)); // !!!
 MUXDataSrc     toWriteMemo (.sel(DataSource), .out(toWriteMemo_out), .temp(temp_out),     .size_handler(SizeHandler_out));
 sizehandlerMUX SizeHandler (.sel(SzHndlrSel), .out(SizeHandler_out), .mem(MemoOut),       .B(RegB_out));
 

@@ -11,21 +11,17 @@ module opcodelogic (
     output reg [0:0] IorD,
     output reg [2:0] SrcAddr,
     output reg [0:0] WR,
-    output reg [0:0] ResetTrigger,
     output reg [0:0] SaveTemp,
     output reg [2:0] MemToReg,
     output reg [2:0] SizeHandler,
     output reg [0:0] IRWrite,
-    output reg [31:0] ExceptionAdress,
     output reg [0:0] DataSource,
     output reg [0:0] EPCWrite,
     output reg [1:0] RegDest,
     output reg [0:0] RegWrite,
     output reg [0:0] ALUSrcA,
     output reg [2:0] ALUSrcB,
-    output reg [0:0] AluOutLoad,
     output reg [4:0] ControlType,
-    output reg [0:0] ALUOutSaveCPU,  // !!! para auxiliar no branch // 
     output reg [2:0] PCSource,
     output reg [1:0] SLLSourceA,
     output reg [1:0] SLLSourceB,
@@ -33,10 +29,6 @@ module opcodelogic (
 );
 
     // ESTADOS
-    // parameter SAVELT     = SAVEREGRD; //6
-    // parameter SAVEALU    = SAVEREGRD; //10
-    // parameter SAVEOR     = SAVEREGRD; //12
-    // parameter SAVESHIFT  = ;
     parameter RESET      =  0;
     parameter READINST1  =  1;
     parameter READINST2  =  2;
@@ -267,10 +259,10 @@ module opcodelogic (
                 else if(opcode == 6'b000110) estado = BLE;//BLE   0x6
                 else if(opcode == 6'b000111) estado = BGT;//BGT   0x7
             end
-            else if(estado == BEQ)     estado = CONDSAVEPC;
-            else if(estado == BNE)     estado = CONDSAVEPC;
-            else if(estado == BLE)     estado = CONDSAVEPC;
-            else if(estado == BGT)     estado = CONDSAVEPC;
+            else if(estado == BEQ)        estado = CONDSAVEPC;
+            else if(estado == BNE)        estado = CONDSAVEPC;
+            else if(estado == BLE)        estado = CONDSAVEPC;
+            else if(estado == BGT)        estado = CONDSAVEPC;
             else if(estado == CONDSAVEPC) estado = READINST1;
             else if(estado == MEMOCALC)
             begin
@@ -380,21 +372,17 @@ module opcodelogic (
         IorD = 1'b0;
         SrcAddr = 3'b000;
         WR= 1'b0;
-        ResetTrigger = 1'b0;
         SaveTemp = 1'b0;
         MemToReg = 3'b000;
         SizeHandler = 3'b000;
         IRWrite = 1'b0;
-        ExceptionAdress = 32'd0;
         DataSource = 1'b0;
         EPCWrite = 1'b0;
         RegDest = 2'b00;
         RegWrite = 1'b0;
         ALUSrcA = 1'b0;
         ALUSrcB = 3'b000;
-        AluOutLoad = 1'b0;
         if(tempo != 1) ControlType = 5'b00000;
-        ALUOutSaveCPU = 1'b1;   // !!! Padrão 1 !!!
         PCSource = 3'd2;
         SLLSourceA = 2'b00;
         SLLSourceB = 2'b00;
@@ -690,9 +678,8 @@ module opcodelogic (
         else if(estado == CONDSAVEPC)
         begin
             ALUSrcA = 1'b1;
-            ALUSrcB = 3'b000;   //mantem a entrada por segurança
+            ALUSrcB = 3'b000;   //mantem a entrada
             PCSource = 3'b010;
-            // PCWriteCond = 1'b1;
             tempo = 0;
         end
         else if(estado == MEMOCALC)
@@ -831,34 +818,3 @@ module opcodelogic (
 
 
 endmodule
-
-/*
-
-        // RESETA TUDO POR PADRÃO //
-        ALUSrcB = 3'd0;
-        ALUSrcA = 1'b0;
-        PCWriteCond = 1'b0;
-        PCWrite = 1'b0;
-        IorD = 1'b0;
-        SrcAddr = 2'b00;
-        WR= 1'b0;
-        ResetTrigger = 1'b0;
-        SaveTemp = 1'b0;
-        MemToReg = 3'b000;
-        SizeHandler 3'b000;
-        IRWrite = 1'b0;
-        ExceptionAdress = 32'd0;
-        DataSource = 1'b0;
-        EPCWrite = 1'b0;
-        RegDest = 2'b00;
-        RegWrite = 1'b0;
-        ALUSrcA = 1'b0;
-        ALUSrcB = 3'b000;
-        AluOutLoad = 1'b0;
-        ControlType = 5'b0;
-        PCSource = 3'd0;
-        SLLSourceA = 2'b00;
-        SLLSourceB = 2'b00;
-        ShiftType = 3'b000;
-        ///////////////////////////
-*/

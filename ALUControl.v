@@ -1,6 +1,5 @@
 module ALUControl (
     input wire [4:0] controlType,
-    input wire [0:0] ALUOutSaveCPU,
     output reg [1:0] condType,
     output reg [0:0] divOp,
     output reg [0:0] multOp,
@@ -156,8 +155,6 @@ module ALUControl (
                 end
 
         endcase
-
-        //ALUOutSave = ALUOutSave & ALUOutSaveCPU; // !!! ALUOutSaveCPU é constante 1 exceto no Branch
     end
 
 endmodule
