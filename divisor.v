@@ -67,7 +67,11 @@ module divisor(
 
             if(i == 0) 
             begin
-                div_hi = cima;
+
+                if(dividend[31] == 1'b1 && divisor[31] == 1'b1)
+                    div_hi = -cima;
+                else 
+                    div_hi = cima;
             end
 
             i = i - 1;
