@@ -316,19 +316,19 @@ module opcodelogic (
             else if(estado == EXEPTION)  estado = READINST1;
             else if(estado == INVALIDOP) // estado = EXEPTION;
             begin
-                if(tempo == 0) tempo = 5;
+                if(tempo == 0) tempo = 6;
                 tempo = tempo - 1;
                 if(tempo == 0) estado = EXEPTION;
             end
             else if(estado == DIVBY0)   // estado = EXEPTION;
             begin
-                if(tempo == 0) tempo = 5;
+                if(tempo == 0) tempo = 6;
                 tempo = tempo - 1;
                 if(tempo == 0) estado = EXEPTION;
             end
             else if(estado == OVERFLOW)
             begin
-                if(tempo == 0) tempo = 5;
+                if(tempo == 0) tempo = 6;
                 tempo = tempo - 1;
                 if(tempo == 0) estado = EXEPTION;
             end
