@@ -3,8 +3,8 @@ module divisor(
     input wire [0:0] divOp,
     input wire [31:0] dividend,  
     input wire [31:0] divisor,   
-    output reg [31:0] div_hi, 
-    output reg [31:0] div_lo,
+    output reg [31:0] div_lo, 
+    output reg [31:0] div_hi,
     output wire divby0flag
 );
 

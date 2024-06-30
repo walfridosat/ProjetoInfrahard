@@ -19,7 +19,7 @@ module opcodelogic (
     output reg [0:0] EPCWrite,
     output reg [1:0] RegDest,
     output reg [0:0] RegWrite,
-    output reg [0:0] ALUSrcA,
+    output reg [1:0] ALUSrcA,
     output reg [2:0] ALUSrcB,
     output reg [4:0] ControlType,
     output reg [2:0] PCSource,
@@ -366,7 +366,7 @@ module opcodelogic (
 
         // RESETA TUDO POR PADRÃO //
         ALUSrcB = 3'd0;
-        ALUSrcA = 1'b0;
+        ALUSrcA = 2'd0;
         PCWriteCond = 1'b0;
         PCWrite = 1'b0;
         IorD = 1'b0;
@@ -380,7 +380,7 @@ module opcodelogic (
         EPCWrite = 1'b0;
         RegDest = 2'b00;
         RegWrite = 1'b0;
-        ALUSrcA = 1'b0;
+        ALUSrcA = 2'd0;
         ALUSrcB = 3'b000;
         if(tempo != 1) ControlType = 5'b00000;
         PCSource = 3'd2;
@@ -405,7 +405,7 @@ module opcodelogic (
         end
         else if(estado == READINST2)
         begin
-            ALUSrcA = 1'b0;   // seleciona o PC para operação na ULA como A
+            ALUSrcA = 2'd0;   // seleciona o PC para operação na ULA como A
             ALUSrcB = 3'b001; // seleciona o 4  para operação na ULA como B
             ControlType = ALUOADD; // soma com overflow
             IRWrite = 1'b1; // carrega a instrução !!! cuidado !!!
@@ -418,49 +418,49 @@ module opcodelogic (
         // INSTRUÇÕES R
         else if(estado == SLT)
         begin
-            ALUSrcA = 1'b1;
+            ALUSrcA = 2'd1;
             ALUSrcB  = 3'b000;
             ControlType = ALUCMP;  // S = X comp Y
         end
         else if(estado == SUB)
         begin
-            ALUSrcA = 1'b1;
+            ALUSrcA = 2'd1;
             ALUSrcB  = 3'b000;
             ControlType = ALUSUB; // S = X - Y
         end
         else if(estado == ADD)
         begin
-            ALUSrcA = 1'b1;
+            ALUSrcA = 2'd1;
             ALUSrcB = 3'b000;
             ControlType = ALUOADD; // soma COM OVERFLOW
         end
         else if(estado == AND)
         begin
-            ALUSrcA = 1'b1;
+            ALUSrcA = 2'd1;
             ALUSrcB  = 3'b000;
             ControlType = ALUAND;
         end
         else if(estado == OR)
         begin
-            ALUSrcA = 1'b1;
+            ALUSrcA = 2'd1;
             ALUSrcB = 3'b000;
             ControlType = ALUOR;
         end
         else if(estado == DIV)
         begin
-            ALUSrcA = 1'b1;
+            ALUSrcA = 2'd1;
             ALUSrcB  = 3'b000;
             ControlType = ALUDIV;
         end
         else if(estado == MULT)
         begin
-            ALUSrcA = 1'b1;
+            ALUSrcA = 2'd1;
             ALUSrcB  = 3'b000;
             ControlType = ALUMUL;
         end
         else if(estado == JR)
         begin
-            ALUSrcA = 1'b1;
+            ALUSrcA = 2'd1;
             ALUSrcB  = 3'b000;
             ControlType = ALULOAD;
             PCSource = 3'b001;
@@ -478,7 +478,7 @@ module opcodelogic (
         end
         else if(estado == LOADSHFT)
         begin
-            ALUSrcA = 1'b1;
+            ALUSrcA = 2'd1;
             ALUSrcB  = 3'b000;
             SLLSourceA = 2'b10; //Entrada A é o B !!!
             SLLSourceB = 2'b10; //Entrada B é o SHAMT !!!
@@ -487,7 +487,7 @@ module opcodelogic (
         end
         else if(estado == LOADSHFTV)
         begin
-            ALUSrcA = 1'b1;
+            ALUSrcA = 2'd1;
             ALUSrcB  = 3'b000;
             SLLSourceA = 2'b00; //Entrada A é o A !!!
             SLLSourceB = 2'b00; //Entrada B é o B !!!
@@ -496,7 +496,7 @@ module opcodelogic (
         end
         else if(estado == SLLV)
         begin
-            ALUSrcA = 1'b1;
+            ALUSrcA = 2'd1;
             ALUSrcB  = 3'b000;
             SLLSourceA = 2'b00;
             SLLSourceB = 2'b00; //
@@ -505,7 +505,7 @@ module opcodelogic (
         end
         else if(estado == SRAV)
         begin
-            ALUSrcA = 1'b1;
+            ALUSrcA = 2'd1;
             ALUSrcB  = 3'b000;
             SLLSourceA = 2'b00;
             SLLSourceB = 2'b00;
@@ -514,7 +514,7 @@ module opcodelogic (
         end
         else if(estado == SRA)
         begin
-            ALUSrcA = 1'b1;
+            ALUSrcA = 2'd1;
             ALUSrcB  = 3'b000;
             SLLSourceA = 2'b10;
             SLLSourceB = 2'b10;
@@ -523,7 +523,7 @@ module opcodelogic (
         end
         else if(estado == SRL)
         begin
-            ALUSrcA = 1'b1;
+            ALUSrcA = 2'd1;
             ALUSrcB  = 3'b000;
             SLLSourceA = 2'b10;
             SLLSourceB = 2'b10;
@@ -532,7 +532,7 @@ module opcodelogic (
         end
         else if(estado == SLL)
         begin
-            ALUSrcA = 1'b1;
+            ALUSrcA = 2'd1;
             ALUSrcB  = 3'b000;
             SLLSourceA = 2'b10; //!!! Entrada é o B
             SLLSourceB = 2'b10;
@@ -555,7 +555,7 @@ module opcodelogic (
         end
         else if(estado == BREAK)
         begin
-            ALUSrcA = 1'b0;
+            ALUSrcA = 2'd0;
             ALUSrcB = 3'b001;
             ControlType = ALUSUB;
         end
@@ -593,31 +593,31 @@ module opcodelogic (
         // INSTRUIÇÕES I
         else if(estado == ADDI)
         begin
-            ALUSrcA = 1'b1;
+            ALUSrcA = 2'd1;
             ALUSrcB = 3'b010;
             ControlType = ALUOADD; //soma com overflow
         end
         else if(estado == ADDIU)
         begin
-            ALUSrcA = 1'b1;
+            ALUSrcA = 2'd1;
             ALUSrcB = 3'b010;
             ControlType = ALUSADD;  // soma sem overflow
         end
         else if(estado == SLTI)
         begin
-            ALUSrcA = 1'b1;
+            ALUSrcA = 2'd1;
             ALUSrcB = 3'b010;
             ControlType = ALUCMP;
         end
         else if(estado == DIVM)
         begin
-            ALUSrcA = 1'b1;
+            ALUSrcA = 2'd2;
             ALUSrcB = 3'b010;
             ControlType = ALUDIV;
         end
         else  if(estado == LOADSLUI)
         begin
-            ALUSrcA = 1'b1;
+            ALUSrcA = 2'd1;
             ALUSrcB  = 3'b000;
             SLLSourceA = 2'b01; //!!! Entrada é o imediato
             SLLSourceB = 2'b01;
@@ -639,13 +639,13 @@ module opcodelogic (
         end
         else if(estado == BRNCHCALC)
         begin
-            ALUSrcA = 1'b0;   //seleciona o PC
+            ALUSrcA = 2'd0;   //seleciona o PC
             ALUSrcB = 3'b011; //+4  // calcula o novo PC após o branch
             ControlType = ALUOADD; // soma com overflow
         end
         else if(estado == BEQ)
         begin
-            ALUSrcA = 1'b1;
+            ALUSrcA = 2'd1;
             ALUSrcB = 3'b000;
             ControlType = ALUEQ;
             PCWriteCond = 1'b1;
@@ -653,7 +653,7 @@ module opcodelogic (
         end
         else if(estado == BNE)
         begin
-            ALUSrcA = 1'b1;
+            ALUSrcA = 2'd1;
             ALUSrcB = 3'b000;
             ControlType = ALUNE;   
             PCWriteCond = 1'b1;
@@ -661,7 +661,7 @@ module opcodelogic (
         end
         else if(estado == BLE)
         begin
-            ALUSrcA = 1'b1;
+            ALUSrcA = 2'd1;
             ALUSrcB = 3'b000;
             ControlType = ALULE;
             PCWriteCond = 1'b1;
@@ -669,7 +669,7 @@ module opcodelogic (
         end
         else if(estado == BGT)
         begin
-            ALUSrcA = 1'b1;
+            ALUSrcA = 2'd1;
             ALUSrcB = 3'b000;
             ControlType = ALUGT;
             PCWriteCond = 1'b1;
@@ -677,14 +677,14 @@ module opcodelogic (
         end
         else if(estado == CONDSAVEPC)
         begin
-            ALUSrcA = 1'b1;
+            ALUSrcA = 2'd1;
             ALUSrcB = 3'b000;   //mantem a entrada
             PCSource = 3'b010;
             tempo = 0;
         end
         else if(estado == MEMOCALC)
         begin
-            ALUSrcA = 1'b1;
+            ALUSrcA = 2'd1;
             ALUSrcB = 3'b010;
             ControlType = ALUOADD; // soma com overflow p/ saber pos da memória
         end
@@ -696,7 +696,7 @@ module opcodelogic (
             DataSource = 1'b1;
             WR = 1'b1;
 
-            ALUSrcA = 1'b1;
+            ALUSrcA = 2'd1;
             ALUSrcB = 3'b010;
             ControlType = ALUOADD;
         end
@@ -705,7 +705,7 @@ module opcodelogic (
             IorD = 1'b1;
             SrcAddr = 3'b000; //Lê da memória na pos calculada em MEMOCALC
 
-            ALUSrcA = 1'b1;
+            ALUSrcA = 2'd1;
             ALUSrcB = 3'b010;
             ControlType = ALUOADD;
         end

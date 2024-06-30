@@ -7,40 +7,53 @@
 :vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
 :vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
 :vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
-S_000001a932532a90 .scope module, "aluSrcAMUX" "aluSrcAMUX" 2 1;
+S_0000027b099d2ba0 .scope module, "aluSrcAMUX" "aluSrcAMUX" 2 1;
  .timescale 0 0;
-    .port_info 0 /INPUT 1 "alusrca";
+    .port_info 0 /INPUT 2 "sel";
     .port_info 1 /INPUT 32 "pc";
     .port_info 2 /INPUT 32 "a";
-    .port_info 3 /OUTPUT 32 "out";
-v000001a932533160_0 .net *"_ivl_0", 31 0, L_000001a932561ef0;  1 drivers
-L_000001a9325afcb8 .functor BUFT 1, C4<0000000000000000000000000000000>, C4<0>, C4<0>, C4<0>;
-v000001a93251ecc0_0 .net *"_ivl_11", 30 0, L_000001a9325afcb8;  1 drivers
-L_000001a9325afd00 .functor BUFT 1, C4<00000000000000000000000000000001>, C4<0>, C4<0>, C4<0>;
-v000001a93251ed60_0 .net/2u *"_ivl_12", 31 0, L_000001a9325afd00;  1 drivers
-v000001a93251ee00_0 .net *"_ivl_14", 0 0, L_000001a932561f90;  1 drivers
-L_000001a9325afd48 .functor BUFT 1, C4<00000000000000000000000000000000>, C4<0>, C4<0>, C4<0>;
-v000001a93251eea0_0 .net/2u *"_ivl_16", 31 0, L_000001a9325afd48;  1 drivers
-v000001a932532c20_0 .net *"_ivl_18", 31 0, L_000001a932562710;  1 drivers
-L_000001a9325afc28 .functor BUFT 1, C4<0000000000000000000000000000000>, C4<0>, C4<0>, C4<0>;
-v000001a932532cc0_0 .net *"_ivl_3", 30 0, L_000001a9325afc28;  1 drivers
-L_000001a9325afc70 .functor BUFT 1, C4<00000000000000000000000000000000>, C4<0>, C4<0>, C4<0>;
-v000001a932532d60_0 .net/2u *"_ivl_4", 31 0, L_000001a9325afc70;  1 drivers
-v000001a932532e00_0 .net *"_ivl_6", 0 0, L_000001a932561bd0;  1 drivers
-v000001a9325618b0_0 .net *"_ivl_8", 31 0, L_000001a932562530;  1 drivers
-o000001a932567198 .functor BUFZ 32, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; HiZ drive
-v000001a932561950_0 .net "a", 31 0, o000001a932567198;  0 drivers
-o000001a9325671c8 .functor BUFZ 1, C4<z>; HiZ drive
-v000001a9325627b0_0 .net "alusrca", 0 0, o000001a9325671c8;  0 drivers
-v000001a932562210_0 .net "out", 31 0, L_000001a932562350;  1 drivers
-o000001a932567228 .functor BUFZ 32, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; HiZ drive
-v000001a932561b30_0 .net "pc", 31 0, o000001a932567228;  0 drivers
-L_000001a932561ef0 .concat [ 1 31 0 0], o000001a9325671c8, L_000001a9325afc28;
-L_000001a932561bd0 .cmp/eq 32, L_000001a932561ef0, L_000001a9325afc70;
-L_000001a932562530 .concat [ 1 31 0 0], o000001a9325671c8, L_000001a9325afcb8;
-L_000001a932561f90 .cmp/eq 32, L_000001a932562530, L_000001a9325afd00;
-L_000001a932562710 .functor MUXZ 32, L_000001a9325afd48, o000001a932567198, L_000001a932561f90, C4<>;
-L_000001a932562350 .functor MUXZ 32, L_000001a932562710, o000001a932567228, L_000001a932561bd0, C4<>;
+    .port_info 3 /INPUT 32 "b";
+    .port_info 4 /OUTPUT 32 "out";
+v0000027b099d32b0_0 .net *"_ivl_0", 31 0, L_0000027b09a03180;  1 drivers
+L_0000027b09a500e8 .functor BUFT 1, C4<000000000000000000000000000000>, C4<0>, C4<0>, C4<0>;
+v0000027b099bef30_0 .net *"_ivl_11", 29 0, L_0000027b09a500e8;  1 drivers
+L_0000027b09a50130 .functor BUFT 1, C4<00000000000000000000000000000001>, C4<0>, C4<0>, C4<0>;
+v0000027b099d2d30_0 .net/2u *"_ivl_12", 31 0, L_0000027b09a50130;  1 drivers
+v0000027b099d2dd0_0 .net *"_ivl_14", 0 0, L_0000027b09a035e0;  1 drivers
+v0000027b099d2e70_0 .net *"_ivl_16", 31 0, L_0000027b09a03680;  1 drivers
+L_0000027b09a50178 .functor BUFT 1, C4<000000000000000000000000000000>, C4<0>, C4<0>, C4<0>;
+v0000027b09a03090_0 .net *"_ivl_19", 29 0, L_0000027b09a50178;  1 drivers
+L_0000027b09a501c0 .functor BUFT 1, C4<00000000000000000000000000000010>, C4<0>, C4<0>, C4<0>;
+v0000027b09a03860_0 .net/2u *"_ivl_20", 31 0, L_0000027b09a501c0;  1 drivers
+v0000027b09a03b80_0 .net *"_ivl_22", 0 0, L_0000027b09a03ae0;  1 drivers
+L_0000027b09a50208 .functor BUFT 1, C4<00000000000000000000000000000000>, C4<0>, C4<0>, C4<0>;
+v0000027b09a03220_0 .net/2u *"_ivl_24", 31 0, L_0000027b09a50208;  1 drivers
+v0000027b09a03900_0 .net *"_ivl_26", 31 0, L_0000027b09a03fe0;  1 drivers
+v0000027b09a032c0_0 .net *"_ivl_28", 31 0, L_0000027b09a03720;  1 drivers
+L_0000027b09a50058 .functor BUFT 1, C4<000000000000000000000000000000>, C4<0>, C4<0>, C4<0>;
+v0000027b09a03360_0 .net *"_ivl_3", 29 0, L_0000027b09a50058;  1 drivers
+L_0000027b09a500a0 .functor BUFT 1, C4<00000000000000000000000000000000>, C4<0>, C4<0>, C4<0>;
+v0000027b09a037c0_0 .net/2u *"_ivl_4", 31 0, L_0000027b09a500a0;  1 drivers
+v0000027b09a04080_0 .net *"_ivl_6", 0 0, L_0000027b09a03e00;  1 drivers
+v0000027b09a03400_0 .net *"_ivl_8", 31 0, L_0000027b09a03d60;  1 drivers
+o0000027b09a072a8 .functor BUFZ 32, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; HiZ drive
+v0000027b09a034a0_0 .net "a", 31 0, o0000027b09a072a8;  0 drivers
+o0000027b09a072d8 .functor BUFZ 32, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; HiZ drive
+v0000027b09a03c20_0 .net "b", 31 0, o0000027b09a072d8;  0 drivers
+v0000027b09a03540_0 .net "out", 31 0, L_0000027b09a03f40;  1 drivers
+o0000027b09a07338 .functor BUFZ 32, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; HiZ drive
+v0000027b09a03cc0_0 .net "pc", 31 0, o0000027b09a07338;  0 drivers
+o0000027b09a07368 .functor BUFZ 2, C4<zz>; HiZ drive
+v0000027b09a03ea0_0 .net "sel", 1 0, o0000027b09a07368;  0 drivers
+L_0000027b09a03180 .concat [ 2 30 0 0], o0000027b09a07368, L_0000027b09a50058;
+L_0000027b09a03e00 .cmp/eq 32, L_0000027b09a03180, L_0000027b09a500a0;
+L_0000027b09a03d60 .concat [ 2 30 0 0], o0000027b09a07368, L_0000027b09a500e8;
+L_0000027b09a035e0 .cmp/eq 32, L_0000027b09a03d60, L_0000027b09a50130;
+L_0000027b09a03680 .concat [ 2 30 0 0], o0000027b09a07368, L_0000027b09a50178;
+L_0000027b09a03ae0 .cmp/eq 32, L_0000027b09a03680, L_0000027b09a501c0;
+L_0000027b09a03fe0 .functor MUXZ 32, L_0000027b09a50208, o0000027b09a072d8, L_0000027b09a03ae0, C4<>;
+L_0000027b09a03720 .functor MUXZ 32, L_0000027b09a03fe0, o0000027b09a072a8, L_0000027b09a035e0, C4<>;
+L_0000027b09a03f40 .functor MUXZ 32, L_0000027b09a03720, o0000027b09a07338, L_0000027b09a03e00, C4<>;
 # The file index is used to find the file name in the following table.
 :file_names 3;
     "N/A";
