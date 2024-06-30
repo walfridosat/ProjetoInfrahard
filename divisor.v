@@ -27,7 +27,7 @@ module divisor(
             // for (i = 31; i >= 0; i = i - 1) 
             if(i >= 0)
             begin
-                div_hi = div_hi << 1;
+                div_lo = div_lo << 1;
                 cima = cima << 1;
                 if (dividend[i] == 1) 
                 begin
@@ -36,22 +36,22 @@ module divisor(
 
                 if (cima >= baixo) 
                 begin
-                    div_hi = div_hi + 1;
+                    div_lo = div_lo + 1;
                     cima = cima - baixo;
                 end
             end
 
             if(i == 0) 
             begin
-                div_lo = cima;
+                div_hi = cima;
             end
 
             i = i - 1;
                 
         end else 
         begin
-            div_hi = 32'd0;
             div_lo = 32'd0;
+            div_hi = 32'd0;
             i = 31;
         end
     end
