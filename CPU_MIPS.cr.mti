@@ -1,4 +1,11 @@
-C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/sizehandler.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/sizehandler.v
+C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/multiplicador.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/multiplicador.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module multiplicador
+
+Top level modules:
+	multiplicador
+
+} {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/sizehandler.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/sizehandler.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module sizehandlerMUX
 
@@ -209,6 +216,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	lo
 
+} {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_alusrca.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_alusrca.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module aluSrcAMUX
+
+Top level modules:
+	aluSrcAMUX
+
 } {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/Registrador.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/Componentes/Registrador.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
@@ -223,13 +237,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 
 Top level modules:
 	SrcAddrMUX
-
-} {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_alusrca.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_alusrca.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module aluSrcAMUX
-
-Top level modules:
-	aluSrcAMUX
 
 } {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_alusrcb.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/mux_alusrcb.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -259,14 +266,7 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	regDestMUX
 
-} {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/divisor.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/divisor.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module divisor
-
-Top level modules:
-	divisor
-
-} {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/CPU.v {1 {vlog -work work -stats=none C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/CPU.v
+} {} {}} C:/Users/samue/Desktop/teste_infrahard/ProjetoInfrahard/CPU.v {1 {vlog -work work -stats=none {C:\Users\samue\Desktop\teste_infrahard\ProjetoInfrahard\CPU.v}
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module CPU
 

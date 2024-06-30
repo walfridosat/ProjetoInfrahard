@@ -24,7 +24,7 @@ always @(posedge clk) begin
         end
         
     // for (i = 0; i < 32; i = i + 1) 
-        if(i < 32)
+        if(i <= 32)
         begin
             case ({Q[0], Q_1})
                 2'b01: begin A = A + multiplicand; end
@@ -35,11 +35,8 @@ always @(posedge clk) begin
             {A, Q, Q_1} = {A[31], A, Q};
         end
 
-        if(i >= 31) 
-        begin
-            mult_hi = A;
-            mult_lo = Q;
-        end
+        if(i >= 31) mult_lo = Q;
+        if(i == 31) mult_hi = A;
 
         i = i + 1;
     end

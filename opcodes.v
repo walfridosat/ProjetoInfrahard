@@ -313,7 +313,12 @@ module opcodelogic (
                 if(tempo == 0) estado = READINST1;
             end
             // TRATAMENTOS DE ERROS
-            else if(estado == EXEPTION)  estado = READINST1;
+            else if(estado == EXEPTION) // estado = READINST1;
+            begin
+                if(tempo == 0) tempo = 2;
+                tempo = tempo - 1;
+                if(tempo == 0) estado = READINST1;
+            end
             else if(estado == INVALIDOP) // estado = EXEPTION;
             begin
                 if(tempo == 0) tempo = 6;
@@ -370,7 +375,7 @@ module opcodelogic (
         PCWriteCond = 1'b0;
         PCWrite = 1'b0;
         IorD = 1'b0;
-        SrcAddr = 3'b000;
+        if(tempo == 0) SrcAddr = 3'b000;
         WR= 1'b0;
         SaveTemp = 1'b0;
         MemToReg = 3'b000;
@@ -775,43 +780,53 @@ module opcodelogic (
         // TRATAMENTO DE ERROS
         else if(estado == EXEPTION)
         begin
-            MemToReg = 2'b11;
+            MemToReg = 3'b000;
             RegDest = 3'b011;
             SizeHandler = 3'b110; //Exeption !!!
             PCSource = 3'b011;
+            PCWrite = 1'b1;
         end
         else if(estado == INVALIDOP)
         begin
-            SrcAddr = 3'b011;
+            SrcAddr = 3'b001;
             // !!!
-            MemToReg = 2'b01;
+            MemToReg = 3'b000;
             RegDest = 3'b011;
             SizeHandler = 3'b110; //Exeption !!!
             PCSource = 3'b011;
-            PCWrite = 1'b1;
+            // PCWrite = 1'b1;
+
             EPCWrite = 1'b1;
+            ALUSrcA = 2'd0;
+            ALUSrcB = 3'b001;
+            ControlType = ALUSUB;
         end
         else if(estado == OVERFLOW)
         begin
-            SrcAddr = 3'b001;
-            // !!!
-            MemToReg = 2'b01;
+            SrcAddr = 3'b010;
+            MemToReg = 3'b000;
             RegDest = 3'b011;
             SizeHandler = 3'b110; //Exeption !!!
             PCSource = 3'b011;
-            PCWrite = 1'b1;
+            
             EPCWrite = 1'b1;
+            ALUSrcA = 2'd0;
+            ALUSrcB = 3'b001;
+            ControlType = ALUSUB;
         end
         else if(estado == DIVBY0)
         begin
-            SrcAddr = 3'b010;
-            // !!!
-            MemToReg = 2'b01;
+            SrcAddr = 3'b011;
+            MemToReg = 3'b000;
             RegDest = 3'b011;
             SizeHandler = 3'b110; //Exeption !!!
             PCSource = 3'b011;
-            PCWrite = 1'b1;
+            // PCWrite = 1'b1;
+            
             EPCWrite = 1'b1;
+            ALUSrcA = 2'd0;
+            ALUSrcB = 3'b001;
+            ControlType = ALUSUB;
         end
 
     end

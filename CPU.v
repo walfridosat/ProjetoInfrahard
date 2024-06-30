@@ -122,7 +122,7 @@ wire [2:0] SrcAddr;
 wire [2:0] SzHndlrSel;
 wire [1:0] RegDest;
 wire [2:0] MemToReg;
-wire [0:0] ALUSrcA;
+wire [1:0] ALUSrcA;
 wire [2:0] ALUSrcB;
 wire [1:0] SLLSourceA;
 wire [1:0] SLLSourceB;
@@ -201,7 +201,7 @@ Registrador MemoData(.Clk(clock), .Reset(reset), .Load(ALWAYS1),   .Entrada(Size
 
 
 // Mux
-aluSrcAMUX  AtoAlu(.sel(ALUSrcA), .out(AluA), .a(RegA_out), .pc(PCout));
+aluSrcAMUX  AtoAlu(.sel(ALUSrcA), .out(AluA), .a(RegA_out), .b(RegB_out), .pc(PCout));
 aluSrcBMUX  BtoAlu(.sel(ALUSrcB), .out(AluB), .b(RegB_out), .sign_extend(ExtendedIntruct), .sign_extend_sl2(Shifted2Intruct), .memorydataregister(MemoDataReg_out));
 MUX32       DMtoHi(.sel(divOp), .A(HiMul), .B(HiDiv), .out(Hi2Reg));
 MUX32       DMtoLo(.sel(divOp), .A(LoMul), .B(LoDiv), .out(Lo2Reg));
